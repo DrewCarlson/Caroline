@@ -20,6 +20,8 @@ public data class UserSession(
 @Serializable
 public data class ProjectUserSession(
     val payload: Payload,
+    val apiKey: String,
+    val projectId: String,
     override val permissions: Set<Permission>
 ) : RestrictedSession
 

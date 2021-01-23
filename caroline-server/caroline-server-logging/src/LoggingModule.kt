@@ -21,7 +21,7 @@ public fun Application.loggingModule() {
     routing {
         route(apiPath) {
             authenticate(PROVIDER_API_JWT, PROVIDER_ADMIN_SESSION) {
-                addLoggingRoutes(mongodb)
+                addLoggingRoutes(kmongo, mongodb)
             }
         }
     }

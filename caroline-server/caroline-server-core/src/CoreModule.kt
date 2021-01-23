@@ -66,8 +66,10 @@ public fun Application.coreModule() {
                 // TODO: Just check for api key existence now.
                 //   API keys, permissions, and invalidation should
                 //   be refreshed elsewhere.
-                apiKeyDb.findOneById(audience) ?: return@validate null
+                val creds = apiKeyDb.findOneById(audience) ?: return@validate null
                 ProjectUserSession(
+                    projectId = creds.projectId,
+                    apiKey = audience,
                     permissions = credential.payload
                         .getClaim("permissions")
                         .asList(String::class.java)
