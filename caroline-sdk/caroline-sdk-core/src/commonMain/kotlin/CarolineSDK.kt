@@ -48,13 +48,7 @@ public class CarolineSDKBuilder {
             httpClient = HttpClient()
         }
 
-        return object : CarolineSDK {
-            override val serverUrl: String = this@CarolineSDKBuilder.serverUrl
-            override val projectId: String = this@CarolineSDKBuilder.projectId
-            override val apiKey: String = this@CarolineSDKBuilder.apiKey
-            override val httpClient: HttpClient = this@CarolineSDKBuilder.httpClient
-            override val scope: CoroutineScope = CoroutineScope(dispatcher + SupervisorJob())
-        }
+        return CarolineSDKImpl(serverUrl, projectId, apiKey, httpClient, dispatcher)
     }
 }
 
