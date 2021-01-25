@@ -68,23 +68,23 @@ internal class CarolineLoggerImpl(
     }
 
     override fun logInfo(message: String, attributes: Map<String, String>) {
-        log(CarolineLogLevel.DEBUG, message, attributes)
+        log(CarolineLogLevel.INFO, message, attributes)
     }
 
     override fun logWarn(message: String, attributes: Map<String, String>) {
-        log(CarolineLogLevel.DEBUG, message, attributes)
+        log(CarolineLogLevel.WARN, message, attributes)
     }
 
     override fun logError(message: String, attributes: Map<String, String>) {
-        log(CarolineLogLevel.DEBUG, message, attributes)
+        log(CarolineLogLevel.ERROR, message, attributes)
     }
 
     override fun logFatal(message: String, attributes: Map<String, String>) {
-        log(CarolineLogLevel.DEBUG, message, attributes)
+        log(CarolineLogLevel.FATAL, message, attributes)
     }
 
     override fun logTrace(message: String, attributes: Map<String, String>) {
-        log(CarolineLogLevel.DEBUG, message, attributes)
+        log(CarolineLogLevel.TRACE, message, attributes)
     }
 
     override fun flush(deliver: Boolean) {
