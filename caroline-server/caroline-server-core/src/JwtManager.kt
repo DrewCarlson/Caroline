@@ -27,6 +27,7 @@ public object JwtManager {
     }
 
     public fun verifier(): JWTVerifier {
+        check(this::issuer.isInitialized) { "JwtManager must be configured." }
         return JWT.require(algorithm)
             .withIssuer(issuer)
             .build()
@@ -37,6 +38,7 @@ public object JwtManager {
         permissions: Set<Permission>,
         expiresInMs: Long = (7 * 24 * 60 * 60)
     ): String {
+        check(this::issuer.isInitialized) { "JwtManager must be configured." }
         val permissionArray = permissions.map(Permission::name).toTypedArray()
         return JWT.create()
             .withIssuer(issuer)
