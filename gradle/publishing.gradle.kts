@@ -10,6 +10,13 @@ val mavenUrl: String by extra
 val mavenSnapshotUrl: String by extra
 
 configure<PublishingExtension> {
+    components.findByName("java")?.let { javaComponent ->
+        publications {
+            register<MavenPublication>("mavenJava") {
+                from(javaComponent)
+            }
+        }
+    }
     repositories {
         maven {
             url = if (version.toString().endsWith("SNAPSHOT")) {
