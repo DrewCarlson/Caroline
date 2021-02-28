@@ -54,6 +54,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                     return@post call.respond(Conflict)
                 }
 
+                val rootApiKey = generateProjectApiKey()
                 val project = Project(
                     id = ObjectId.get().toString(),
                     name = queryProjectName,
@@ -63,12 +64,10 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                 val projectDetails = ProjectDetails(
                     id = project.id,
                     ownerId = session.userId,
-                    apiKeys = listOf(
-                        Base64.getEncoder().encodeToString(Random.nextBytes(API_KEY_BYTES))
-                    )
+                    apiKeys = listOf(rootApiKey)
                 )
                 val apiKeyCredentials = ApiKeyCredentials(
-                    apiKey = projectDetails.apiKeys.first(),
+                    apiKey = rootApiKey,
                     projectId = project.id,
                     permissions = setOf(Permission.Global)
                 )
@@ -99,4 +98,8 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
             }
         }
     }
+}
+
+public fun generateProjectApiKey(): String {
+    return Base64.getEncoder().encodeToString(Random.nextBytes(API_KEY_BYTES))
 }
