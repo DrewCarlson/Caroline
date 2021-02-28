@@ -54,8 +54,9 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                 val slice = logRecordDb
                     .find(filter)
                     .limit(limit.coerceIn(1, defaultRecordLimit))
+                    .toList()
 
-                call.respond(slice.toList())
+                call.respond(slice)
             }
 
             post {
