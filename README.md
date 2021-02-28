@@ -4,8 +4,8 @@
 
 [![](https://img.shields.io/badge/-sponsor-ff69b4)](https://github.com/sponsors/DrewCarlson)
 [![Bintray](https://img.shields.io/bintray/v/drewcarlson/caroline/Caroline?color=blue)](https://bintray.com/drewcarlson/caroline/Caroline)
-[![](https://img.shields.io/maven-metadata/v?label=artifactory&logoColor=lightgrey&metadataUrl=https%3A%2F%2Foss.jfrog.org%2Fartifactory%2Foss-snapshot-local%2Fdrewcarlson%2Fcaroline%2Fcaroline-sdk-core%2Fmaven-metadata.xml&color=lightgrey)](#Download)
-[![](https://github.com/DrewCarlson/Caroline/workflows/server/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Aserver)
+[![](https://github.com/DrewCarlson/Caroline/workflows/Server/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Aserver)
+[![](https://github.com/DrewCarlson/Caroline/workflows/SDK/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Asdk)
 [![](https://img.shields.io/docker/cloud/build/drewcarlson/caroline)](https://hub.docker.com/r/drewcarlson/caroline)
 
 Caroline provides privacy respecting backend services with multiplatform Kotlin SDKs.
