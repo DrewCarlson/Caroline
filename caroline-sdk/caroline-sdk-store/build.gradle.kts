@@ -7,7 +7,10 @@ apply(from = rootProject.file("gradle/publishing.gradle.kts"))
 
 kotlin {
     jvm()
-    js()
+    js(BOTH) {
+        nodejs()
+        browser()
+    }
 
     sourceSets {
         all {
