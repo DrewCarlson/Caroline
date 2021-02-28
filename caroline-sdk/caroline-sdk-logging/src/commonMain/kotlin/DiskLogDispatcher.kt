@@ -1,4 +1,4 @@
-package drewcarlson.caroline.logging
+package tools.caroline.logging
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Default

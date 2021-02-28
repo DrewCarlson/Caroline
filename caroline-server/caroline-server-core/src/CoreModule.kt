@@ -1,14 +1,14 @@
 @file:JvmName("CoreModule")
 
-package drewcarlson.caroline
+package tools.caroline
 
 import com.mongodb.ConnectionString
-import drewcalson.caroline.admin.api.ApiKeyCredentials
-import drewcarlson.caroline.core.models.Permission
-import drewcarlson.caroline.data.ProjectUserSession
-import drewcarlson.caroline.data.RestrictedSession
-import drewcarlson.caroline.data.UserSession
-import drewcarlson.caroline.internal.carolineProperty
+import tools.caroline.admin.api.ApiKeyCredentials
+import tools.caroline.core.models.Permission
+import tools.caroline.data.ProjectUserSession
+import tools.caroline.data.RestrictedSession
+import tools.caroline.data.UserSession
+import tools.caroline.internal.carolineProperty
 import drewcarlson.ktor.permissions.PermissionAuthorization
 import io.ktor.application.Application
 import io.ktor.application.install

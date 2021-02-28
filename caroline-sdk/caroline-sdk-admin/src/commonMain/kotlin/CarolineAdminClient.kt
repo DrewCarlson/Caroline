@@ -1,4 +1,4 @@
-package drewcalson.caroline.admin
+package tools.caroline.admin
 
 public interface CarolineAdminClient {
 

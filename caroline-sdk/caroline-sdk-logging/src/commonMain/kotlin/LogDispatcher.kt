@@ -1,4 +1,4 @@
-package drewcarlson.caroline.logging
+package tools.caroline.logging
 
 /**
  * [LogDispatcher]s deliver a list of [LogRecord]s to a

@@ -1,4 +1,4 @@
-package drewcarlson.caroline.store
+package tools.caroline.store
 
 public class EncryptedCarolineStore : CarolineStore {
 

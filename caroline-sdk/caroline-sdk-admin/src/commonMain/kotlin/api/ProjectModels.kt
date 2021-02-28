@@ -1,6 +1,6 @@
-package drewcalson.caroline.admin.api
+package tools.caroline.admin.api
 
-import drewcarlson.caroline.core.models.Permission
+import tools.caroline.core.models.Permission
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

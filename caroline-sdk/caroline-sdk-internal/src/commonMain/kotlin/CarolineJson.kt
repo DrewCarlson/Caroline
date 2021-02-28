@@ -1,4 +1,4 @@
-package drewcarlson.caroline.internal
+package tools.caroline.internal
 
 import kotlinx.serialization.json.Json
 import kotlin.native.concurrent.SharedImmutable

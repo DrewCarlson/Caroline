@@ -1,4 +1,4 @@
-package drewcarlson.caroline.config
+package tools.caroline.config
 
 public interface CarolineConfig {
 

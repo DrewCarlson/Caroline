@@ -1,4 +1,4 @@
-package drewcarlson.caroline.logging
+package tools.caroline.logging
 
 /**
  * Logging severity identifier used for organization and configuration.

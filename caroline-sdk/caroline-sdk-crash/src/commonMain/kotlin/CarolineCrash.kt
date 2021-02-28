@@ -1,4 +1,4 @@
-package drewcarlson.caroline.crash
+package tools.caroline.crash
 
 public interface CarolineCrash {
 

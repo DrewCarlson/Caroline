@@ -1,4 +1,4 @@
-package drewcarlson.caroline.logging
+package tools.caroline.logging
 
 /**
  * [LogSchedule] defines the normally desired signal that causes

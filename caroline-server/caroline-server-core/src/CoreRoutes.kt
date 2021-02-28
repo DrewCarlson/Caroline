@@ -1,6 +1,6 @@
-package drewcarlson.caroline
+package tools.caroline
 
-import drewcalson.caroline.admin.api.ApiKeyCredentials
+import tools.caroline.admin.api.ApiKeyCredentials
 import io.ktor.application.call
 import io.ktor.auth.authenticate
 import io.ktor.http.HttpStatusCode.Companion.BadRequest

@@ -1,4 +1,4 @@
-package drewcarlson.caroline.logging
+package tools.caroline.logging
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

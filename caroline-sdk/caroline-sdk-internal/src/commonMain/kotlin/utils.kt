@@ -1,4 +1,4 @@
-package drewcarlson.caroline.internal
+package tools.caroline.internal
 
 import kotlinx.datetime.Clock
 

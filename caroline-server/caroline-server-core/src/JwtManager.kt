@@ -1,9 +1,9 @@
-package drewcarlson.caroline
+package tools.caroline
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
-import drewcarlson.caroline.core.models.Permission
+import tools.caroline.core.models.Permission
 import java.time.Instant
 import java.util.Date
 import java.util.concurrent.TimeUnit

@@ -124,7 +124,7 @@ services:
 
 
 [![Bintray](https://img.shields.io/bintray/v/drewcarlson/caroline/Caroline?color=blue)](https://bintray.com/drewcarlson/caroline/Caroline)
-[![](https://img.shields.io/maven-metadata/v?label=artifactory&logoColor=lightgrey&metadataUrl=https%3A%2F%2Foss.jfrog.org%2Fartifactory%2Foss-snapshot-local%2Fdrewcarlson%2Fcaroline%2Fcaroline-sdk-core%2Fmaven-metadata.xml&color=lightgrey)](#Download)
+[![](https://img.shields.io/maven-metadata/v?label=artifactory&logoColor=lightgrey&metadataUrl=https%3A%2F%2Foss.jfrog.org%2Fartifactory%2Foss-snapshot-local%2Ftools%2Fcaroline%2Fcaroline-sdk-core%2Fmaven-metadata.xml&color=lightgrey)](#Download)
 
 SDK artifacts are available from [Bintray](https://bintray.com/drewcarlson/caroline/Caroline).
 ```kotlin
@@ -136,22 +136,22 @@ repositories {
 
 dependencies {
     // SDK Modules
-    implementation("drewcarlson.caroline:caroline-sdk-admin:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-analytics:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-auth:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-config:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-core:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-crash:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-functions:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-logging:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-store:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-sdk-store-encrypted:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-admin:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-analytics:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-auth:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-config:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-core:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-crash:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-functions:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-logging:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-store:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-sdk-store-encrypted:$CAROLINE_VERSION")
 
     // Server Modules
-    implementation("drewcarlson.caroline:caroline-server-core:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-server-projects:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-server-users:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-server-crash:$CAROLINE_VERSION")
-    implementation("drewcarlson.caroline:caroline-server-logging:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-server-core:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-server-projects:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-server-users:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-server-crash:$CAROLINE_VERSION")
+    implementation("tools.caroline:caroline-server-logging:$CAROLINE_VERSION")
 }
 ```

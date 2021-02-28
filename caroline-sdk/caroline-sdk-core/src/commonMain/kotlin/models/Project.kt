@@ -1,4 +1,4 @@
-package drewcarlson.caroline.core.models
+package tools.caroline.core.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

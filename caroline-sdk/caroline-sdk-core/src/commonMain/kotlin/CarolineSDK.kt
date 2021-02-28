@@ -1,4 +1,4 @@
-package drewcarlson.caroline.core
+package tools.caroline.core
 
 import io.ktor.client.HttpClient
 import kotlinx.coroutines.CoroutineDispatcher

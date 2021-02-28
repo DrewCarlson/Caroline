@@ -1,7 +1,7 @@
-package drewcarlson.caroline.data
+package tools.caroline.data
 
 import com.auth0.jwt.interfaces.Payload
-import drewcarlson.caroline.core.models.Permission
+import tools.caroline.core.models.Permission
 import io.ktor.auth.Principal
 import kotlinx.serialization.Serializable
 import java.time.Instant

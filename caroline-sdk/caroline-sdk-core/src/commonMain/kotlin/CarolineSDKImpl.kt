@@ -1,6 +1,6 @@
-package drewcarlson.caroline.core
+package tools.caroline.core
 
-import drewcarlson.caroline.internal.carolineJson
+import tools.caroline.internal.carolineJson
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.Json
 import io.ktor.client.features.json.serializer.KotlinxSerializer

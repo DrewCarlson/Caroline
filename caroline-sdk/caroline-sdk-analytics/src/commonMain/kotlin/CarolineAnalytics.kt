@@ -1,4 +1,4 @@
-package drewcarlson.caroline.analytics
+package tools.caroline.analytics
 
 public interface CarolineAnalytics {
 

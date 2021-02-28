@@ -1,6 +1,6 @@
-package drewcarlson.caroline.logging
+package tools.caroline.logging
 
-import drewcarlson.caroline.core.CarolineSDK
+import tools.caroline.core.CarolineSDK
 import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.contentType

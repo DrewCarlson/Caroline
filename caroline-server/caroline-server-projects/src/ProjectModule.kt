@@ -1,8 +1,8 @@
 @file:JvmName("ProjectModule")
-package drewcarlson.caroline
+package tools.caroline
 
 import com.mongodb.ConnectionString
-import drewcarlson.caroline.internal.carolineProperty
+import tools.caroline.internal.carolineProperty
 import io.ktor.application.Application
 import io.ktor.auth.authenticate
 import io.ktor.routing.route

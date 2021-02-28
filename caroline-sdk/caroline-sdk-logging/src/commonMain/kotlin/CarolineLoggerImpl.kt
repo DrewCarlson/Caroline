@@ -1,6 +1,6 @@
-package drewcarlson.caroline.logging
+package tools.caroline.logging
 
-import drewcarlson.caroline.internal.currentSystemMs
+import tools.caroline.internal.currentSystemMs
 
 internal class CarolineLoggerImpl(
     private val outputLogDispatcher: LogDispatcher,

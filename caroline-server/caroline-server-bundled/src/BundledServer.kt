@@ -1,6 +1,6 @@
 @file:JvmName("BundledServer")
 
-package drewcarlson.caroline
+package tools.caroline
 
 import io.ktor.application.Application
 import io.ktor.application.install

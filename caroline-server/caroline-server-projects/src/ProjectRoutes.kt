@@ -1,11 +1,11 @@
-package drewcarlson.caroline
+package tools.caroline
 
-import drewcalson.caroline.admin.api.ApiKeyCredentials
-import drewcalson.caroline.admin.api.CreateProjectBody
-import drewcalson.caroline.admin.api.ProjectDetails
-import drewcarlson.caroline.core.models.Permission
-import drewcarlson.caroline.core.models.Project
-import drewcarlson.caroline.data.UserSession
+import tools.caroline.admin.api.ApiKeyCredentials
+import tools.caroline.admin.api.CreateProjectBody
+import tools.caroline.admin.api.ProjectDetails
+import tools.caroline.core.models.Permission
+import tools.caroline.core.models.Project
+import tools.caroline.data.UserSession
 import drewcarlson.ktor.permissions.withPermission
 import io.ktor.application.call
 import io.ktor.auth.principal
