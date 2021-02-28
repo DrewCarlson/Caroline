@@ -1,6 +1,9 @@
 package drewcarlson.caroline.logging
 
-
+/**
+ * Logging severity identifier used for organization and configuration.
+ * Includes: [DEBUG], [INFO], [WARN], [ERROR], [FATAL], [TRACE]
+ */
 public object CarolineLogLevel {
     public const val DEBUG: Int = 0
     public const val INFO: Int = 1

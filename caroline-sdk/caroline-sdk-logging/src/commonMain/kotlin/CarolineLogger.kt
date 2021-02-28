@@ -16,7 +16,8 @@ public interface CarolineLogger {
 
     public companion object {
         /**
-         * Create a new [CarolineLogger] targeting [sdk].
+         * Create a new [CarolineLogger] targeting [sdk] with the
+         * given [logSchedule].
          */
         public fun create(
             sdk: CarolineSDK,

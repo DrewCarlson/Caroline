@@ -9,6 +9,10 @@ private const val DEFAULT_CACHE_SIZE = 5_242_880L // 5MB
 public interface CachingLogDispatcher : LogDispatcher {
 
     public companion object {
+        /**
+         * Create a new [CachingLogDispatcher] that writes data to
+         * disk at [filePath] until the [cacheSize] in bytes is reached.
+         */
         public fun create(
             filePath: String,
             cacheSize: Long = DEFAULT_CACHE_SIZE
@@ -24,5 +28,9 @@ public interface CachingLogDispatcher : LogDispatcher {
      */
     public val cacheSize: Long
 
+    /**
+     * Flush stored logs from the cache, optionally directing
+     * them into [dispatcher].
+     */
     public fun flush(dispatcher: LogDispatcher?)
 }
