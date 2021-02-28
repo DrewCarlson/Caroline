@@ -37,6 +37,23 @@ The SDK provides the following features depending on your server deployment.
 **Functions** - Manipulate shared data based on cron or webhook triggers
 
 
+### SDK
+
+```kotlin
+// Configure SDK
+val sdk = CarolineSDK {
+    serverUrl = "https://caroline-server"
+    projectId = "..."
+    apiKey = "..."
+}
+
+
+// Logging
+val logger = CarolineLogger.create(sdk, LogSchedule.WhenBufferFull)
+
+logger.logInfo("An event to be logged.", mapOf("uid" to "..."))
+```
+
 ## Server
 
 `caroline-server` supports various deployment modes depending on your backend requirements.
