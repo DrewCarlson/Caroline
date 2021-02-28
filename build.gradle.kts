@@ -9,8 +9,8 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
-        maven(url = "https://kotlin.bintray.com/ktor")
-        maven(url = "https://kotlin.bintray.com/kotlinx/")
+        maven(url = "https://dl.bintray.com/kotlin/ktor")
+        maven(url = "https://dl.bintray.com/kotlin/kotlinx/")
     }
 }
 
