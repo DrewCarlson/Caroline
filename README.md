@@ -3,7 +3,7 @@
 **_[WIP] This project is unfinished and not ready for use, most features described are not complete._**
 
 [![](https://img.shields.io/badge/-sponsor-ff69b4)](https://github.com/sponsors/DrewCarlson)
-[![Maven Central](https://img.shields.io/maven-central/v/tools.caroline/qbittorrent-client?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
+[![Maven Central](https://img.shields.io/maven-central/v/tools.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
 [![](https://github.com/DrewCarlson/Caroline/workflows/Server/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Aserver)
 [![](https://github.com/DrewCarlson/Caroline/workflows/SDK/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Asdk)
 [![](https://img.shields.io/docker/cloud/build/drewcarlson/caroline)](https://hub.docker.com/r/drewcarlson/caroline)
@@ -123,7 +123,7 @@ services:
 ## Download
 
 
-[![Maven Central](https://img.shields.io/maven-central/v/org.drewcarlson/qbittorrent-client?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
+[![Maven Central](https://img.shields.io/maven-central/v/org.drewcarlson/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
 ![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/tools.caroline/caroline-sdk-core?server=https%3A%2F%2Fs01.oss.sonatype.org)
 
 ```kotlin
