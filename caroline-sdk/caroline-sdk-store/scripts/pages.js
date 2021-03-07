@@ -1,0 +1,1 @@
+var pages = [{"name":"interface CarolineStore","description":"tools.caroline.store.CarolineStore","location":"caroline-sdk-store/tools.caroline.store/-caroline-store/index.html","searchKeys":["CarolineStore","interface CarolineStore"]}]

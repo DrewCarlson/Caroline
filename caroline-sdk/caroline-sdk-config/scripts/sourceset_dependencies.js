@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":caroline-sdk:caroline-sdk-config:dokkaHtml/commonMain": [], ":caroline-sdk:caroline-sdk-config:dokkaHtml/jsMain": [":caroline-sdk:caroline-sdk-config:dokkaHtml/commonMain"], ":caroline-sdk:caroline-sdk-config:dokkaHtml/jvmMain": [":caroline-sdk:caroline-sdk-config:dokkaHtml/commonMain"]}'

@@ -1,0 +1,6 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+tools.caroline.admin
+tools.caroline.admin.api
+

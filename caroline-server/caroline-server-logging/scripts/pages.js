@@ -1,0 +1,1 @@
+var pages = [{"name":"fun Application.loggingModule()","description":"tools.caroline.loggingModule","location":"caroline-server-logging/tools.caroline/logging-module.html","searchKeys":["loggingModule","fun Application.loggingModule()"]}]
