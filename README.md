@@ -3,7 +3,7 @@
 **_[WIP] This project is unfinished and not ready for use, most features described are not complete._**
 
 [![](https://img.shields.io/badge/-sponsor-ff69b4)](https://github.com/sponsors/DrewCarlson)
-[![Bintray](https://img.shields.io/bintray/v/drewcarlson/caroline/Caroline?color=blue)](https://bintray.com/drewcarlson/caroline/Caroline)
+[![Maven Central](https://img.shields.io/maven-central/v/tools.caroline/qbittorrent-client?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
 [![](https://github.com/DrewCarlson/Caroline/workflows/Server/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Aserver)
 [![](https://github.com/DrewCarlson/Caroline/workflows/SDK/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Asdk)
 [![](https://img.shields.io/docker/cloud/build/drewcarlson/caroline)](https://hub.docker.com/r/drewcarlson/caroline)
@@ -123,15 +123,14 @@ services:
 ## Download
 
 
-[![Bintray](https://img.shields.io/bintray/v/drewcarlson/caroline/Caroline?color=blue)](https://bintray.com/drewcarlson/caroline/Caroline)
-[![](https://img.shields.io/maven-metadata/v?label=artifactory&logoColor=lightgrey&metadataUrl=https%3A%2F%2Foss.jfrog.org%2Fartifactory%2Foss-snapshot-local%2Ftools%2Fcaroline%2Fcaroline-sdk-core%2Fmaven-metadata.xml&color=lightgrey)](#Download)
+[![Maven Central](https://img.shields.io/maven-central/v/org.drewcarlson/qbittorrent-client?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
+![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/tools.caroline/caroline-sdk-core?server=https%3A%2F%2Fs01.oss.sonatype.org)
 
-SDK artifacts are available from [Bintray](https://bintray.com/drewcarlson/caroline/Caroline).
 ```kotlin
 repositories {
-    jcenter()
+    mavenCentral()
     // Or snapshots
-    maven { setUrl("http://oss.jfrog.org/artifactory/oss-snapshot-local") }
+    maven(url = "https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
