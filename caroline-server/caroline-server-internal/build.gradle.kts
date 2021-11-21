@@ -12,7 +12,7 @@ dependencies {
     api(project(":caroline-sdk:caroline-sdk-core"))
     api(project(":caroline-sdk:caroline-sdk-admin"))
 
-    implementation("drewcarlson.ktor:ktor-permissions:$KTOR_PERM_VERSION")
+    implementation("org.drewcarlson:ktor-permissions:$KTOR_PERM_VERSION")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VERSION")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$SERIALIZATION_VERSION")

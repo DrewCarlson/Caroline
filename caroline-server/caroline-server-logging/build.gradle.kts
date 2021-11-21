@@ -16,7 +16,7 @@ dependencies {
     api(project(":caroline-sdk:caroline-sdk-logging"))
     api(project(":caroline-server:caroline-server-core"))
 
-    implementation("drewcarlson.ktor:ktor-permissions:$KTOR_PERM_VERSION")
+    implementation("org.drewcarlson:ktor-permissions:$KTOR_PERM_VERSION")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VERSION")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$SERIALIZATION_VERSION")

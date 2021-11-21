@@ -22,7 +22,7 @@ dependencies {
     implementation(project(":caroline-sdk:caroline-sdk-core"))
     implementation(project(":caroline-sdk:caroline-sdk-admin"))
 
-    implementation("drewcarlson.ktor:ktor-permissions:$KTOR_PERM_VERSION")
+    implementation("org.drewcarlson:ktor-permissions:$KTOR_PERM_VERSION")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KOTLIN_VERSION")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VERSION")
@@ -49,6 +49,7 @@ dependencies {
 
     implementation("org.litote.kmongo:kmongo-coroutine-serialization:$KMONGO_VERSION")
 
+    testImplementation(kotlin("test-junit"))
     testImplementation("io.ktor:ktor-server-tests:$KTOR_VERSION")
 }
 
