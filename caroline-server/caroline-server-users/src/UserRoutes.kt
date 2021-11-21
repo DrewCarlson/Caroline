@@ -67,7 +67,7 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
                 return@post call.respond(CreateUserResponse.Failed(usernameError, passwordError))
             }
 
-            val username = body.username.toLowerCase(Locale.ROOT)
+            val username = body.username.lowercase()
             if (users.findOne(User::username eq username) != null) {
                 return@post call.respond(
                     CreateUserResponse.Failed(UsernameError.ALREADY_EXISTS, null)
@@ -119,7 +119,7 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
                         return@post call.respond(CreateSessionResponse.Failed(setOf(SessionError.USERNAME_INVALID)))
                     }
 
-                    val username = body.username.toLowerCase(Locale.ROOT)
+                    val username = body.username.lowercase()
 
                     if (body.password.run { isBlank() || length !in PASSWORD_LENGTH_MIN..PASSWORD_LENGTH_MAX }) {
                         val errors = setOf(SessionError.PASSWORD_INVALID)

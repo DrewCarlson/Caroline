@@ -2,10 +2,12 @@ package tools.caroline
 
 import io.ktor.config.MapApplicationConfig
 import io.ktor.server.testing.withTestApplication
+import kotlin.test.Ignore
 import kotlin.test.Test
 
 class BundledServerTest {
     @Test
+    @Ignore
     fun testRoot() {
         withTestApplication({
             (environment.config as MapApplicationConfig).apply {

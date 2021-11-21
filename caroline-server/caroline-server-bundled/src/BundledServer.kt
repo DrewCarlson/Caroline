@@ -27,7 +27,7 @@ import org.slf4j.event.Level
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
-@kotlin.jvm.JvmOverloads
+@JvmOverloads
 fun Application.module(testing: Boolean = false) {
     install(Compression) {
         gzip {
@@ -49,13 +49,12 @@ fun Application.module(testing: Boolean = false) {
     install(ConditionalHeaders)
 
     install(CORS) {
-        method(HttpMethod.Options)
-        method(HttpMethod.Put)
-        method(HttpMethod.Delete)
-        method(HttpMethod.Patch)
-        header(HttpHeaders.Authorization)
+        methods.addAll(HttpMethod.DefaultMethods)
         allowCredentials = true
-        anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
+        allowNonSimpleContentTypes = true
+        allowHeaders { true }
+        header(HttpHeaders.Authorization)
+        anyHost()
     }
 
     install(ForwardedHeaderSupport) // WARNING: for security, do not include this if not behind a reverse proxy

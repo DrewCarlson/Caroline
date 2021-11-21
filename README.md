@@ -6,7 +6,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/tools.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
 [![](https://github.com/DrewCarlson/Caroline/workflows/Server/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Aserver)
 [![](https://github.com/DrewCarlson/Caroline/workflows/SDK/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Asdk)
-[![](https://img.shields.io/docker/cloud/build/drewcarlson/caroline)](https://hub.docker.com/r/drewcarlson/caroline)
+[![](https://img.shields.io/github/workflow/status/drewcarlson/caroline/Publish%20Docker%20image?label=Docker)](https://github.com/DrewCarlson/Caroline/pkgs/container/caroline)
 
 Caroline provides privacy respecting backend services with multiplatform Kotlin SDKs.
 

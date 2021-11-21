@@ -4,10 +4,9 @@ RUN apk add --update \
     bash \
   && rm -rf /var/cache/apk/*
 
-WORKDIR /server
-COPY . /server
+WORKDIR /app
+COPY . /app
 
-RUN ./gradlew tasks --no-daemon
-RUN ./gradlew :caroline-server:caroline-server-bundled:installShadowDist --no-daemon
+COPY caroline-server/caroline-server-bundled/build/install/caroline-server-bundled-shadow ./app
 
-CMD ["bash", "-c", "/server/caroline-server/caroline-server-bundled/build/install/caroline-server-bundled-shadow/bin/caroline-server-bundled", "-watch=false"]
+CMD ["./app/bin/caroline-server-bundled"]
