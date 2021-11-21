@@ -5,7 +5,6 @@ plugins {
     kotlin("plugin.serialization")
 }
 
-apply(from = rootProject.file("gradle/docs.gradle.kts"))
 apply(from = rootProject.file("gradle/publishing.gradle.kts"))
 
 dependencies {
@@ -37,7 +36,7 @@ sourceSets["test"].resources.srcDirs("testresources")
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "1.8"
-        freeCompilerArgs += listOf(
+        freeCompilerArgs = freeCompilerArgs + listOf(
             "-XXLanguage:+InlineClasses",
             "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-Xopt-in=kotlinx.coroutines.FlowPreview",
