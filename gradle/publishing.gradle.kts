@@ -20,28 +20,31 @@ task<Jar>("javadocJar") {
 }
 
 configure<PublishingExtension> {
-    components.all {
-        publications.withType<MavenPublication> {
-            artifact(tasks.named("javadocJar"))
-            with(pom) {
-                name.set(rootProject.name)
-                url.set("https://github.com/DrewCarlson/Caroline")
-                description.set("Privacy respecting backend services with multiplatform Kotlin SDKs.")
-                scm {
-                    url.set("https://github.com/DrewCarlson/Caroline.git")
+    if (components.any { it.name == "java" }) {
+        publications.create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+    publications.withType<MavenPublication> {
+        artifact(tasks.named("javadocJar"))
+        with(pom) {
+            name.set(rootProject.name)
+            url.set("https://github.com/DrewCarlson/Caroline")
+            description.set("Privacy respecting backend services with multiplatform Kotlin SDKs.")
+            scm {
+                url.set("https://github.com/DrewCarlson/Caroline.git")
+            }
+            developers {
+                developer {
+                    id.set("DrewCarlson")
+                    name.set("Drew Carlson")
                 }
-                developers {
-                    developer {
-                        id.set("DrewCarlson")
-                        name.set("Drew Carlson")
-                    }
-                }
-                licenses {
-                    license {
-                        name.set("MIT")
-                        url.set("https://opensource.org/licenses/mit-license.php")
-                        distribution.set("repo")
-                    }
+            }
+            licenses {
+                license {
+                    name.set("MIT")
+                    url.set("https://opensource.org/licenses/mit-license.php")
+                    distribution.set("repo")
                 }
             }
         }
