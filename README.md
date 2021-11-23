@@ -89,7 +89,7 @@ Then start Caroline, pointing to the local Mongo instance:
 ```shell
 docker run -d --name caroline \
     --env MONGO_URL=mongodb://mongodb \
-    drewcarlson/caroline
+    ghcr.io/drewcarlson/caroline:main
 ```
 
 
@@ -108,7 +108,7 @@ services:
 
   caroline:
     container_name: caroline
-    image: drewcarlson/caroline
+    image: ghcr.io/drewcarlson/caroline:main
     environment:
       PORT: 8080
       MONGO_URL: mongodb://mongo
