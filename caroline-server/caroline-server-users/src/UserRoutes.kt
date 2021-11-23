@@ -69,7 +69,7 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
             }
 
             if (usernameError != null || passwordError != null || emailError != null) {
-                return@post call.respond(CreateUserResponse.Failed(usernameError, passwordError))
+                return@post call.respond(CreateUserResponse.Failed(usernameError, passwordError, emailError))
             }
 
             val username = body.username.lowercase()
