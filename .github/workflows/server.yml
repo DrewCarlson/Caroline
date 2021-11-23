@@ -33,4 +33,7 @@ jobs:
 
       - uses: eskatos/gradle-command-action@v1
         with:
-          arguments: :caroline-server:caroline-server-bundled:check :caroline-server:caroline-server-core:check
+          arguments: |
+            :caroline-server:caroline-server-bundled:check
+            :caroline-server:caroline-server-core:check
+            :caroline-server:caroline-server-bundled:installShadowDist
