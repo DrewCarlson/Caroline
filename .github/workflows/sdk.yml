@@ -38,4 +38,4 @@ jobs:
         name: Test Linux/Jvm/Js Targets
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
         with:
-          arguments: jvmTest jsIrTest jsLegacyTest #linuxX64Test
+          arguments: jvmTest jsTest #linuxX64Test
