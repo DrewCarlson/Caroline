@@ -25,6 +25,7 @@ internal class CarolineSDKImpl(
     override val serverUrl: String,
     override val projectId: String,
     override val apiKey: String,
+    private val serviceUrlMap: Map<CarolineSDK.Type, String>,
     httpClient: HttpClient,
     dispatcher: CoroutineDispatcher
 ) : CarolineSDK {
@@ -56,6 +57,10 @@ internal class CarolineSDKImpl(
                 }
             }
         }
+    }
+
+    override fun urlFor(type: CarolineSDK.Type): String {
+        return serviceUrlMap[type] ?: serverUrl
     }
 
     private suspend fun token(): String {

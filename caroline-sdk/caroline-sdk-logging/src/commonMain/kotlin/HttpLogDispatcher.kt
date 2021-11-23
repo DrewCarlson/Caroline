@@ -14,12 +14,13 @@ internal class HttpLogDispatcher(
     private val sdk: CarolineSDK
 ) : LogDispatcher {
     private val scope = CoroutineScope(sdk.scope.coroutineContext + SupervisorJob())
+    private val serviceUrl = sdk.urlFor(CarolineSDK.Type.LOGGING)
 
     override fun dispatch(records: List<LogRecord>): Boolean {
         if (!scope.isActive) return false
 
         scope.launch {
-            sdk.httpClient.post("${sdk.serverUrl}/api/logging/record") {
+            sdk.httpClient.post("${serviceUrl}/api/logging/record") {
                 contentType(ContentType.Application.Json)
                 body = records
             }

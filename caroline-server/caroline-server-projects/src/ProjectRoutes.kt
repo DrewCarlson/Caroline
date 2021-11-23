@@ -1,6 +1,6 @@
 package tools.caroline
 
-import drewcarlson.ktor.permissions.withPermission
+import org.drewcarlson.ktor.permissions.withPermission
 import tools.caroline.admin.api.ApiKeyCredentials
 import tools.caroline.admin.api.CreateProjectBody
 import tools.caroline.admin.api.ProjectDetails

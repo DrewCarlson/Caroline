@@ -3,7 +3,7 @@
 package tools.caroline
 
 import com.mongodb.ConnectionString
-import drewcarlson.ktor.permissions.PermissionAuthorization
+import org.drewcarlson.ktor.permissions.PermissionAuthorization
 import tools.caroline.admin.api.ApiKeyCredentials
 import tools.caroline.core.models.Permission
 import tools.caroline.data.ProjectUserSession
