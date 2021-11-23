@@ -123,7 +123,7 @@ services:
 ## Download
 
 
-[![Maven Central](https://img.shields.io/maven-central/v/org.drewcarlson/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
+[![Maven Central](https://img.shields.io/maven-central/v/tools.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
 ![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/tools.caroline/caroline-sdk-core?server=https%3A%2F%2Fs01.oss.sonatype.org)
 
 ```kotlin
