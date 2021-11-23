@@ -8,6 +8,7 @@ import tools.caroline.core.models.CreateUserBody
 import tools.caroline.core.models.CreateUserResponse
 import tools.caroline.core.models.CreateUserResponse.PasswordError
 import tools.caroline.core.models.CreateUserResponse.UsernameError
+import tools.caroline.core.models.CreateUserResponse.EmailError
 import tools.caroline.core.models.Permission
 import tools.caroline.core.models.User
 import tools.caroline.core.models.UserCredentials
