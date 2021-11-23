@@ -33,6 +33,7 @@ public data class CreateUserBody(
     val username: String,
     val password: String,
     val inviteCode: String?,
+    val email: String,
 )
 
 @Serializable
@@ -47,7 +48,8 @@ public sealed class CreateUserResponse {
     @Serializable
     public data class Failed(
         val usernameError: UsernameError?,
-        val passwordError: PasswordError?
+        val passwordError: PasswordError?,
+        val emailError: EmailError?,
     ) : CreateUserResponse()
 
     @Serializable
@@ -58,6 +60,11 @@ public sealed class CreateUserResponse {
     @Serializable
     public enum class UsernameError {
         TOO_SHORT, TOO_LONG, BLANK, ALREADY_EXISTS
+    }
+
+    @Serializable
+    public enum class EmailError {
+        INVALID, ALREADY_EXISTS
     }
 }
 

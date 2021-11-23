@@ -1,12 +1,13 @@
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
 }
 
 apply(from = rootProject.file("gradle/publishing.gradle.kts"))
 
 kotlin {
     jvm()
-    js(BOTH) {
+    js(IR) {
         nodejs()
         browser()
     }

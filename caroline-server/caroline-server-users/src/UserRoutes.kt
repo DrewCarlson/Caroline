@@ -62,15 +62,24 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
                 body.password.length > PASSWORD_LENGTH_MAX -> PasswordError.TOO_LONG
                 else -> null
             }
+            val emailError = when {
+                body.email.isBlank() -> EmailError.INVALID
+                else -> null
+            }
 
-            if (usernameError != null || passwordError != null) {
+            if (usernameError != null || passwordError != null || emailError != null) {
                 return@post call.respond(CreateUserResponse.Failed(usernameError, passwordError))
             }
 
             val username = body.username.lowercase()
+            val email = body.email.lowercase()
             if (users.findOne(User::username eq username) != null) {
                 return@post call.respond(
-                    CreateUserResponse.Failed(UsernameError.ALREADY_EXISTS, null)
+                    CreateUserResponse.Failed(UsernameError.ALREADY_EXISTS, null, null)
+                )
+            } else if (users.findOne(User::email eq email) != null) {
+                return@post call.respond(
+                    CreateUserResponse.Failed(null, null, EmailError.ALREADY_EXISTS)
                 )
             }
 
@@ -80,7 +89,7 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
                 id = ObjectId.get().toString(),
                 username = username,
                 displayName = body.username,
-                email = null
+                email = email
             )
 
             val salt = Random.nextBytes(SALT_BYTES)
