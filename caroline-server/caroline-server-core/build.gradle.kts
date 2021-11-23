@@ -50,7 +50,7 @@ sourceSets["test"].resources.srcDirs("testresources")
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
         freeCompilerArgs = freeCompilerArgs + listOf(
             "-XXLanguage:+InlineClasses",
             "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
