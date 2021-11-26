@@ -1,6 +1,6 @@
 @file:JvmName("BundledServer")
 
-package tools.caroline
+package cloud.caroline
 
 import io.ktor.application.Application
 import io.ktor.application.install

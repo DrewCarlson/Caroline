@@ -1,4 +1,4 @@
-package tools.caroline.logging
+package cloud.caroline.logging
 
 /**
  * Logging severity identifier used for organization and configuration.

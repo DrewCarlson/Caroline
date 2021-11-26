@@ -1,4 +1,4 @@
-package tools.caroline.logging
+package cloud.caroline.logging
 
 private const val DEFAULT_CACHE_SIZE = 5_242_880L // 5MB
 

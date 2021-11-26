@@ -1,4 +1,4 @@
-package tools.caroline.analytics
+package cloud.caroline.analytics
 
 public interface CarolineAnalytics {
 

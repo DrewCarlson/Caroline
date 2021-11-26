@@ -1,4 +1,4 @@
-package tools.caroline.config
+package cloud.caroline.config
 
 public interface CarolineConfig {
 

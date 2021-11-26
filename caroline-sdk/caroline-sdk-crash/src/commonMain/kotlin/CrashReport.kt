@@ -1,4 +1,4 @@
-package tools.caroline.crash
+package cloud.caroline.crash
 
 import kotlinx.serialization.Serializable
 

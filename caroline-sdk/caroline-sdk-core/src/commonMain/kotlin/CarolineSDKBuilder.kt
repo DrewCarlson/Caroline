@@ -1,4 +1,4 @@
-package tools.caroline.core
+package cloud.caroline.core
 
 import io.ktor.client.*
 import kotlinx.coroutines.CoroutineDispatcher
@@ -43,7 +43,7 @@ public class CarolineSDKBuilder internal constructor() {
      * URL formats should either be `logging.\[serverUrl]` for subdomains or
      * `\[serverUrl]/logging` for a base path.
      *
-     * @see CarolineCloudSDK to configure url formats automatically when targeting caroline.tools
+     * @see CarolineCloudSDK to configure url formats automatically when targeting caroline.cloud
      */
     public val serviceUrls: MutableMap<CarolineSDK.Type, String> = mutableMapOf()
 

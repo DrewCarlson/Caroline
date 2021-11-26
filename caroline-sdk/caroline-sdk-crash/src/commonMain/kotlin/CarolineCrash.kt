@@ -1,4 +1,4 @@
-package tools.caroline.crash
+package cloud.caroline.crash
 
 public interface CarolineCrash {
 

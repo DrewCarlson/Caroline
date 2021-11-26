@@ -1,6 +1,6 @@
-package tools.caroline
+package cloud.caroline
 
-import tools.caroline.admin.api.ApiKeyCredentials
+import cloud.caroline.admin.api.ApiKeyCredentials
 import io.ktor.application.call
 import io.ktor.auth.authenticate
 import io.ktor.http.HttpStatusCode.Companion.BadRequest

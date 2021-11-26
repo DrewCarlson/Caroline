@@ -1,4 +1,4 @@
-package tools.caroline.admin
+package cloud.caroline.admin
 
 public interface CarolineAdminClient {
 

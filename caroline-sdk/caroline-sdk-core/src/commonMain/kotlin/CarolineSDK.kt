@@ -1,4 +1,4 @@
-package tools.caroline.core
+package cloud.caroline.core
 
 import io.ktor.client.HttpClient
 import kotlinx.coroutines.CoroutineDispatcher
@@ -48,7 +48,7 @@ public fun CarolineSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineSDK {
 }
 
 /**
- * Configure an instance of [CarolineSDK] to target https://caroline.tools.
+ * Configure an instance of [CarolineSDK] to target https://caroline.cloud.
  * The only required configuration is your [CarolineSDK.projectId] and [CarolineSDK.apiKey]
  * provided when creating your project or under on the Security settings page.
  *
@@ -63,9 +63,9 @@ public fun CarolineCloudSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineS
     return CarolineSDKBuilder()
         .apply(configure)
         .apply {
-            serverUrl = "https://caroline.tools"
+            serverUrl = "https://api.caroline.cloud"
             serviceUrls.clear()
-            serviceUrls.putAll(cloudUrlFormats)
+            //serviceUrls.putAll(cloudUrlFormats)
         }
         .build()
 }

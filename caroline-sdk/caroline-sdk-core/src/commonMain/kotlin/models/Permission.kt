@@ -1,4 +1,4 @@
-package tools.caroline.core.models
+package cloud.caroline.core.models
 
 import kotlinx.serialization.Serializable
 

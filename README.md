@@ -3,7 +3,7 @@
 **_[WIP] This project is unfinished and not ready for use, most features described are not complete._**
 
 [![](https://img.shields.io/badge/-sponsor-ff69b4)](https://github.com/sponsors/DrewCarlson)
-[![Maven Central](https://img.shields.io/maven-central/v/tools.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
+[![Maven Central](https://img.shields.io/maven-central/v/cloud.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:cloud.caroline)
 [![](https://github.com/DrewCarlson/Caroline/workflows/Server/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Aserver)
 [![](https://github.com/DrewCarlson/Caroline/workflows/SDK/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Asdk)
 [![](https://img.shields.io/github/workflow/status/drewcarlson/caroline/Publish%20Docker%20image?label=Docker)](https://github.com/DrewCarlson/Caroline/pkgs/container/caroline)
@@ -123,8 +123,8 @@ services:
 ## Download
 
 
-[![Maven Central](https://img.shields.io/maven-central/v/tools.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:tools.caroline)
-![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/tools.caroline/caroline-sdk-core?server=https%3A%2F%2Fs01.oss.sonatype.org)
+[![Maven Central](https://img.shields.io/maven-central/v/cloud.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:cloud.caroline)
+![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/cloud.caroline/caroline-sdk-core?server=https%3A%2F%2Fs01.oss.sonatype.org)
 
 ```kotlin
 repositories {
@@ -135,22 +135,22 @@ repositories {
 
 dependencies {
     // SDK Modules
-    implementation("tools.caroline:caroline-sdk-admin:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-analytics:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-auth:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-config:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-core:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-crash:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-functions:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-logging:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-store:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-sdk-store-encrypted:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-admin:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-analytics:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-auth:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-config:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-core:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-crash:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-functions:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-logging:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-store:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-sdk-store-encrypted:$CAROLINE_VERSION")
 
     // Server Modules
-    implementation("tools.caroline:caroline-server-core:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-server-projects:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-server-users:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-server-crash:$CAROLINE_VERSION")
-    implementation("tools.caroline:caroline-server-logging:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-server-core:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-server-projects:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-server-users:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-server-crash:$CAROLINE_VERSION")
+    implementation("cloud.caroline:caroline-server-logging:$CAROLINE_VERSION")
 }
 ```

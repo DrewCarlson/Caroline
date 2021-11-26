@@ -1,6 +1,6 @@
-package tools.caroline.admin.api
+package cloud.caroline.admin.api
 
-import tools.caroline.core.models.Permission
+import cloud.caroline.core.models.Permission
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

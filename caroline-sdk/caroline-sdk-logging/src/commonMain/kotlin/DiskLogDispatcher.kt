@@ -1,4 +1,4 @@
-package tools.caroline.logging
+package cloud.caroline.logging
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Default

@@ -1,4 +1,4 @@
-package tools.caroline.internal
+package cloud.caroline.internal
 
 import io.ktor.application.Application
 import io.ktor.routing.Route

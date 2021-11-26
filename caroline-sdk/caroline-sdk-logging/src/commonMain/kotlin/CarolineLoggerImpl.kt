@@ -1,6 +1,6 @@
-package tools.caroline.logging
+package cloud.caroline.logging
 
-import tools.caroline.internal.currentSystemMs
+import cloud.caroline.internal.currentSystemMs
 
 internal class CarolineLoggerImpl(
     private val outputLogDispatcher: LogDispatcher,

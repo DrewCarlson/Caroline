@@ -1,6 +1,6 @@
-package tools.caroline.core
+package cloud.caroline.core
 
-import tools.caroline.internal.carolineJson
+import cloud.caroline.internal.carolineJson
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.Json
 import io.ktor.client.features.json.serializer.KotlinxSerializer

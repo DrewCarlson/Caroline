@@ -1,6 +1,6 @@
-package tools.caroline.logging
+package cloud.caroline.logging
 
-import tools.caroline.core.CarolineSDK
+import cloud.caroline.core.CarolineSDK
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 

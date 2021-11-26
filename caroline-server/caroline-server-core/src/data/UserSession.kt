@@ -1,7 +1,7 @@
-package tools.caroline.data
+package cloud.caroline.data
 
 import com.auth0.jwt.interfaces.Payload
-import tools.caroline.core.models.Permission
+import cloud.caroline.core.models.Permission
 import io.ktor.auth.Principal
 import kotlinx.serialization.Serializable
 import java.time.Instant

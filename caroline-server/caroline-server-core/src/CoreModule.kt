@@ -1,15 +1,15 @@
 @file:JvmName("CoreModule")
 
-package tools.caroline
+package cloud.caroline
 
 import com.mongodb.ConnectionString
 import org.drewcarlson.ktor.permissions.PermissionAuthorization
-import tools.caroline.admin.api.ApiKeyCredentials
-import tools.caroline.core.models.Permission
-import tools.caroline.data.ProjectUserSession
-import tools.caroline.data.RestrictedSession
-import tools.caroline.data.UserSession
-import tools.caroline.internal.carolineProperty
+import cloud.caroline.admin.api.ApiKeyCredentials
+import cloud.caroline.core.models.Permission
+import cloud.caroline.data.ProjectUserSession
+import cloud.caroline.data.RestrictedSession
+import cloud.caroline.data.UserSession
+import cloud.caroline.internal.carolineProperty
 import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.auth.Authentication

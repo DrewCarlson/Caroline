@@ -1,4 +1,4 @@
-package tools.caroline.logging
+package cloud.caroline.logging
 
 /**
  * [LogDispatcher]s deliver a list of [LogRecord]s to a

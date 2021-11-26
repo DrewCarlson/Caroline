@@ -1,12 +1,12 @@
-package tools.caroline
+package cloud.caroline
 
 import org.drewcarlson.ktor.permissions.withPermission
-import tools.caroline.admin.api.ApiKeyCredentials
-import tools.caroline.admin.api.CreateProjectBody
-import tools.caroline.admin.api.ProjectDetails
-import tools.caroline.core.models.Permission
-import tools.caroline.core.models.Project
-import tools.caroline.data.UserSession
+import cloud.caroline.admin.api.ApiKeyCredentials
+import cloud.caroline.admin.api.CreateProjectBody
+import cloud.caroline.admin.api.ProjectDetails
+import cloud.caroline.core.models.Permission
+import cloud.caroline.core.models.Project
+import cloud.caroline.data.UserSession
 import io.ktor.application.call
 import io.ktor.auth.principal
 import io.ktor.http.HttpStatusCode.Companion.Conflict

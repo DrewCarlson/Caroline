@@ -1,4 +1,4 @@
-package tools.caroline.logging
+package cloud.caroline.logging
 
 /**
  * [LogSchedule] defines the normally desired signal that causes

@@ -1,8 +1,8 @@
 @file:JvmName("UserModule")
-package tools.caroline
+package cloud.caroline
 
 import com.mongodb.ConnectionString
-import tools.caroline.internal.carolineProperty
+import cloud.caroline.internal.carolineProperty
 import io.ktor.application.Application
 import io.ktor.routing.route
 import io.ktor.routing.routing

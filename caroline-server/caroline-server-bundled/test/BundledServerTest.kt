@@ -1,4 +1,4 @@
-package tools.caroline
+package cloud.caroline
 
 import io.ktor.config.MapApplicationConfig
 import io.ktor.server.testing.withTestApplication
