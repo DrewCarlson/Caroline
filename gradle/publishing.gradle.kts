@@ -21,8 +21,14 @@ task<Jar>("javadocJar") {
 
 configure<PublishingExtension> {
     if (components.any { it.name == "java" }) {
+        task<Jar>("sourcesJar") {
+            archiveClassifier.set("sources")
+            val sourceSets = project.extensions.getByName<SourceSetContainer>("sourceSets")
+            from(sourceSets["main"].allSource)
+        }
         publications.create<MavenPublication>("mavenJava") {
             from(components["java"])
+            artifact(tasks["sourcesJar"])
         }
     }
     publications.withType<MavenPublication> {
