@@ -47,24 +47,24 @@ public class CarolineSDKBuilder internal constructor() {
     public val serviceUrls: MutableMap<CarolineSDK.Type, String> = mutableMapOf()
 
     internal fun build(): CarolineSDK {
-        check(serverUrl.isNotBlank()) {
+        require(serverUrl.isNotBlank()) {
             "CarolineSDK `serverUrl` must be configured"
         }
 
-        check(serverUrl.startsWith("https://") || serverUrl.startsWith("http://")) {
+        require(serverUrl.startsWith("https://") || serverUrl.startsWith("http://")) {
             "CarolineSdk `serverUrl` must start with 'https://' or 'http://' for advanced deployments"
         }
 
-        check(projectId.isNotBlank()) {
+        require(projectId.isNotBlank()) {
             "CarolineSDK `projectId` must be configured"
         }
 
-        check(apiKey.isNotBlank()) {
+        require(apiKey.isNotBlank()) {
             "CarolineSDK `apiKey` must be configured"
         }
 
         serviceUrls.forEach { (type, format) ->
-            check(format.contains("[serverUrl]")) {
+            require(format.contains("[serverUrl]")) {
                 "CarolineSDK `serviceUrls` must contain '[serverUrl]' to be formatted with the configured value\n" +
                     "   CarolineSDK { serviceUrls[${type.name}] = \"${type.name.lowercase()}.[serverUrl]\" }"
             }
