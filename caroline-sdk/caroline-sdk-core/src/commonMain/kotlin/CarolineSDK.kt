@@ -1,9 +1,7 @@
 package cloud.caroline.core
 
 import io.ktor.client.HttpClient
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 
 public interface CarolineSDK {
 
@@ -63,26 +61,13 @@ public fun CarolineCloudSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineS
     return CarolineSDKBuilder()
         .apply(configure)
         .apply {
-            serverUrl = "https://api.caroline.cloud"
+            serverUrl = "https://caroline.cloud"
             serviceUrls.clear()
-            // serviceUrls.putAll(cloudUrlFormats)
+            serviceUrls.putAll(
+                CarolineSDK.Type.values().associateWith { type ->
+                    "${type.name.lowercase()}.[serverUrl]"
+                }
+            )
         }
         .build()
-}
-
-/**
- * Default service URL configurations for cloud target
- */
-private val cloudUrlFormats = buildMap<CarolineSDK.Type, String>(
-    capacity = CarolineSDK.Type.values().size
-) {
-    put(CarolineSDK.Type.ADMIN, "admin.[serverUrl]")
-    put(CarolineSDK.Type.ANALYTICS, "analytics.[serverUrl]")
-    put(CarolineSDK.Type.AUTH, "auth.[serverUrl]")
-    put(CarolineSDK.Type.CONFIG, "config.[serverUrl]")
-    put(CarolineSDK.Type.CORE, "core.[serverUrl]")
-    put(CarolineSDK.Type.CRASH, "crash.[serverUrl]")
-    put(CarolineSDK.Type.FUNCTIONS, "functions.[serverUrl]")
-    put(CarolineSDK.Type.LOGGING, "logging.[serverUrl]")
-    put(CarolineSDK.Type.STORE, "store.[serverUrl]")
 }
