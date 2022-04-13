@@ -32,10 +32,15 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         with:
           arguments: |
-            :caroline-server:caroline-server-bundled:check
+            :caroline-server:caroline-server-bundled:build
             :caroline-server:caroline-server-core:check
-            :caroline-server:caroline-server-bundled:installShadowDist
-            :caroline-server:caroline-server-bundled:koverXmlReport
+            :caroline-server:caroline-server-crash:check
+            :caroline-server:caroline-server-functions:check
+            :caroline-server:caroline-server-functions-runtime:check
+            :caroline-server:caroline-server-internal:check
+            :caroline-server:caroline-server-logging:check
+            :caroline-server:caroline-server-projects:check
+            :caroline-server:caroline-server-users:check
 
       - name: Archive Reports
         uses: actions/upload-artifact@v3
@@ -84,7 +89,19 @@ jobs:
         name: Test Linux/Jvm/Js Targets
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
         with:
-          arguments: jvmTest jsTest koverXmlReport #linuxX64Test
+          arguments: | #linuxX64Test
+          jvmTest
+          jsTest
+          caroline-sdk-admin:koverXmlReport
+          caroline-sdk-analytics:koverXmlReport
+          caroline-sdk-auth:koverXmlReport
+          caroline-sdk-config:koverXmlReport
+          caroline-sdk-core:koverXmlReport
+          caroline-sdk-functions:koverXmlReport
+          caroline-sdk-internal:koverXmlReport
+          caroline-sdk-logging:koverXmlReport
+          caroline-sdk-store:koverXmlReport
+          caroline-sdk-store-encrypted:koverXmlReport
 
       - name: Archive Reports
         uses: actions/upload-artifact@v3
