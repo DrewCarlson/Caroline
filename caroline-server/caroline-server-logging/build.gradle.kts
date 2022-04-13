@@ -15,32 +15,31 @@ dependencies {
     api(project(":caroline-sdk:caroline-sdk-logging"))
     api(project(":caroline-server:caroline-server-core"))
 
-    implementation("org.drewcarlson:ktor-permissions:$KTOR_PERM_VERSION")
+    implementation(libs.ktor.server.permissions)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VERSION")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$SERIALIZATION_VERSION")
+    implementation(libs.coroutines.core)
+    implementation(libs.serialization.json)
 
-    implementation("io.ktor:ktor-server-core:$KTOR_VERSION")
-    implementation("io.ktor:ktor-server-sessions:$KTOR_VERSION")
-    implementation("io.ktor:ktor-server-auth:$KTOR_VERSION")
-    implementation("io.ktor:ktor-server-auth-jwt:$KTOR_VERSION")
-    implementation("io.ktor:ktor-serialization:$KTOR_VERSION")
-    implementation("io.ktor:ktor-websockets:$KTOR_VERSION")
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.sessions)
+    implementation(libs.ktor.server.auth)
+    implementation(libs.ktor.server.authJwt)
+    implementation(libs.ktor.server.websockets)
 
-    implementation("io.ktor:ktor-client-core:$KTOR_VERSION")
-    implementation("io.ktor:ktor-client-okhttp:$KTOR_VERSION")
-    implementation("io.ktor:ktor-client-logging:$KTOR_VERSION")
-    implementation("io.ktor:ktor-client-json:$KTOR_VERSION")
-    implementation("io.ktor:ktor-client-serialization-jvm:$KTOR_VERSION")
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.contentNegotiation)
+    implementation(libs.ktor.serialization)
 
-    implementation("org.bouncycastle:bcprov-jdk15on:$BOUNCY_CASTLE_VERSION")
+    implementation(libs.bouncyCastle)
 
-    implementation("ch.qos.logback:logback-classic:$LOGBACK_VERSION")
+    implementation(libs.logback)
 
-    implementation("org.litote.kmongo:kmongo-coroutine-serialization:$KMONGO_VERSION")
+    implementation(libs.kmongo)
 
     testImplementation(project(":caroline-server:caroline-server-bundled"))
-    testImplementation("io.ktor:ktor-server-tests:$KTOR_VERSION")
+    testImplementation(libs.ktor.server.tests)
 }
 
 kotlin {

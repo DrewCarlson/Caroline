@@ -26,11 +26,11 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-datetime:$DATETIME_VERSION")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VERSION")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$SERIALIZATION_VERSION")
+                api(libs.datetime)
+                implementation(libs.coroutines.core)
+                implementation(libs.serialization.json)
 
-                implementation("io.ktor:ktor-client-core:$KTOR_VERSION")
+                implementation(libs.ktor.client.core)
             }
         }
         named("commonTest") {

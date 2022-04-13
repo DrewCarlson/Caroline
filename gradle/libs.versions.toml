@@ -78,11 +78,15 @@ ktor-server-cors = { module = "io.ktor:ktor-server-cors", version.ref = "ktorio"
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktorio" }
 ktor-server-authJwt = { module = "io.ktor:ktor-server-auth-jwt", version.ref = "ktorio" }
 ktor-server-websockets = { module = "io.ktor:ktor-server-websockets", version.ref = "ktorio" }
+ktor-server-conditionalHeaders = { module = "io.ktor:ktor-server-conditional-headers", version.ref = "ktorio" }
+ktor-server-forwardedHeader = { module = "io.ktor:ktor-server-forwarded-header", version.ref = "ktorio" }
 ktor-server-permissions = { module = "org.drewcarlson:ktor-permissions", version.ref = "ktor_perm" }
 
 bouncyCastle = { module = "org.bouncycastle:bcprov-jdk15on", version.ref = "bouncy_castle" }
 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.5.1" }
 
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.7.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }

@@ -26,12 +26,12 @@ kotlin {
         named("commonMain") {
             dependencies {
                 implementation(project(":caroline-sdk:caroline-sdk-internal"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VERSION")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$SERIALIZATION_VERSION")
+                implementation(libs.coroutines.core)
+                implementation(libs.serialization.json)
 
-                implementation("io.ktor:ktor-client-core:$KTOR_VERSION")
-                implementation("io.ktor:ktor-client-content-negotiation:$KTOR_VERSION")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:$KTOR_VERSION")
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.contentNegotiation)
+                implementation(libs.ktor.serialization)
             }
         }
 

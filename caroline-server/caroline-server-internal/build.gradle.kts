@@ -11,17 +11,17 @@ dependencies {
     api(project(":caroline-sdk:caroline-sdk-core"))
     api(project(":caroline-sdk:caroline-sdk-admin"))
 
-    implementation("org.drewcarlson:ktor-permissions:$KTOR_PERM_VERSION")
+    implementation(libs.ktor.server.permissions)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VERSION")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$SERIALIZATION_VERSION")
+    implementation(libs.coroutines.core)
+    implementation(libs.serialization.json)
 
-    implementation("io.ktor:ktor-server-core:$KTOR_VERSION")
-    implementation("io.ktor:ktor-client-core:$KTOR_VERSION")
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.client.core)
 
-    implementation("org.litote.kmongo:kmongo-coroutine-serialization:$KMONGO_VERSION")
+    implementation(libs.kmongo)
 
-    testImplementation("io.ktor:ktor-server-tests:$KTOR_VERSION")
+    testImplementation(libs.ktor.server.tests)
 }
 
 kotlin {
