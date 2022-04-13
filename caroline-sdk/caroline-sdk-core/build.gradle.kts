@@ -25,7 +25,7 @@ kotlin {
         }
         named("commonMain") {
             dependencies {
-                implementation(project(":caroline-sdk:caroline-sdk-internal"))
+                implementation(projects.carolineSdk.carolineSdkInternal)
                 implementation(libs.coroutines.core)
                 implementation(libs.serialization.json)
 

@@ -26,8 +26,8 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(project(":caroline-sdk:caroline-sdk-internal"))
-                api(project(":caroline-sdk:caroline-sdk-core"))
+                implementation(projects.carolineSdk.carolineSdkInternal)
+                api(projects.carolineSdk.carolineSdkCore)
 
                 implementation(libs.coroutines.core)
                 implementation(libs.serialization.json)

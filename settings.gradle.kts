@@ -1,5 +1,7 @@
 rootProject.name = "caroline"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 include(
     ":caroline-sdk:caroline-sdk-admin",
     ":caroline-sdk:caroline-sdk-analytics",
@@ -11,7 +13,7 @@ include(
     ":caroline-sdk:caroline-sdk-logging",
     ":caroline-sdk:caroline-sdk-store",
     ":caroline-sdk:caroline-sdk-store-encrypted",
-    ":caroline-sdk:caroline-sdk-internal"
+    ":caroline-sdk:caroline-sdk-internal",
 )
 
 include(
@@ -21,5 +23,5 @@ include(
     ":caroline-server:caroline-server-projects",
     ":caroline-server:caroline-server-users",
     ":caroline-server:caroline-server-bundled",
-    ":caroline-server:caroline-server-internal"
+    ":caroline-server:caroline-server-internal",
 )

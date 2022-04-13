@@ -8,12 +8,12 @@ plugins {
 apply(from = rootProject.file("gradle/publishing.gradle.kts"))
 
 dependencies {
-    implementation(project(":caroline-server:caroline-server-internal"))
+    implementation(projects.carolineServer.carolineServerInternal)
 
-    api(project(":caroline-sdk:caroline-sdk-core"))
-    api(project(":caroline-sdk:caroline-sdk-admin"))
-    api(project(":caroline-sdk:caroline-sdk-logging"))
-    api(project(":caroline-server:caroline-server-core"))
+    api(projects.carolineSdk.carolineSdkCore)
+    api(projects.carolineSdk.carolineSdkAdmin)
+    api(projects.carolineSdk.carolineSdkLogging)
+    api(projects.carolineServer.carolineServerCore)
 
     implementation(libs.ktor.server.permissions)
 
@@ -38,7 +38,7 @@ dependencies {
 
     implementation(libs.kmongo)
 
-    testImplementation(project(":caroline-server:caroline-server-bundled"))
+    testImplementation(projects.carolineServer.carolineServerBundled)
     testImplementation(libs.ktor.server.tests)
 }
 

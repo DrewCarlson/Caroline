@@ -8,11 +8,11 @@ plugins {
 apply(from = rootProject.file("gradle/publishing.gradle.kts"))
 
 dependencies {
-    implementation(project(":caroline-server:caroline-server-internal"))
+    implementation(projects.carolineServer.carolineServerInternal)
 
-    api(project(":caroline-sdk:caroline-sdk-core"))
-    api(project(":caroline-sdk:caroline-sdk-admin"))
-    api(project(":caroline-server:caroline-server-core"))
+    api(projects.carolineSdk.carolineSdkCore)
+    api(projects.carolineSdk.carolineSdkAdmin)
+    api(projects.carolineServer.carolineServerCore)
 
     implementation(libs.ktor.server.permissions)
 

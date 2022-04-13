@@ -22,15 +22,15 @@ tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
 }
 
 dependencies {
-    implementation(project(":caroline-server:caroline-server-core"))
-    implementation(project(":caroline-server:caroline-server-internal"))
-    implementation(project(":caroline-server:caroline-server-users"))
-    implementation(project(":caroline-server:caroline-server-projects"))
-    implementation(project(":caroline-server:caroline-server-logging"))
-    implementation(project(":caroline-server:caroline-server-crash"))
+    implementation(projects.carolineServer.carolineServerCore)
+    implementation(projects.carolineServer.carolineServerInternal)
+    implementation(projects.carolineServer.carolineServerUsers)
+    implementation(projects.carolineServer.carolineServerProjects)
+    implementation(projects.carolineServer.carolineServerLogging)
+    implementation(projects.carolineServer.carolineServerCrash)
 
-    implementation(project(":caroline-sdk:caroline-sdk-core"))
-    implementation(project(":caroline-sdk:caroline-sdk-admin"))
+    implementation(projects.carolineSdk.carolineSdkCore)
+    implementation(projects.carolineSdk.carolineSdkAdmin)
 
     implementation(libs.ktor.server.permissions)
 
