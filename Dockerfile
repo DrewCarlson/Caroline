@@ -1,12 +1,13 @@
-FROM openjdk:13-alpine
+FROM mcr.microsoft.com/java/jre:11-zulu-alpine
 
-RUN apk add --update \
-    bash \
-  && rm -rf /var/cache/apk/*
+RUN apk add --update --no-cache bash
 
 WORKDIR /app
 COPY . /app
 
 COPY caroline-server/caroline-server-bundled/build/install/caroline-server-bundled-shadow ./app
 
-CMD ["./app/bin/caroline-server-bundled"]
+ENV PORT=8080
+ENV MONGO_URL=mongodb://mongo
+
+CMD ["./app/bin/caroline-server"]
