@@ -57,7 +57,7 @@ jobs:
 
   upload-kover-reports:
     runs-on: ubuntu-latest
-    needs: [ test-server ]
+    needs: [ test-sdk ]
     steps:
       - uses: actions/checkout@master
       - name: Download kover reports
@@ -71,7 +71,7 @@ jobs:
 
   upload-junit-results:
     runs-on: ubuntu-latest
-    needs: [ test-server ]
+    needs: [ test-sdk ]
     steps:
       - uses: actions/checkout@master
       - name: Download test results
