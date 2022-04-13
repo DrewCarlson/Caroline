@@ -10,7 +10,13 @@ kotlin {
     jvm()
     js(IR) {
         nodejs()
-        browser()
+        browser {
+            testTask {
+                useKarma {
+                    useFirefoxHeadless()
+                }
+            }
+        }
     }
 
     sourceSets {

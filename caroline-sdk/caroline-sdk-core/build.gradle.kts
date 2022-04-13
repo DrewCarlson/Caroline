@@ -10,7 +10,13 @@ kotlin {
     jvm()
     js(IR) {
         nodejs()
-        browser()
+        browser {
+            testTask {
+                useKarma {
+                    useFirefoxHeadless()
+                }
+            }
+        }
     }
 
     sourceSets {
@@ -40,6 +46,12 @@ kotlin {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
+            }
+        }
+
+        named("jsTest") {
+            dependencies {
+                implementation(kotlin("test-js"))
             }
         }
     }
