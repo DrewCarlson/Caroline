@@ -1,17 +1,13 @@
 name: docs
 
 on:
-  create:
-    branches: [ main ]
   push:
+    tags: [ 'v*' ]
     branches: [ main ]
 
 jobs:
-  gradle:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
+  publish-docs:
+    runs-on: ubuntu-latest
     steps:
 
       - uses: actions/checkout@v2

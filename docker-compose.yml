@@ -10,7 +10,7 @@ services:
       MONGO_URL: mongodb://mongo
     restart: unless-stopped
     ports:
-      - 8080:8080
+      - "8080:8080"
     links:
       - mongo
     depends_on:
@@ -21,7 +21,7 @@ services:
     image: mongo
     restart: unless-stopped
     ports:
-      - 27017:27017
+      - "27017:27017"
 
   mongo-express:
     container_name: mongo-express
@@ -30,4 +30,4 @@ services:
     depends_on:
       - mongo
     ports:
-      - 8081:8081
+      - "8081:8081"

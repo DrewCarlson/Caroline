@@ -1,9 +1,8 @@
 name: publish
 
 on:
-  create:
-    branches: [ main ]
   push:
+    tags: [ 'v*' ]
     branches: [ main ]
 
 env:

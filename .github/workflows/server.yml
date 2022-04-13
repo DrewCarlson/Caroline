@@ -7,11 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  gradle:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
+  test-server:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
