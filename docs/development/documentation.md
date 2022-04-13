@@ -59,7 +59,7 @@ Material for MkDocs [Reference](https://squidfunk.github.io/mkdocs-material/refe
 
 ## View docs locally
 
-To view the docs locally, open a terminal or command prompt and cd into your `anystream` folder then run
+To view the docs locally, open a terminal or command prompt and cd into your `caroline` folder then run
 
 ```shell
 mkdocs serve
