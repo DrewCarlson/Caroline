@@ -24,4 +24,6 @@ include(
     ":caroline-server:caroline-server-users",
     ":caroline-server:caroline-server-bundled",
     ":caroline-server:caroline-server-internal",
+    ":caroline-server:caroline-server-functions",
+    ":caroline-server:caroline-server-functions-runtime",
 )

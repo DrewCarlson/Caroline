@@ -28,6 +28,7 @@ dependencies {
     implementation(projects.carolineServer.carolineServerProjects)
     implementation(projects.carolineServer.carolineServerLogging)
     implementation(projects.carolineServer.carolineServerCrash)
+    implementation(projects.carolineServer.carolineServerFunctions)
 
     implementation(projects.carolineSdk.carolineSdkCore)
     implementation(projects.carolineSdk.carolineSdkAdmin)
