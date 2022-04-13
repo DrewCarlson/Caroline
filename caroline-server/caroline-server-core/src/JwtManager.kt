@@ -20,7 +20,6 @@ public object JwtManager {
     private val tokenLifeMs = TimeUnit.DAYS.toMillis(7)
 
     public fun configure(issuer: String, realm: String, secret: String) {
-        check(!this::issuer.isInitialized) { "JwtManager already configured." }
         this.issuer = issuer
         this.realm = realm
         this.secret = secret

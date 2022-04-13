@@ -34,7 +34,6 @@ public val json: Json = Json {
     ignoreUnknownKeys = true
     useArrayPolymorphism = false
     classDiscriminator = "__type"
-    allowStructuredMapKeys = true
 }
 
 @Suppress("unused")

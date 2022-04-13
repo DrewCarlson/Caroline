@@ -36,6 +36,8 @@ dependencies {
 
     implementation(libs.kmongo)
 
+    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit"))
     testImplementation(libs.ktor.server.tests)
 }
 

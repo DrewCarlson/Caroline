@@ -11,5 +11,4 @@ public val carolineJson: Json = Json {
     ignoreUnknownKeys = true
     useArrayPolymorphism = false
     classDiscriminator = "__type"
-    allowStructuredMapKeys = true
 }
