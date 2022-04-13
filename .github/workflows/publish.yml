@@ -49,6 +49,7 @@ jobs:
 
   publish-maven:
     runs-on: macos-latest
+    needs: [ file-changes ]
     if: needs.file-changes.outputs.any == 'true' || startsWith(github.ref, 'refs/tags/v')
     steps:
       - uses: actions/checkout@v3
