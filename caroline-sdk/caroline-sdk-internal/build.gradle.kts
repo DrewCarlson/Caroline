@@ -33,5 +33,24 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:$KTOR_VERSION")
             }
         }
+        named("commonTest") {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
+
+        named("jvmTest") {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+            }
+        }
+
+        named("jsTest") {
+            dependencies {
+                implementation(kotlin("test-js"))
+            }
+        }
     }
 }
