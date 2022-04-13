@@ -4,6 +4,8 @@ repo_url: https://github.com/drewcarlson/caroline
 
 theme:
   name: material
+  palette:
+    scheme: slate
   icon:
     repo: fontawesome/brands/github
 
