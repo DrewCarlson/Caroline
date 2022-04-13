@@ -3,10 +3,9 @@ package cloud.caroline
 
 import com.mongodb.ConnectionString
 import cloud.caroline.internal.carolineProperty
-import io.ktor.application.Application
-import io.ktor.auth.authenticate
-import io.ktor.routing.route
-import io.ktor.routing.routing
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.routing.*
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
 

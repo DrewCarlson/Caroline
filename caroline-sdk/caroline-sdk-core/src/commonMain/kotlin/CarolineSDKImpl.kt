@@ -2,13 +2,13 @@ package cloud.caroline.core
 
 import cloud.caroline.internal.carolineJson
 import io.ktor.client.HttpClient
-import io.ktor.client.features.json.Json
-import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.HttpRequestPipeline
 import io.ktor.client.request.get
 import io.ktor.client.request.header
-import io.ktor.client.statement.HttpResponsePipeline
+import io.ktor.client.statement.*
 import io.ktor.http.HttpStatusCode.Companion.Unauthorized
+import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -36,8 +36,8 @@ internal class CarolineSDKImpl(
     override val scope = CoroutineScope(dispatcher + SupervisorJob())
 
     override val httpClient: HttpClient = httpClient.config {
-        Json {
-            serializer = KotlinxSerializer(carolineJson)
+        install(ContentNegotiation) {
+            json(carolineJson)
         }
 
         install("CarolineProjectJWT") {
@@ -75,9 +75,9 @@ internal class CarolineSDKImpl(
     }
 
     private suspend fun createAndUpdateToken(): String =
-        httpClient.get<String>("$serverUrl/core/token") {
+        httpClient.get("$serverUrl/core/token") {
             header(AUTHORIZATION, apiKey)
-        }.also { newToken ->
+        }.bodyAsText().also { newToken ->
             tokenFlow.value = newToken
         }
 }

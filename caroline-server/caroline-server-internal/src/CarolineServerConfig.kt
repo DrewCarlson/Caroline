@@ -1,8 +1,8 @@
 package cloud.caroline.internal
 
-import io.ktor.application.Application
-import io.ktor.routing.Route
-import io.ktor.routing.application
+import io.ktor.server.application.*
+import io.ktor.server.routing.*
+
 
 public fun Route.carolineProperty(key: String, default: String? = null): String =
     application.carolineProperty(key, default)

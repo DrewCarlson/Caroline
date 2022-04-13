@@ -1,7 +1,6 @@
 package cloud.caroline
 
-import io.ktor.routing.Route
-import io.ktor.routing.route
+import io.ktor.server.routing.*
 import org.litote.kmongo.coroutine.CoroutineDatabase
 
 

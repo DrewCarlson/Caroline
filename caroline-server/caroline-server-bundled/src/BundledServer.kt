@@ -2,26 +2,21 @@
 
 package cloud.caroline
 
-import io.ktor.application.Application
-import io.ktor.application.install
-import io.ktor.features.AutoHeadResponse
-import io.ktor.features.CORS
-import io.ktor.features.CachingHeaders
-import io.ktor.features.CallLogging
-import io.ktor.features.Compression
-import io.ktor.features.ConditionalHeaders
-import io.ktor.features.ForwardedHeaderSupport
-import io.ktor.features.PartialContent
-import io.ktor.features.XForwardedHeaderSupport
-import io.ktor.features.deflate
-import io.ktor.features.gzip
-import io.ktor.features.minimumSize
 import io.ktor.http.CacheControl
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.content.CachingOptions
-import io.ktor.request.path
+import io.ktor.server.application.*
+import io.ktor.server.plugins.autohead.*
+import io.ktor.server.plugins.cachingheaders.*
+import io.ktor.server.plugins.callloging.*
+import io.ktor.server.plugins.compression.*
+import io.ktor.server.plugins.conditionalheaders.*
+import io.ktor.server.plugins.cors.*
+import io.ktor.server.plugins.forwardedheaders.*
+import io.ktor.server.plugins.partialcontent.*
+import io.ktor.server.request.*
 import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -53,15 +48,14 @@ fun Application.module(testing: Boolean = false) {
         allowCredentials = true
         allowNonSimpleContentTypes = true
         allowHeaders { true }
-        header(HttpHeaders.Authorization)
+        allowHeader(HttpHeaders.Authorization)
         anyHost()
     }
 
-    install(ForwardedHeaderSupport) // WARNING: for security, do not include this if not behind a reverse proxy
-    install(XForwardedHeaderSupport) // WARNING: for security, do not include this if not behind a reverse proxy
+    install(ForwardedHeaders) // WARNING: for security, do not include this if not behind a reverse proxy
 
     install(CachingHeaders) {
-        options { outgoingContent ->
+        options { _, outgoingContent ->
             when (outgoingContent.contentType?.withoutParameters()) {
                 ContentType.Text.CSS -> {
                     val max = CacheControl.MaxAge(maxAgeSeconds = 24 * 60 * 60)

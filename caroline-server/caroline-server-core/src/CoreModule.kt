@@ -10,19 +10,15 @@ import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.data.RestrictedSession
 import cloud.caroline.data.UserSession
 import cloud.caroline.internal.carolineProperty
-import io.ktor.application.Application
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.jwt.jwt
-import io.ktor.auth.session
-import io.ktor.features.ContentNegotiation
 import io.ktor.http.HttpStatusCode
-import io.ktor.response.respond
-import io.ktor.routing.route
-import io.ktor.routing.routing
-import io.ktor.serialization.json
-import io.ktor.sessions.Sessions
-import io.ktor.sessions.header
+import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.auth.jwt.*
+import io.ktor.server.plugins.contentnegotiation.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.sessions.*
 import kotlinx.serialization.json.Json
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
@@ -80,7 +76,7 @@ public fun Application.coreModule() {
             }
         }
         session<UserSession>(PROVIDER_ADMIN_SESSION) {
-            challenge { context.respond(HttpStatusCode.Unauthorized) }
+            challenge { call.respond(HttpStatusCode.Unauthorized) }
             validate { it }
         }
     }

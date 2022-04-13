@@ -13,23 +13,19 @@ import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
 import cloud.caroline.data.UserSession
-import io.ktor.application.call
-import io.ktor.application.log
-import io.ktor.auth.authenticate
 import io.ktor.http.HttpStatusCode.Companion.InternalServerError
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
-import io.ktor.request.receiveOrNull
-import io.ktor.response.respond
-import io.ktor.routing.*
-import io.ktor.sessions.getOrSet
-import io.ktor.sessions.sessions
-import io.ktor.sessions.set
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.request.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.sessions.*
 import org.bouncycastle.crypto.generators.BCrypt
 import org.bouncycastle.util.encoders.Hex
 import org.bson.types.ObjectId
 import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
-import java.util.Locale
 import kotlin.random.Random
 
 private const val USERNAME_LENGTH_MIN = 4

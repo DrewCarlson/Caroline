@@ -1,7 +1,7 @@
 package cloud.caroline.logging
 
 import cloud.caroline.core.CarolineSDK
-import io.ktor.client.request.post
+import io.ktor.client.request.*
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import kotlinx.coroutines.CoroutineScope
@@ -22,7 +22,7 @@ internal class HttpLogDispatcher(
         scope.launch {
             sdk.httpClient.post("${serviceUrl}/api/logging/record") {
                 contentType(ContentType.Application.Json)
-                body = records
+                setBody(records)
             }
         }
         return true

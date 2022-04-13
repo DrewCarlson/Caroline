@@ -19,16 +19,17 @@ dependencies {
 
     implementation("io.ktor:ktor-server-core:$KTOR_VERSION")
     implementation("io.ktor:ktor-server-sessions:$KTOR_VERSION")
-    implementation("io.ktor:ktor-auth:$KTOR_VERSION")
-    implementation("io.ktor:ktor-auth-jwt:$KTOR_VERSION")
-    implementation("io.ktor:ktor-serialization:$KTOR_VERSION")
+    implementation("io.ktor:ktor-server-auth:$KTOR_VERSION")
+    implementation("io.ktor:ktor-server-auth-jwt:$KTOR_VERSION")
+    implementation("io.ktor:ktor-server-content-negotiation:$KTOR_VERSION")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$KTOR_VERSION")
     implementation("io.ktor:ktor-websockets:$KTOR_VERSION")
 
     implementation("io.ktor:ktor-client-core:$KTOR_VERSION")
     implementation("io.ktor:ktor-client-okhttp:$KTOR_VERSION")
     implementation("io.ktor:ktor-client-logging:$KTOR_VERSION")
-    implementation("io.ktor:ktor-client-json:$KTOR_VERSION")
-    implementation("io.ktor:ktor-client-serialization-jvm:$KTOR_VERSION")
+    implementation("io.ktor:ktor-client-content-negotiation:$KTOR_VERSION")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$KTOR_VERSION")
 
     implementation("org.bouncycastle:bcprov-jdk15on:$BOUNCY_CASTLE_VERSION")
 

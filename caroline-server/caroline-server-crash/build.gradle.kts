@@ -21,8 +21,8 @@ dependencies {
 
     implementation("io.ktor:ktor-server-core:$KTOR_VERSION")
     implementation("io.ktor:ktor-server-sessions:$KTOR_VERSION")
-    implementation("io.ktor:ktor-auth:$KTOR_VERSION")
-    implementation("io.ktor:ktor-auth-jwt:$KTOR_VERSION")
+    implementation("io.ktor:ktor-server-auth:$KTOR_VERSION")
+    implementation("io.ktor:ktor-server-auth-jwt:$KTOR_VERSION")
     implementation("io.ktor:ktor-serialization:$KTOR_VERSION")
     implementation("io.ktor:ktor-websockets:$KTOR_VERSION")
 
