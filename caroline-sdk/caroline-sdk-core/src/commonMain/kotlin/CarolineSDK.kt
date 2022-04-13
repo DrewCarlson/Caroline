@@ -65,7 +65,7 @@ public fun CarolineCloudSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineS
         .apply {
             serverUrl = "https://api.caroline.cloud"
             serviceUrls.clear()
-            //serviceUrls.putAll(cloudUrlFormats)
+            // serviceUrls.putAll(cloudUrlFormats)
         }
         .build()
 }

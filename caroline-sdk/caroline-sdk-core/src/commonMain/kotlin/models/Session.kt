@@ -29,4 +29,3 @@ public sealed class CreateSessionResponse {
         PASSWORD_INCORRECT
     }
 }
-

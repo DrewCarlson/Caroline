@@ -1,0 +1,4 @@
+public final class cloud/caroline/store/EncryptedCarolineStore : cloud/caroline/store/CarolineStore {
+	public fun <init> ()V
+}
+

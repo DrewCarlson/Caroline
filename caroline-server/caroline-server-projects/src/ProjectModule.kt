@@ -1,8 +1,8 @@
 @file:JvmName("ProjectModule")
 package cloud.caroline
 
-import com.mongodb.ConnectionString
 import cloud.caroline.internal.carolineProperty
+import com.mongodb.ConnectionString
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.routing.*

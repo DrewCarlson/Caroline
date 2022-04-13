@@ -1,5 +1,3 @@
 package cloud.caroline.admin
 
-public interface CarolineAdminClient {
-
-}
+public interface CarolineAdminClient

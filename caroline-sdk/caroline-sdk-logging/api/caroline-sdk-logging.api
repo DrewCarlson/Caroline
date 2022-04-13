@@ -1,0 +1,125 @@
+public abstract interface class cloud/caroline/logging/CachingLogDispatcher : cloud/caroline/logging/LogDispatcher {
+	public static final field Companion Lcloud/caroline/logging/CachingLogDispatcher$Companion;
+	public abstract fun flush (Lcloud/caroline/logging/LogDispatcher;)V
+	public abstract fun getCacheSize ()J
+}
+
+public final class cloud/caroline/logging/CachingLogDispatcher$Companion {
+	public final fun create (Ljava/lang/String;J)Lcloud/caroline/logging/CachingLogDispatcher;
+	public static synthetic fun create$default (Lcloud/caroline/logging/CachingLogDispatcher$Companion;Ljava/lang/String;JILjava/lang/Object;)Lcloud/caroline/logging/CachingLogDispatcher;
+}
+
+public final class cloud/caroline/logging/CarolineLogLevel {
+	public static final field DEBUG I
+	public static final field ERROR I
+	public static final field FATAL I
+	public static final field INFO I
+	public static final field INSTANCE Lcloud/caroline/logging/CarolineLogLevel;
+	public static final field TRACE I
+	public static final field WARN I
+}
+
+public abstract interface class cloud/caroline/logging/CarolineLogger {
+	public static final field Companion Lcloud/caroline/logging/CarolineLogger$Companion;
+	public abstract fun flush (Z)V
+	public abstract fun log (ILjava/lang/String;Ljava/util/Map;)V
+	public abstract fun logDebug (Ljava/lang/String;Ljava/util/Map;)V
+	public abstract fun logError (Ljava/lang/String;Ljava/util/Map;)V
+	public abstract fun logFatal (Ljava/lang/String;Ljava/util/Map;)V
+	public abstract fun logInfo (Ljava/lang/String;Ljava/util/Map;)V
+	public abstract fun logTrace (Ljava/lang/String;Ljava/util/Map;)V
+	public abstract fun logWarn (Ljava/lang/String;Ljava/util/Map;)V
+}
+
+public final class cloud/caroline/logging/CarolineLogger$Companion {
+	public final fun create (Lcloud/caroline/core/CarolineSDK;Lcloud/caroline/logging/LogSchedule;Lcloud/caroline/logging/LogDispatcher;Lcloud/caroline/logging/CachingLogDispatcher;I)Lcloud/caroline/logging/CarolineLogger;
+	public static synthetic fun create$default (Lcloud/caroline/logging/CarolineLogger$Companion;Lcloud/caroline/core/CarolineSDK;Lcloud/caroline/logging/LogSchedule;Lcloud/caroline/logging/LogDispatcher;Lcloud/caroline/logging/CachingLogDispatcher;IILjava/lang/Object;)Lcloud/caroline/logging/CarolineLogger;
+}
+
+public final class cloud/caroline/logging/CarolineLogger$DefaultImpls {
+	public static synthetic fun flush$default (Lcloud/caroline/logging/CarolineLogger;ZILjava/lang/Object;)V
+	public static synthetic fun log$default (Lcloud/caroline/logging/CarolineLogger;ILjava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+	public static synthetic fun logDebug$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+	public static synthetic fun logError$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+	public static synthetic fun logFatal$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+	public static synthetic fun logInfo$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+	public static synthetic fun logTrace$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+	public static synthetic fun logWarn$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+}
+
+public abstract interface class cloud/caroline/logging/LogDispatcher {
+	public abstract fun dispatch (Ljava/util/List;)Z
+	public abstract fun dispose ()V
+}
+
+public final class cloud/caroline/logging/LogRecord {
+	public static final field Companion Lcloud/caroline/logging/LogRecord$Companion;
+	public synthetic fun <init> (ILjava/lang/String;IJLjava/lang/String;Ljava/util/Map;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;IJLjava/lang/String;Ljava/util/Map;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;IJLjava/lang/String;Ljava/util/Map;)Lcloud/caroline/logging/LogRecord;
+	public static synthetic fun copy$default (Lcloud/caroline/logging/LogRecord;Ljava/lang/String;IJLjava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcloud/caroline/logging/LogRecord;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttributes ()Ljava/util/Map;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLevel ()I
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getTimestamp ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/logging/LogRecord;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/logging/LogRecord$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/logging/LogRecord$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/logging/LogRecord;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/logging/LogRecord;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/logging/LogRecord$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class cloud/caroline/logging/LogSchedule {
+}
+
+public final class cloud/caroline/logging/LogSchedule$Immediate : cloud/caroline/logging/LogSchedule {
+	public fun <init> ()V
+	public fun <init> (Z)V
+	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun copy (Z)Lcloud/caroline/logging/LogSchedule$Immediate;
+	public static synthetic fun copy$default (Lcloud/caroline/logging/LogSchedule$Immediate;ZILjava/lang/Object;)Lcloud/caroline/logging/LogSchedule$Immediate;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRealtime ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class cloud/caroline/logging/LogSchedule$Interval : cloud/caroline/logging/LogSchedule {
+	public fun <init> (JZ)V
+	public final fun component1 ()J
+	public final fun component2 ()Z
+	public final fun copy (JZ)Lcloud/caroline/logging/LogSchedule$Interval;
+	public static synthetic fun copy$default (Lcloud/caroline/logging/LogSchedule$Interval;JZILjava/lang/Object;)Lcloud/caroline/logging/LogSchedule$Interval;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMilliseconds ()J
+	public final fun getRescheduleIfBufferFull ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class cloud/caroline/logging/LogSchedule$WhenBufferFull : cloud/caroline/logging/LogSchedule {
+	public static final field INSTANCE Lcloud/caroline/logging/LogSchedule$WhenBufferFull;
+}
+

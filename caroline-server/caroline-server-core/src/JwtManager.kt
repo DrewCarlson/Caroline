@@ -1,9 +1,9 @@
 package cloud.caroline
 
+import cloud.caroline.core.models.Permission
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
-import cloud.caroline.core.models.Permission
 import java.time.Instant
 import java.util.Date
 import java.util.concurrent.TimeUnit

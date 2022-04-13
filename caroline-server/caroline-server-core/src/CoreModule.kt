@@ -2,14 +2,13 @@
 
 package cloud.caroline
 
-import com.mongodb.ConnectionString
-import org.drewcarlson.ktor.permissions.PermissionAuthorization
 import cloud.caroline.admin.api.ApiKeyCredentials
 import cloud.caroline.core.models.Permission
 import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.data.RestrictedSession
 import cloud.caroline.data.UserSession
 import cloud.caroline.internal.carolineProperty
+import com.mongodb.ConnectionString
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -20,6 +19,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 import kotlinx.serialization.json.Json
+import org.drewcarlson.ktor.permissions.PermissionAuthorization
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
 import java.util.Base64

@@ -1,0 +1,528 @@
+public abstract interface class cloud/caroline/core/CarolineSDK {
+	public abstract fun getApiKey ()Ljava/lang/String;
+	public abstract fun getHttpClient ()Lio/ktor/client/HttpClient;
+	public abstract fun getProjectId ()Ljava/lang/String;
+	public abstract fun getScope ()Lkotlinx/coroutines/CoroutineScope;
+	public abstract fun getServerUrl ()Ljava/lang/String;
+	public abstract fun urlFor (Lcloud/caroline/core/CarolineSDK$Type;)Ljava/lang/String;
+}
+
+public final class cloud/caroline/core/CarolineSDK$Type : java/lang/Enum {
+	public static final field ADMIN Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field ANALYTICS Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field AUTH Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field CONFIG Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field CORE Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field CRASH Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field FUNCTIONS Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field LOGGING Lcloud/caroline/core/CarolineSDK$Type;
+	public static final field STORE Lcloud/caroline/core/CarolineSDK$Type;
+	public static fun valueOf (Ljava/lang/String;)Lcloud/caroline/core/CarolineSDK$Type;
+	public static fun values ()[Lcloud/caroline/core/CarolineSDK$Type;
+}
+
+public final class cloud/caroline/core/CarolineSDKBuilder {
+	public field httpClient Lio/ktor/client/HttpClient;
+	public final fun getApiKey ()Ljava/lang/String;
+	public final fun getDispatcher ()Lkotlinx/coroutines/CoroutineDispatcher;
+	public final fun getHttpClient ()Lio/ktor/client/HttpClient;
+	public final fun getProjectId ()Ljava/lang/String;
+	public final fun getServerUrl ()Ljava/lang/String;
+	public final fun getServiceUrls ()Ljava/util/Map;
+	public final fun setApiKey (Ljava/lang/String;)V
+	public final fun setDispatcher (Lkotlinx/coroutines/CoroutineDispatcher;)V
+	public final fun setHttpClient (Lio/ktor/client/HttpClient;)V
+	public final fun setProjectId (Ljava/lang/String;)V
+	public final fun setServerUrl (Ljava/lang/String;)V
+}
+
+public final class cloud/caroline/core/CarolineSDKKt {
+	public static final fun CarolineCloudSDK (Lkotlin/jvm/functions/Function1;)Lcloud/caroline/core/CarolineSDK;
+	public static final fun CarolineSDK (Lkotlin/jvm/functions/Function1;)Lcloud/caroline/core/CarolineSDK;
+}
+
+public final class cloud/caroline/core/models/CreateSessionBody {
+	public static final field Companion Lcloud/caroline/core/models/CreateSessionBody$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcloud/caroline/core/models/CreateSessionBody;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/CreateSessionBody;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcloud/caroline/core/models/CreateSessionBody;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPassword ()Ljava/lang/String;
+	public final fun getUsername ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateSessionBody;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateSessionBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateSessionBody$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateSessionBody;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateSessionBody;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateSessionBody$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class cloud/caroline/core/models/CreateSessionResponse {
+	public static final field Companion Lcloud/caroline/core/models/CreateSessionResponse$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateSessionResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$Failed : cloud/caroline/core/models/CreateSessionResponse {
+	public static final field Companion Lcloud/caroline/core/models/CreateSessionResponse$Failed$Companion;
+	public synthetic fun <init> (ILjava/util/Set;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/util/Set;)V
+	public final fun component1 ()Ljava/util/Set;
+	public final fun copy (Ljava/util/Set;)Lcloud/caroline/core/models/CreateSessionResponse$Failed;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/CreateSessionResponse$Failed;Ljava/util/Set;ILjava/lang/Object;)Lcloud/caroline/core/models/CreateSessionResponse$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrors ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateSessionResponse$Failed;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$Failed$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateSessionResponse$Failed$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateSessionResponse$Failed;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateSessionResponse$Failed;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$Failed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$SessionError : java/lang/Enum {
+	public static final field Companion Lcloud/caroline/core/models/CreateSessionResponse$SessionError$Companion;
+	public static final field PASSWORD_INCORRECT Lcloud/caroline/core/models/CreateSessionResponse$SessionError;
+	public static final field PASSWORD_INVALID Lcloud/caroline/core/models/CreateSessionResponse$SessionError;
+	public static final field USERNAME_INVALID Lcloud/caroline/core/models/CreateSessionResponse$SessionError;
+	public static final field USERNAME_NOT_FOUND Lcloud/caroline/core/models/CreateSessionResponse$SessionError;
+	public static fun valueOf (Ljava/lang/String;)Lcloud/caroline/core/models/CreateSessionResponse$SessionError;
+	public static fun values ()[Lcloud/caroline/core/models/CreateSessionResponse$SessionError;
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$SessionError$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateSessionResponse$SessionError$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateSessionResponse$SessionError;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateSessionResponse$SessionError;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$SessionError$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$Success : cloud/caroline/core/models/CreateSessionResponse {
+	public static final field Companion Lcloud/caroline/core/models/CreateSessionResponse$Success$Companion;
+	public synthetic fun <init> (ILcloud/caroline/core/models/User;Ljava/util/Set;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Lcloud/caroline/core/models/User;Ljava/util/Set;)V
+	public final fun component1 ()Lcloud/caroline/core/models/User;
+	public final fun component2 ()Ljava/util/Set;
+	public final fun copy (Lcloud/caroline/core/models/User;Ljava/util/Set;)Lcloud/caroline/core/models/CreateSessionResponse$Success;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/CreateSessionResponse$Success;Lcloud/caroline/core/models/User;Ljava/util/Set;ILjava/lang/Object;)Lcloud/caroline/core/models/CreateSessionResponse$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPermissions ()Ljava/util/Set;
+	public final fun getUser ()Lcloud/caroline/core/models/User;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateSessionResponse$Success;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateSessionResponse$Success$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateSessionResponse$Success;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateSessionResponse$Success;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateSessionResponse$Success$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserBody {
+	public static final field Companion Lcloud/caroline/core/models/CreateUserBody$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcloud/caroline/core/models/CreateUserBody;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/CreateUserBody;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcloud/caroline/core/models/CreateUserBody;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getInviteCode ()Ljava/lang/String;
+	public final fun getPassword ()Ljava/lang/String;
+	public final fun getUsername ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateUserBody;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateUserBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateUserBody$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateUserBody;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateUserBody;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserBody$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class cloud/caroline/core/models/CreateUserResponse {
+	public static final field Companion Lcloud/caroline/core/models/CreateUserResponse$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateUserResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$EmailError : java/lang/Enum {
+	public static final field ALREADY_EXISTS Lcloud/caroline/core/models/CreateUserResponse$EmailError;
+	public static final field Companion Lcloud/caroline/core/models/CreateUserResponse$EmailError$Companion;
+	public static final field INVALID Lcloud/caroline/core/models/CreateUserResponse$EmailError;
+	public static fun valueOf (Ljava/lang/String;)Lcloud/caroline/core/models/CreateUserResponse$EmailError;
+	public static fun values ()[Lcloud/caroline/core/models/CreateUserResponse$EmailError;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$EmailError$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateUserResponse$EmailError$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateUserResponse$EmailError;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateUserResponse$EmailError;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$EmailError$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$Failed : cloud/caroline/core/models/CreateUserResponse {
+	public static final field Companion Lcloud/caroline/core/models/CreateUserResponse$Failed$Companion;
+	public synthetic fun <init> (ILcloud/caroline/core/models/CreateUserResponse$UsernameError;Lcloud/caroline/core/models/CreateUserResponse$PasswordError;Lcloud/caroline/core/models/CreateUserResponse$EmailError;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Lcloud/caroline/core/models/CreateUserResponse$UsernameError;Lcloud/caroline/core/models/CreateUserResponse$PasswordError;Lcloud/caroline/core/models/CreateUserResponse$EmailError;)V
+	public final fun component1 ()Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public final fun component2 ()Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+	public final fun component3 ()Lcloud/caroline/core/models/CreateUserResponse$EmailError;
+	public final fun copy (Lcloud/caroline/core/models/CreateUserResponse$UsernameError;Lcloud/caroline/core/models/CreateUserResponse$PasswordError;Lcloud/caroline/core/models/CreateUserResponse$EmailError;)Lcloud/caroline/core/models/CreateUserResponse$Failed;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/CreateUserResponse$Failed;Lcloud/caroline/core/models/CreateUserResponse$UsernameError;Lcloud/caroline/core/models/CreateUserResponse$PasswordError;Lcloud/caroline/core/models/CreateUserResponse$EmailError;ILjava/lang/Object;)Lcloud/caroline/core/models/CreateUserResponse$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmailError ()Lcloud/caroline/core/models/CreateUserResponse$EmailError;
+	public final fun getPasswordError ()Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+	public final fun getUsernameError ()Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateUserResponse$Failed;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$Failed$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateUserResponse$Failed$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateUserResponse$Failed;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateUserResponse$Failed;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$Failed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$PasswordError : java/lang/Enum {
+	public static final field BLANK Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+	public static final field Companion Lcloud/caroline/core/models/CreateUserResponse$PasswordError$Companion;
+	public static final field TOO_LONG Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+	public static final field TOO_SHORT Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+	public static fun valueOf (Ljava/lang/String;)Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+	public static fun values ()[Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$PasswordError$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateUserResponse$PasswordError$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateUserResponse$PasswordError;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateUserResponse$PasswordError;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$PasswordError$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$Success : cloud/caroline/core/models/CreateUserResponse {
+	public static final field Companion Lcloud/caroline/core/models/CreateUserResponse$Success$Companion;
+	public synthetic fun <init> (ILcloud/caroline/core/models/User;Ljava/util/Set;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Lcloud/caroline/core/models/User;Ljava/util/Set;)V
+	public final fun component1 ()Lcloud/caroline/core/models/User;
+	public final fun component2 ()Ljava/util/Set;
+	public final fun copy (Lcloud/caroline/core/models/User;Ljava/util/Set;)Lcloud/caroline/core/models/CreateUserResponse$Success;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/CreateUserResponse$Success;Lcloud/caroline/core/models/User;Ljava/util/Set;ILjava/lang/Object;)Lcloud/caroline/core/models/CreateUserResponse$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPermissions ()Ljava/util/Set;
+	public final fun getUser ()Lcloud/caroline/core/models/User;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/CreateUserResponse$Success;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateUserResponse$Success$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateUserResponse$Success;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateUserResponse$Success;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$Success$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$UsernameError : java/lang/Enum {
+	public static final field ALREADY_EXISTS Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public static final field BLANK Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public static final field Companion Lcloud/caroline/core/models/CreateUserResponse$UsernameError$Companion;
+	public static final field TOO_LONG Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public static final field TOO_SHORT Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public static fun valueOf (Ljava/lang/String;)Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public static fun values ()[Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$UsernameError$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/CreateUserResponse$UsernameError$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/CreateUserResponse$UsernameError;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/CreateUserResponse$UsernameError;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/CreateUserResponse$UsernameError$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/Permission : java/lang/Enum {
+	public static final field Companion Lcloud/caroline/core/models/Permission$Companion;
+	public static final field CreateProject Lcloud/caroline/core/models/Permission;
+	public static final field DeleteProject Lcloud/caroline/core/models/Permission;
+	public static final field Global Lcloud/caroline/core/models/Permission;
+	public static final field ListProjects Lcloud/caroline/core/models/Permission;
+	public static fun valueOf (Ljava/lang/String;)Lcloud/caroline/core/models/Permission;
+	public static fun values ()[Lcloud/caroline/core/models/Permission;
+}
+
+public final class cloud/caroline/core/models/Permission$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/Permission$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/Permission;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/Permission;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/Permission$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/Project {
+	public static final field Companion Lcloud/caroline/core/models/Project$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcloud/caroline/core/models/Project;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/Project;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcloud/caroline/core/models/Project;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/Project;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/Project$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/Project$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/Project;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/Project;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/Project$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/UpdateUserBody {
+	public static final field Companion Lcloud/caroline/core/models/UpdateUserBody$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcloud/caroline/core/models/UpdateUserBody;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/UpdateUserBody;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcloud/caroline/core/models/UpdateUserBody;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCurrentPassword ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getPassword ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/UpdateUserBody;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/UpdateUserBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/UpdateUserBody$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/UpdateUserBody;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/UpdateUserBody;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/UpdateUserBody$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/User {
+	public static final field Companion Lcloud/caroline/core/models/User$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcloud/caroline/core/models/User;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/User;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcloud/caroline/core/models/User;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getUsername ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/User;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/User$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/User$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/User;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/User;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/User$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/UserCredentials {
+	public static final field Companion Lcloud/caroline/core/models/UserCredentials$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/Set;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)Lcloud/caroline/core/models/UserCredentials;
+	public static synthetic fun copy$default (Lcloud/caroline/core/models/UserCredentials;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILjava/lang/Object;)Lcloud/caroline/core/models/UserCredentials;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getPassword ()Ljava/lang/String;
+	public final fun getPermissions ()Ljava/util/Set;
+	public final fun getSalt ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/core/models/UserCredentials;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/core/models/UserCredentials$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/core/models/UserCredentials$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/core/models/UserCredentials;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/core/models/UserCredentials;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/core/models/UserCredentials$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+

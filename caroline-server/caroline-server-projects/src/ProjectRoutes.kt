@@ -1,6 +1,5 @@
 package cloud.caroline
 
-import org.drewcarlson.ktor.permissions.withPermission
 import cloud.caroline.admin.api.ApiKeyCredentials
 import cloud.caroline.admin.api.CreateProjectBody
 import cloud.caroline.admin.api.ProjectDetails
@@ -18,6 +17,7 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import org.bson.types.ObjectId
+import org.drewcarlson.ktor.permissions.withPermission
 import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
 import java.util.Base64

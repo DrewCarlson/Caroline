@@ -4,7 +4,6 @@ import io.ktor.client.*
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
-
 public class CarolineSDKBuilder internal constructor() {
 
     /**
@@ -67,7 +66,7 @@ public class CarolineSDKBuilder internal constructor() {
         serviceUrls.forEach { (type, format) ->
             check(format.contains("[serverUrl]")) {
                 "CarolineSDK `serviceUrls` must contain '[serverUrl]' to be formatted with the configured value\n" +
-                        "   CarolineSDK { serviceUrls[${type.name}] = \"${type.name.lowercase()}.[serverUrl]\" }"
+                    "   CarolineSDK { serviceUrls[${type.name}] = \"${type.name.lowercase()}.[serverUrl]\" }"
             }
         }
         val formattedServiceUrls = serviceUrls.mapValues { (_, format) ->

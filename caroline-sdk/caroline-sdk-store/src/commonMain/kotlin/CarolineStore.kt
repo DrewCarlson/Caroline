@@ -1,5 +1,3 @@
 package cloud.caroline.store
 
-public interface CarolineStore {
-
-}
+public interface CarolineStore

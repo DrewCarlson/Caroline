@@ -3,10 +3,11 @@
 **_[WIP] This project is unfinished and not ready for use, most features described are not complete._**
 
 [![](https://img.shields.io/badge/-sponsor-ff69b4)](https://github.com/sponsors/DrewCarlson)
-[![Maven Central](https://img.shields.io/maven-central/v/cloud.caroline/caroline-sdk-core?label=maven&color=blue)](https://search.maven.org/search?q=g:cloud.caroline)
+[![Maven Central](https://img.shields.io/maven-central/v/cloud.caroline/caroline-sdk-core?label=Release&color=blue)](https://search.maven.org/search?q=g:cloud.caroline)
+[![codecov](https://img.shields.io/codecov/c/github/drewcarlson/caroline?token=8KSLSMHQSX)](https://codecov.io/gh/DrewCarlson/Caroline)
 [![](https://github.com/DrewCarlson/Caroline/workflows/Server/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Aserver)
 [![](https://github.com/DrewCarlson/Caroline/workflows/SDK/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Asdk)
-[![](https://img.shields.io/github/workflow/status/drewcarlson/caroline/Publish%20Docker%20image?label=Docker)](https://github.com/DrewCarlson/Caroline/pkgs/container/caroline)
+[![](https://github.com/DrewCarlson/Caroline/workflows/Docker/badge.svg)](https://github.com/DrewCarlson/Caroline/pkgs/container/caroline)
 
 Caroline provides privacy respecting backend services with multiplatform Kotlin SDKs.
 

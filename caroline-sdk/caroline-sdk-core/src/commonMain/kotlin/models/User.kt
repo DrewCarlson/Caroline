@@ -67,4 +67,3 @@ public sealed class CreateUserResponse {
         INVALID, ALREADY_EXISTS
     }
 }
-

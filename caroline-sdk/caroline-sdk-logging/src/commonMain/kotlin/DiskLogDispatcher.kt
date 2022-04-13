@@ -17,7 +17,6 @@ internal class DiskLogDispatcher(
     }
 
     override fun flush(dispatcher: LogDispatcher?) {
-
     }
 
     override fun dispose() {

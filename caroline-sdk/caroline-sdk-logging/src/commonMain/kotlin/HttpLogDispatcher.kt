@@ -20,7 +20,7 @@ internal class HttpLogDispatcher(
         if (!scope.isActive) return false
 
         scope.launch {
-            sdk.httpClient.post("${serviceUrl}/api/logging/record") {
+            sdk.httpClient.post("$serviceUrl/api/logging/record") {
                 contentType(ContentType.Application.Json)
                 setBody(records)
             }

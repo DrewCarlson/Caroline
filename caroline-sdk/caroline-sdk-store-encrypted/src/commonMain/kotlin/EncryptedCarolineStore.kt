@@ -1,5 +1,3 @@
 package cloud.caroline.store
 
-public class EncryptedCarolineStore : CarolineStore {
-
-}
+public class EncryptedCarolineStore : CarolineStore

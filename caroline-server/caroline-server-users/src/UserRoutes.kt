@@ -1,18 +1,18 @@
 package cloud.caroline
 
-import com.mongodb.MongoQueryException
 import cloud.caroline.core.models.CreateSessionBody
 import cloud.caroline.core.models.CreateSessionResponse
 import cloud.caroline.core.models.CreateSessionResponse.SessionError
 import cloud.caroline.core.models.CreateUserBody
 import cloud.caroline.core.models.CreateUserResponse
+import cloud.caroline.core.models.CreateUserResponse.EmailError
 import cloud.caroline.core.models.CreateUserResponse.PasswordError
 import cloud.caroline.core.models.CreateUserResponse.UsernameError
-import cloud.caroline.core.models.CreateUserResponse.EmailError
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
 import cloud.caroline.data.UserSession
+import com.mongodb.MongoQueryException
 import io.ktor.http.HttpStatusCode.Companion.InternalServerError
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
 import io.ktor.server.application.*

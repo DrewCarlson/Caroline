@@ -1,0 +1,5 @@
+public abstract interface class cloud/caroline/config/CarolineConfig {
+	public abstract fun getString (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getStringOrNull (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
