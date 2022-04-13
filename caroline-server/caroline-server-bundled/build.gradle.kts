@@ -8,7 +8,17 @@ plugins {
 }
 
 application {
+    applicationName = "caroline-server"
     mainClass.set("io.ktor.server.netty.EngineMain")
+}
+
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    archiveFileName.set("caroline-server.jar")
+    archiveBaseName.set("caroline-server")
+    archiveClassifier.set("caroline-server")
+    manifest {
+        attributes(mapOf("Main-Class" to application.mainClass.get()))
+    }
 }
 
 dependencies {
@@ -72,12 +82,6 @@ sourceSets["test"].resources.srcDirs("testresources")
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "11"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-XXLanguage:+InlineClasses",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlinx.coroutines.FlowPreview",
-            "-Xopt-in=kotlin.time.ExperimentalTime",
-            "-Xopt-in=kotlin.RequiresOptIn"
-        )
+        freeCompilerArgs = freeCompilerArgs + listOf("-Xopt-in=kotlin.RequiresOptIn")
     }
 }
