@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/-sponsor-ff69b4)](https://github.com/sponsors/DrewCarlson)
 [![Maven Central](https://img.shields.io/maven-central/v/cloud.caroline/caroline-sdk-core?label=Release&color=blue)](https://search.maven.org/search?q=g:cloud.caroline)
 [![codecov](https://img.shields.io/codecov/c/github/drewcarlson/caroline?token=8KSLSMHQSX)](https://codecov.io/gh/DrewCarlson/Caroline)
-[![](https://github.com/DrewCarlson/Caroline/workflows/Tests/badge.svg)](https://github.com/DrewCarlson/Caroline/actions?query=workflow%3Atests)
+[![](https://github.com/DrewCarlson/Caroline/workflows/Tests/badge.svg)](https://github.com/DrewCarlson/Caroline/actions/workflows/tests.yml)
 
 Caroline provides privacy respecting backend services with multiplatform Kotlin SDKs.
 
@@ -113,7 +113,7 @@ services:
       MONGO_URL: mongodb://mongo
     restart: unless-stopped
     ports:
-      - 8080:8080
+      - "8080:8080"
     links:
       - mongo
 ```
