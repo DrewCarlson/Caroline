@@ -147,7 +147,7 @@ jobs:
       - name: Download server test results
         uses: actions/download-artifact@v3
         with:
-          name: test-results-sdk
+          name: test-results-server
       - name: Publish Unit Test Results
         uses: mikepenz/action-junit-report@v3
         if: ${{ always() }}
