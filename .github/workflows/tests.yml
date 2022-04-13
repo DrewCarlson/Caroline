@@ -42,13 +42,6 @@ jobs:
             :caroline-server:caroline-server-projects:check
             :caroline-server:caroline-server-users:check
 
-      - name: Archive Reports
-        uses: actions/upload-artifact@v3
-        if: ${{ always() }}
-        with:
-          name: reports-server
-          path: '**/build/reports/*'
-
       - name: Archive Test Results
         uses: actions/upload-artifact@v3
         if: ${{ always() }}
@@ -92,23 +85,6 @@ jobs:
           arguments: | #linuxX64Test
             jvmTest
             jsTest
-            :caroline-sdk:caroline-sdk-admin:koverXmlReport
-            :caroline-sdk:caroline-sdk-analytics:koverXmlReport
-            :caroline-sdk:caroline-sdk-auth:koverXmlReport
-            :caroline-sdk:caroline-sdk-config:koverXmlReport
-            :caroline-sdk:caroline-sdk-core:koverXmlReport
-            :caroline-sdk:caroline-sdk-functions:koverXmlReport
-            :caroline-sdk:caroline-sdk-internal:koverXmlReport
-            :caroline-sdk:caroline-sdk-logging:koverXmlReport
-            :caroline-sdk:caroline-sdk-store:koverXmlReport
-            :caroline-sdk:caroline-sdk-store-encrypted:koverXmlReport
-
-      - name: Archive Reports
-        uses: actions/upload-artifact@v3
-        if: ${{ always() }}
-        with:
-          name: reports-sdk
-          path: '**/build/reports/*'
 
       - name: Archive Test Results
         uses: actions/upload-artifact@v3
@@ -117,23 +93,19 @@ jobs:
           name: test-results-sdk
           path: '**/TEST-*.xml'
 
-  upload-kover-reports:
+  kover-report:
     runs-on: ubuntu-latest
     needs: [ test-server, test-sdk ]
     steps:
       - uses: actions/checkout@v3
-      - name: Download server kover reports
-        uses: actions/download-artifact@v3
+      - uses: gradle/gradle-build-action@v2
+        name: Generate Kover report
         with:
-          name: reports-server
-      - name: Download sdk kover reports
-        uses: actions/download-artifact@v3
-        with:
-          name: reports-sdk
+          arguments: koverMergedXmlReport
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: "**/build/reports/kover/**/*.xml"
+          files: "**/build/reports/kover/report.xml"
 
   upload-junit-results:
     runs-on: ubuntu-latest
