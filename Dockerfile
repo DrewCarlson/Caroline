@@ -1,4 +1,4 @@
-FROM openjdk:13-alpine
+FROM openjdk:19-alpine
 
 RUN apk add --update \
     bash \
