@@ -16,7 +16,7 @@ okhttp = "4.9.3"
 spotless = "6.4.2"
 ktlint = "0.43.2"
 agp = "7.0.4"
-dokka = "1.6.20"
+dokka = "1.6.21"
 binary_compat = "0.8.0"
 
 [plugins]
