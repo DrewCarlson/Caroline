@@ -104,7 +104,7 @@ jobs:
           arguments: :caroline-server:caroline-server-bundled:installShadowDist
 
       - name: Container registry Log in
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
