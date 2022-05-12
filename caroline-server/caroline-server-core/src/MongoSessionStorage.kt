@@ -25,8 +25,7 @@ internal class MongoSessionStorage(
 
     override suspend fun write(id: String, value: String) {
         sessions[id] = value
-        val sessionData = SessionData(id, value)
-        sessionCollection.updateOne(sessionData, updateOptions)
+        sessionCollection.updateOne(SessionData(id, value), updateOptions)
     }
 
     override suspend fun read(id: String): String {

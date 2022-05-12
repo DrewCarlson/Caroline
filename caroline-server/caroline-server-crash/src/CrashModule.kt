@@ -19,7 +19,7 @@ public fun Application.crashModule() {
     val mongodb = kmongo.getDatabase(databaseName).coroutine
     routing {
         route(apiPath) {
-            authenticate(PROVIDER_API_JWT) {
+            authenticate(PROVIDER_API_JWT, PROVIDER_USER_SESSION) {
                 addCrashRoutes(mongodb)
             }
         }

@@ -7,6 +7,8 @@ import io.ktor.client.request.HttpRequestPipeline
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.Unauthorized
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.CoroutineDispatcher
@@ -63,7 +65,7 @@ internal class CarolineSDKImpl(
         return serviceUrlMap[type] ?: serverUrl
     }
 
-    private suspend fun token(): String {
+    private suspend fun token(): String? {
         return tokenFlow.value ?: if (tokenLock.isLocked) {
             tokenFlow.drop(1).filterNotNull().first()
         } else {
@@ -74,10 +76,16 @@ internal class CarolineSDKImpl(
         }
     }
 
-    private suspend fun createAndUpdateToken(): String =
-        httpClient.get("$serverUrl/core/token") {
-            header(AUTHORIZATION, apiKey)
-        }.bodyAsText().also { newToken ->
-            tokenFlow.value = newToken
+    private suspend fun createAndUpdateToken(): String? {
+        val response = httpClient.get("$serverUrl/core/token") {
+            header("X-Caroline-Api-Key", apiKey)
         }
+        return if (response.status == OK) {
+            response.bodyAsText().also { newToken ->
+                tokenFlow.value = newToken
+            }
+        } else {
+            null
+        }
+    }
 }

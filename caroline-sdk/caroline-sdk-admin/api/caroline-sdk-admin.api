@@ -67,6 +67,69 @@ public final class cloud/caroline/admin/api/CreateProjectBody$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class cloud/caroline/admin/api/CreateProjectResponse {
+	public static final field Companion Lcloud/caroline/admin/api/CreateProjectResponse$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public static final fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/admin/api/CreateProjectResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class cloud/caroline/admin/api/CreateProjectResponse$Failed : cloud/caroline/admin/api/CreateProjectResponse {
+	public static final field Companion Lcloud/caroline/admin/api/CreateProjectResponse$Failed$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public abstract fun getMessage ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse$Failed;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/admin/api/CreateProjectResponse$Failed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/admin/api/CreateProjectResponse$Failed$InvalidRequestBody : cloud/caroline/admin/api/CreateProjectResponse$Failed {
+	public static final field INSTANCE Lcloud/caroline/admin/api/CreateProjectResponse$Failed$InvalidRequestBody;
+	public fun getMessage ()Ljava/lang/String;
+}
+
+public final class cloud/caroline/admin/api/CreateProjectResponse$Failed$ProjectNameExists : cloud/caroline/admin/api/CreateProjectResponse$Failed {
+	public static final field INSTANCE Lcloud/caroline/admin/api/CreateProjectResponse$Failed$ProjectNameExists;
+	public fun getMessage ()Ljava/lang/String;
+}
+
+public final class cloud/caroline/admin/api/CreateProjectResponse$Success : cloud/caroline/admin/api/CreateProjectResponse {
+	public static final field Companion Lcloud/caroline/admin/api/CreateProjectResponse$Success$Companion;
+	public synthetic fun <init> (ILcloud/caroline/core/models/Project;Lcloud/caroline/admin/api/ApiKeyCredentials;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Lcloud/caroline/core/models/Project;Lcloud/caroline/admin/api/ApiKeyCredentials;)V
+	public final fun component1 ()Lcloud/caroline/core/models/Project;
+	public final fun component2 ()Lcloud/caroline/admin/api/ApiKeyCredentials;
+	public final fun copy (Lcloud/caroline/core/models/Project;Lcloud/caroline/admin/api/ApiKeyCredentials;)Lcloud/caroline/admin/api/CreateProjectResponse$Success;
+	public static synthetic fun copy$default (Lcloud/caroline/admin/api/CreateProjectResponse$Success;Lcloud/caroline/core/models/Project;Lcloud/caroline/admin/api/ApiKeyCredentials;ILjava/lang/Object;)Lcloud/caroline/admin/api/CreateProjectResponse$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCredentials ()Lcloud/caroline/admin/api/ApiKeyCredentials;
+	public final fun getProject ()Lcloud/caroline/core/models/Project;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse$Success;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class cloud/caroline/admin/api/CreateProjectResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcloud/caroline/admin/api/CreateProjectResponse$Success$$serializer;
+	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/CreateProjectResponse$Success;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/admin/api/CreateProjectResponse$Success;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class cloud/caroline/admin/api/CreateProjectResponse$Success$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class cloud/caroline/admin/api/ProjectDetails {
 	public static final field Companion Lcloud/caroline/admin/api/ProjectDetails$Companion;
 	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Set;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V

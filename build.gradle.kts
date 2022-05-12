@@ -1,6 +1,7 @@
-import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 
-@Suppress("DSL_SCOPE_VIOLATION", "UnstableApiUsage")
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.multiplatform) apply false
     alias(libs.plugins.jvm) apply false
@@ -12,11 +13,14 @@ plugins {
     alias(libs.plugins.kover)
 }
 
-yarn.lockFileDirectory = rootDir.resolve("gradle/kotlin-js-store")
-
 allprojects {
     repositories {
+        mavenLocal()
         mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    }
+    plugins.withType<NodeJsRootPlugin> {
+        the<YarnRootExtension>().lockFileDirectory = rootDir.resolve("gradle/kotlin-js-store")
     }
 }
 

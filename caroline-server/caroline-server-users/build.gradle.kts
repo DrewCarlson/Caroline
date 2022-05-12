@@ -29,6 +29,7 @@ dependencies {
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.contentNegotiation)
+    implementation(libs.koa.ktor)
 
     implementation(libs.bouncyCastle)
 

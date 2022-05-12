@@ -1,23 +1,23 @@
 [versions]
-kotlin = "1.6.20"
-coroutines = "1.6.1"
-serialization = "1.3.2"
-ktorio = "2.0.0"
-atomicfu = "0.17.2"
-kover = "0.5.0"
-datetime = "0.3.2"
-ktor_perm = "0.2.1"
-kjob = "0.4.2"
+kotlin = "1.8.21"
+coroutines = "1.7.2"
+serialization = "1.5.1"
+ktorio = "2.3.2"
+atomicfu = "0.21.0"
+kover = "0.7.2"
+datetime = "0.4.0"
+ktor_perm = "0.3.0-SNAPSHOT"
+kjob = "0.6.0"
 bouncy_castle = "1.70"
 logback = "1.2.11"
-shadowjar = "7.1.2"
+shadowjar = "8.1.1"
 ax_runner = "1.4.0"
-okhttp = "4.9.3"
-spotless = "6.4.2"
-ktlint = "0.43.2"
-agp = "7.0.4"
-dokka = "1.6.20"
-binary_compat = "0.8.0"
+okhttp = "5.0.0-alpha.10"
+spotless = "6.6.0"
+ktlint = "0.45.2"
+agp = "7.4.2"
+dokka = "1.8.20"
+binary_compat = "0.13.2"
 
 [plugins]
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -74,6 +74,7 @@ ktor-server-cachingHeaders = { module = "io.ktor:ktor-server-caching-headers", v
 ktor-server-callLogging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktorio" }
 ktor-server-statusPages = { module = "io.ktor:ktor-server-status-pages", version.ref = "ktorio" }
 ktor-server-compression = { module = "io.ktor:ktor-server-compression", version.ref = "ktorio" }
+ktor-server-htmlBuilder = { module = "io.ktor:ktor-server-html-builder", version.ref = "ktorio" }
 ktor-server-cors = { module = "io.ktor:ktor-server-cors", version.ref = "ktorio" }
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktorio" }
 ktor-server-authJwt = { module = "io.ktor:ktor-server-auth-jwt", version.ref = "ktorio" }
@@ -86,9 +87,14 @@ bouncyCastle = { module = "org.bouncycastle:bcprov-jdk15on", version.ref = "boun
 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
-kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.5.1" }
+kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.9.0" }
 
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.7.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
 
+koa-dsl = { module = "guru.zoroark.koa:koa-dsl", version = "0.0.1-SNAPSHOT" }
+koa-ktor = { module = "guru.zoroark.koa:koa-ktor", version = "0.0.1-SNAPSHOT" }
+koa-ktor-ui = { module = "guru.zoroark.koa:koa-ktor-ui", version = "0.0.1-SNAPSHOT" }
+
 [bundles]
+koa = [ "koa-dsl", "koa-ktor", "koa-ktor-ui" ]

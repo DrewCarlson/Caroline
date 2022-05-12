@@ -19,7 +19,7 @@ public fun Application.projectModule() {
     val mongodb = kmongo.getDatabase(databaseName).coroutine
     routing {
         route(apiPath) {
-            authenticate(PROVIDER_API_JWT, PROVIDER_ADMIN_SESSION) {
+            authenticate(PROVIDER_API_JWT, PROVIDER_USER_SESSION) {
                 addProjectRoutes(mongodb)
             }
         }

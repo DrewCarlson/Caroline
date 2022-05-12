@@ -23,6 +23,7 @@ dependencies {
     implementation(libs.ktor.server.authJwt)
     implementation(libs.ktor.server.contentNegotiation)
     implementation(libs.ktor.server.websockets)
+    implementation(libs.ktor.server.htmlBuilder)
     implementation(libs.ktor.serialization)
 
     implementation(libs.ktor.client.core)
@@ -31,6 +32,7 @@ dependencies {
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.contentNegotiation)
     implementation(libs.ktor.serialization)
+    implementation(libs.koa.ktor)
 
     implementation(libs.bouncyCastle)
 
@@ -38,6 +40,8 @@ dependencies {
 
     implementation(libs.kmongo)
 
+    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit"))
     testImplementation(libs.ktor.server.tests)
 }
 

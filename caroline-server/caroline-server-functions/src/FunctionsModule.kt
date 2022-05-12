@@ -1,4 +1,4 @@
-@file:JvmName("CrashModule")
+@file:JvmName("FunctionsModule")
 package cloud.caroline
 
 import cloud.caroline.internal.carolineProperty
@@ -19,8 +19,10 @@ public fun Application.functionsModule() {
     val mongodb = kmongo.getDatabase(databaseName).coroutine
     routing {
         route(apiPath) {
-            authenticate(PROVIDER_API_JWT) {
-                addFunctionsRoutes(mongodb)
+            route("/{projectId}") {
+                authenticate(PROVIDER_API_JWT, PROVIDER_USER_SESSION) {
+                    addFunctionsRoutes(mongodb)
+                }
             }
         }
     }

@@ -12,6 +12,7 @@ dependencies {
 
     api(projects.carolineSdk.carolineSdkCore)
     api(projects.carolineSdk.carolineSdkAdmin)
+    api(projects.carolineSdk.carolineSdkFunctions)
     api(projects.carolineServer.carolineServerCore)
 
     implementation(libs.ktor.server.permissions)
@@ -30,6 +31,7 @@ dependencies {
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.contentNegotiation)
     implementation(libs.ktor.serialization)
+    implementation(libs.koa.ktor)
 
     implementation(libs.bouncyCastle)
 

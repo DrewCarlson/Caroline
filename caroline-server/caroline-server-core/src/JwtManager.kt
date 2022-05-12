@@ -4,6 +4,7 @@ import cloud.caroline.core.models.Permission
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
+import kotlinx.serialization.encodeToString
 import java.time.Instant
 import java.util.Date
 import java.util.concurrent.TimeUnit
@@ -34,14 +35,11 @@ public object JwtManager {
 
     public fun createToken(
         apiKey: String,
-        permissions: Set<Permission>,
         expiresInMs: Long = (7 * 24 * 60 * 60)
     ): String {
         check(this::issuer.isInitialized) { "JwtManager must be configured." }
-        val permissionArray = permissions.map(Permission::name).toTypedArray()
         return JWT.create()
             .withIssuer(issuer)
-            .withArrayClaim("permissions", permissionArray)
             .withAudience(apiKey)
             .withIssuedAt(Date())
             .apply {

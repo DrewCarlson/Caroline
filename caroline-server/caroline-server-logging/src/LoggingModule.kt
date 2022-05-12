@@ -19,8 +19,10 @@ public fun Application.loggingModule() {
     val mongodb = kmongo.getDatabase(databaseName).coroutine
     routing {
         route(apiPath) {
-            authenticate(PROVIDER_API_JWT, PROVIDER_ADMIN_SESSION) {
-                addLoggingRoutes(kmongo, mongodb)
+            route("/{projectId}") {
+                authenticate(PROVIDER_API_JWT, PROVIDER_USER_SESSION) {
+                    addLoggingRoutes(kmongo, mongodb)
+                }
             }
         }
     }

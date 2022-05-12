@@ -18,12 +18,14 @@ include(
 
 include(
     ":caroline-server:caroline-server-core",
+    ":caroline-server:caroline-server-admin",
     ":caroline-server:caroline-server-crash",
     ":caroline-server:caroline-server-logging",
     ":caroline-server:caroline-server-projects",
     ":caroline-server:caroline-server-users",
     ":caroline-server:caroline-server-bundled",
     ":caroline-server:caroline-server-internal",
+    ":caroline-server:caroline-server-analytics",
     ":caroline-server:caroline-server-functions",
     ":caroline-server:caroline-server-functions-runtime",
 )

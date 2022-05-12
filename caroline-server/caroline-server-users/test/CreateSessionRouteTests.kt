@@ -27,7 +27,7 @@ class CreateSessionRouteTests : BaseUserRouteTest() {
         assertEquals("test", sessionResponse.user.displayName)
         assertEquals("test", sessionResponse.user.username)
         assertEquals("test@test.com", sessionResponse.user.email)
-        assertEquals(setOf(Permission.Global), sessionResponse.permissions)
+        assertEquals(setOf(), sessionResponse.permissions)
     }
 
     @Test

@@ -2,6 +2,11 @@
 
 package cloud.caroline
 
+import cloud.caroline.data.UserSession
+import guru.zoroark.koa.ktor.Koa
+import guru.zoroark.koa.ktor.respondOpenApiDocument
+import guru.zoroark.koa.ktor.ui.KoaSwaggerUi
+import guru.zoroark.koa.ktor.ui.swaggerUi
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.server.application.*
@@ -10,8 +15,10 @@ import io.ktor.server.plugins.cachingheaders.*
 import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.compression.*
 import io.ktor.server.plugins.conditionalheaders.*
-import io.ktor.server.plugins.cors.*
+import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.forwardedheaders.*
+import io.ktor.server.routing.*
+import io.swagger.v3.oas.models.security.SecurityScheme
 import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -24,6 +31,23 @@ fun Application.module(testing: Boolean = false) {
     install(AutoHeadResponse)
     install(CachingHeaders)
 
+    install(Koa) {
+        title = "Caroline"
+        typeProperty = "__type"
+        "JWT" securityScheme SecurityScheme().apply {
+            type(SecurityScheme.Type.HTTP)
+            `in`(SecurityScheme.In.HEADER)
+            name("Authorization")
+            scheme("bearer")
+            bearerFormat("JWT")
+        }
+        "Session" securityScheme SecurityScheme().apply {
+            type(SecurityScheme.Type.APIKEY)
+            `in`(SecurityScheme.In.HEADER)
+            name(UserSession.KEY)
+        }
+    }
+    install(KoaSwaggerUi)
     install(CallLogging) {
         level = Level.INFO
     }
@@ -45,5 +69,11 @@ fun Application.module(testing: Boolean = false) {
         allowHeaders { true }
         allowHeader(HttpHeaders.Authorization)
         anyHost()
+    }
+    routing {
+        get("/openapi.json") {
+            call.respondOpenApiDocument()
+        }
+        swaggerUi("/swagger", "/openapi.json")
     }
 }

@@ -24,6 +24,8 @@ tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
 dependencies {
     implementation(projects.carolineServer.carolineServerCore)
     implementation(projects.carolineServer.carolineServerInternal)
+    implementation(projects.carolineServer.carolineServerAdmin)
+    implementation(projects.carolineServer.carolineServerAnalytics)
     implementation(projects.carolineServer.carolineServerUsers)
     implementation(projects.carolineServer.carolineServerProjects)
     implementation(projects.carolineServer.carolineServerLogging)
@@ -53,6 +55,7 @@ dependencies {
     implementation(libs.ktor.server.callLogging)
     implementation(libs.ktor.server.autoHeadResponse)
     implementation(libs.ktor.server.websockets)
+    implementation(libs.bundles.koa)
 
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)

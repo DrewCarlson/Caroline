@@ -13,13 +13,13 @@ public data class UserSession(
     val sessionStarted: Long = Instant.now().toEpochMilli(),
 ) : RestrictedSession {
     public companion object {
-        public const val KEY: String = "session-token"
+        public const val KEY: String = "X-Caroline-User-Session"
     }
 }
 
 @Serializable
 public data class ProjectUserSession(
-    val payload: Payload,
+    val payload: Payload?,
     val apiKey: String,
     val projectId: String,
     override val permissions: Set<Permission>

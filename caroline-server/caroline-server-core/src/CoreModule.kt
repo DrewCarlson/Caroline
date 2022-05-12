@@ -18,14 +18,17 @@ import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import org.bouncycastle.util.encoders.Hex
 import org.drewcarlson.ktor.permissions.PermissionAuthorization
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
-import java.util.Base64
 import kotlin.random.Random
 
 private const val SESSION_KEY_BYTES = 32
+public const val X_CAROLINE_API_KEY: String = "X-Caroline-Api-Key"
 
 public val json: Json = Json {
     isLenient = true
@@ -56,25 +59,17 @@ public fun Application.coreModule() {
             realm = jwtRealm
             verifier(JwtManager.verifier())
             validate { credential ->
-                val audience = credential.payload.audience.firstOrNull()
-                    ?: return@validate null
-                // TODO: Just check for api key existence now.
-                //   API keys, permissions, and invalidation should
-                //   be refreshed elsewhere.
-                val creds = apiKeyDb.findOneById(audience) ?: return@validate null
+                val audience = credential.payload.audience.firstOrNull() ?: return@validate null
+                val credentials = apiKeyDb.findOneById(audience) ?: return@validate null
                 ProjectUserSession(
-                    projectId = creds.projectId,
+                    projectId = credentials.projectId,
                     apiKey = audience,
-                    permissions = credential.payload
-                        .getClaim("permissions")
-                        .asList(String::class.java)
-                        .map(Permission::valueOf)
-                        .toSet(),
-                    payload = credential.payload
+                    permissions = credentials.permissions,
+                    payload = credential.payload,
                 )
             }
         }
-        session<UserSession>(PROVIDER_ADMIN_SESSION) {
+        session<UserSession>(PROVIDER_USER_SESSION) {
             challenge { call.respond(HttpStatusCode.Unauthorized) }
             validate { it }
         }
@@ -82,8 +77,11 @@ public fun Application.coreModule() {
 
     install(Sessions) {
         header<UserSession>(UserSession.KEY, MongoSessionStorage(mongodb)) {
-            val base64 = Base64.getEncoder()
-            identity { base64.encodeToString(Random.nextBytes(SESSION_KEY_BYTES)) }
+            identity { Hex.toHexString(Random.nextBytes(SESSION_KEY_BYTES)) }
+            serializer = object : SessionSerializer<UserSession> {
+                override fun deserialize(text: String): UserSession = json.decodeFromString(text)
+                override fun serialize(session: UserSession): String = json.encodeToString(session)
+            }
         }
     }
 
