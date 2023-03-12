@@ -17,7 +17,7 @@ spotless = "6.4.2"
 ktlint = "0.43.2"
 agp = "7.0.4"
 dokka = "1.6.20"
-binary_compat = "0.8.0"
+binary_compat = "0.13.0"
 
 [plugins]
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
