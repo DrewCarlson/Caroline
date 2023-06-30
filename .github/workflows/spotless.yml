@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
       - name: Get changed files
         id: changes
-        uses: tj-actions/changed-files@v19
+        uses: tj-actions/changed-files@v37
         with:
           files: |
             .github/workflows/spotless.yml
