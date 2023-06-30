@@ -186,12 +186,15 @@ private fun Route.addSetupRoutes(
             )
             when (userResponse) {
                 is CreateUserResponse.Success -> Unit
-                is CreateUserResponse.Failed -> return@post call.respond(userResponse)
+                is CreateUserResponse.Failed -> {
+                    initializeMutex.unlock()
+                    return@post call.respond(userResponse)
+                }
             }
             val projectResponse = projectService.createProject(
                 userResponse.user.id,
                 CreateProjectBody(
-                    name = userResponse.user.username,
+                    name = "Default Project",
                     description = "A project for ${userResponse.user.displayName}",
                 ),
             )
@@ -200,7 +203,8 @@ private fun Route.addSetupRoutes(
                 CreateProjectResponse.Failed.InvalidRequestBody,
                 CreateProjectResponse.Failed.ProjectNameExists,
                 -> {
-                    // TODO: Remove user and credentials
+                    userService.deleteUser(userResponse.user.id)
+                    initializeMutex.unlock()
                     return@post call.respond("Failed to create project: $projectResponse")
                 }
             }

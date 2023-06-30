@@ -5,10 +5,10 @@ import cloud.caroline.admin.api.CreateProjectBody
 import cloud.caroline.admin.api.CreateProjectResponse
 import cloud.caroline.admin.api.ProjectDetails
 import cloud.caroline.core.models.*
+import org.bouncycastle.util.encoders.Hex
 import org.bson.types.ObjectId
 import org.litote.kmongo.coroutine.CoroutineCollection
 import org.litote.kmongo.eq
-import java.util.*
 import kotlin.random.Random
 
 private const val API_KEY_BYTES = 48
@@ -24,7 +24,7 @@ public class CarolineProjectService(
     }
 
     public suspend fun createProject(ownerUserId: String, body: CreateProjectBody): CreateProjectResponse {
-        val queryProjectName = body.name.lowercase()
+        val queryProjectName = body.name.lowercase().replace(' ', '-')
         val existingByName = projectDb.findOne(Project::name eq queryProjectName)
         if (existingByName != null) {
             return CreateProjectResponse.Failed.ProjectNameExists
@@ -65,7 +65,7 @@ public class CarolineProjectService(
         return CreateProjectResponse.Success(project, apiKeyCredentials)
     }
 
-    private fun generateProjectApiKey(): String {
-        return Base64.getEncoder().encodeToString(Random.nextBytes(API_KEY_BYTES))
+    public fun generateProjectApiKey(): String {
+        return Hex.toHexString(Random.nextBytes(API_KEY_BYTES))
     }
 }

@@ -99,6 +99,17 @@ public class CarolineUserService(
         }
     }
 
+    public suspend fun deleteUser(id: String): Boolean {
+        return try {
+            val result = users.deleteOneById(id)
+            credentialsDb.deleteOneById(id)
+            result.deletedCount == 1L
+        } catch (e: MongoQueryException) {
+            e.printStackTrace()
+            false
+        }
+    }
+
     public companion object {
         public fun hashPassword(password: String): String {
             require(password.length in PASSWORD_LENGTH_MIN..PASSWORD_LENGTH_MAX) {

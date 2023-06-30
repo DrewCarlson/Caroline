@@ -30,10 +30,6 @@ import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
 import org.litote.kmongo.`in`
 import org.litote.kmongo.pull
-import java.util.Base64
-import kotlin.random.Random
-
-private const val API_KEY_BYTES = 48
 
 internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
     val projectDb = mongodb.getCollection<Project>()
@@ -212,6 +208,11 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                         "projectId" pathParameter {
                             description = "The project id."
                         }
+                        OK.value response {
+                            json {
+                                schema<List<ApiKeyCredentials>>()
+                            }
+                        }
                     }
 
                     post {
@@ -222,7 +223,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                             ?: return@post call.respond(UnprocessableEntity)
                         val session = call.principal<UserSession>()!!
                         if (projectDetails.ownerId == session.userId) {
-                            val apiKey = generateProjectApiKey()
+                            val apiKey = projectService.generateProjectApiKey()
                             val apiKeyCredentials = ApiKeyCredentials(
                                 apiKey = apiKey,
                                 projectId = projectDetails.id,
@@ -305,10 +306,6 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
             }
         }
     }
-}
-
-public fun generateProjectApiKey(): String {
-    return Base64.getEncoder().encodeToString(Random.nextBytes(API_KEY_BYTES))
 }
 
 @KtorDsl
