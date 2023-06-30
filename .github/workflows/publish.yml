@@ -27,7 +27,7 @@ jobs:
 
       - name: Get changed files
         id: check
-        uses: tj-actions/changed-files@v19
+        uses: tj-actions/changed-files@v37
         with:
           files: |
             .github/workflows/publish.yml
@@ -40,7 +40,7 @@ jobs:
 
       - name: Get changed files
         id: docs
-        uses: tj-actions/changed-files@v19
+        uses: tj-actions/changed-files@v37
         with:
           files: |
             .github/workflows/publish.yml
