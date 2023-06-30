@@ -3,7 +3,7 @@ package cloud.caroline.user
 import cloud.caroline.coreModule
 import cloud.caroline.userModule
 import com.mongodb.ConnectionString
-import guru.zoroark.koa.ktor.Koa
+import guru.zoroark.tegral.openapi.ktor.TegralOpenApiKtor
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
@@ -35,7 +35,7 @@ open class BaseUserRouteTest {
                 }
             }
             application {
-                install(Koa)
+                install(TegralOpenApiKtor)
                 coreModule()
                 userModule()
             }
