@@ -7,7 +7,6 @@ import io.ktor.client.request.HttpRequestPipeline
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.statement.*
-import io.ktor.http.*
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.Unauthorized
 import io.ktor.serialization.kotlinx.json.*

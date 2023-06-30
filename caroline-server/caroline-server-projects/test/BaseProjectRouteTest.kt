@@ -3,7 +3,6 @@ package cloud.caroline
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
-import cloud.caroline.data.UserSession
 import com.mongodb.ConnectionString
 import guru.zoroark.koa.ktor.Koa
 import io.ktor.client.*
@@ -12,7 +11,6 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.config.*
 import io.ktor.server.testing.*
-import io.swagger.v3.oas.models.security.SecurityScheme
 import kotlinx.coroutines.runBlocking
 import org.bson.types.ObjectId
 import org.junit.Before

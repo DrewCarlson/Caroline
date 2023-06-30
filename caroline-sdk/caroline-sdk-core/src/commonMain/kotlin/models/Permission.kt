@@ -3,7 +3,6 @@ package cloud.caroline.core.models
 import cloud.caroline.internal.carolineJson
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
-import kotlinx.serialization.decodeFromString
 
 @Serializable
 public enum class Services {

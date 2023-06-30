@@ -1,7 +1,6 @@
 package cloud.caroline.user
 
 import cloud.caroline.coreModule
-import cloud.caroline.data.UserSession
 import cloud.caroline.userModule
 import com.mongodb.ConnectionString
 import guru.zoroark.koa.ktor.Koa
@@ -11,7 +10,6 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.config.*
 import io.ktor.server.testing.*
-import io.swagger.v3.oas.models.security.SecurityScheme
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.litote.kmongo.coroutine.coroutine
