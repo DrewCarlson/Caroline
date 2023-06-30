@@ -5,8 +5,6 @@ plugins {
     kotlin("plugin.serialization")
 }
 
-apply(from = rootProject.file("gradle/publishing.gradle.kts"))
-
 dependencies {
     implementation(projects.carolineServer.carolineServerInternal)
     implementation(projects.carolineServer.carolineServerCore)

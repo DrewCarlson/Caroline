@@ -4,8 +4,6 @@ plugins {
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
-apply(from = rootProject.file("gradle/publishing.gradle.kts"))
-
 kotlin {
     jvm()
     js(IR) {

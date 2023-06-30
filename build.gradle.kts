@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.dokka)
     alias(libs.plugins.spotless)
     alias(libs.plugins.kover)
+    alias(libs.plugins.mavenPublish) apply false
 }
 
 allprojects {
@@ -42,6 +43,16 @@ subprojects {
     }
 
     apply(plugin = "org.jetbrains.kotlinx.kover")
+
+    if (project.name != "caroline-server-bundled") {
+        apply(plugin = "org.jetbrains.dokka")
+        apply(plugin = "com.vanniktech.maven.publish")
+    }
+    System.getenv("GITHUB_REF")?.let { ref ->
+        if (ref.startsWith("refs/tags/v")) {
+            version = ref.substringAfterLast("refs/tags/v")
+        }
+    }
 }
 
 dependencies {
