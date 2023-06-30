@@ -16,7 +16,7 @@ internal data class SessionData(
 )
 
 internal class MongoSessionStorage(
-    mongodb: CoroutineDatabase
+    mongodb: CoroutineDatabase,
 ) : SessionStorage {
 
     private val sessions = ConcurrentHashMap<String, String>()

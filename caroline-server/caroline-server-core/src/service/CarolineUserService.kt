@@ -55,13 +55,13 @@ public class CarolineUserService(
             id = ObjectId.get().toString(),
             username = username,
             displayName = body.username,
-            email = email
+            email = email,
         )
 
         val credentials = UserCredentials(
             id = user.id,
             passwordHash = hashPassword(body.password),
-            permissions = permissions
+            permissions = permissions,
         )
         return try {
             users.insertOne(user)

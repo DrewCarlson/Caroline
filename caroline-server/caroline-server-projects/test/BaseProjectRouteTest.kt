@@ -58,10 +58,10 @@ open class BaseProjectRouteTest {
         val userCollection = testDb.getCollection<User>()
         val userCredentialsCollection = testDb.getCollection<UserCredentials>()
         userCollection.insertOne(
-            User(ObjectId.get().toString(), "test", "test", "test@test.com")
+            User(ObjectId.get().toString(), "test", "test", "test@test.com"),
         )
         userCredentialsCollection.insertOne(
-            UserCredentials(ObjectId.get().toString(), "", permissions)
+            UserCredentials(ObjectId.get().toString(), "", permissions),
         )
     }
 }

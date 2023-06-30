@@ -15,7 +15,6 @@ plugins {
 
 allprojects {
     repositories {
-        mavenLocal()
         mavenCentral()
         maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     }
@@ -35,6 +34,8 @@ subprojects {
                     mapOf(
                         "ktlint_standard_no-wildcard-imports" to "disabled",
                         "ktlint_standard_no-unused-imports" to "disabled",
+                        "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
+                        "ij_kotlin_allow_trailing_comma" to "true",
                     ),
                 )
         }

@@ -15,7 +15,7 @@ public interface CachingLogDispatcher : LogDispatcher {
          */
         public fun create(
             filePath: String,
-            cacheSize: Long = DEFAULT_CACHE_SIZE
+            cacheSize: Long = DEFAULT_CACHE_SIZE,
         ): CachingLogDispatcher {
             return DiskLogDispatcher(filePath, cacheSize)
         }

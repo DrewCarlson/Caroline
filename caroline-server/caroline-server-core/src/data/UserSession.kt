@@ -22,7 +22,7 @@ public data class ProjectUserSession(
     val payload: Payload?,
     val apiKey: String,
     val projectId: String,
-    override val permissions: Set<Permission>
+    override val permissions: Set<Permission>,
 ) : RestrictedSession
 
 public interface RestrictedSession : Principal {

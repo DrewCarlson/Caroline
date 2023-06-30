@@ -19,7 +19,7 @@ class CreateUserRouteTests : BaseUserRouteTest() {
                 username = "test",
                 password = "test1234",
                 inviteCode = null,
-                email = "test@test.com"
+                email = "test@test.com",
             )
             setBody(body)
         }
@@ -38,7 +38,7 @@ class CreateUserRouteTests : BaseUserRouteTest() {
                 username = "test",
                 password = "test1234",
                 inviteCode = null,
-                email = "test@test.com"
+                email = "test@test.com",
             )
             setBody(body)
         }
@@ -50,7 +50,7 @@ class CreateUserRouteTests : BaseUserRouteTest() {
                 username = "test2",
                 password = "test1234",
                 inviteCode = null,
-                email = "test@test2.com"
+                email = "test@test2.com",
             )
             setBody(body)
         }
@@ -70,7 +70,7 @@ class CreateUserRouteTests : BaseUserRouteTest() {
                 username = "test",
                 password = "test1234",
                 inviteCode = null,
-                email = "test@test.com"
+                email = "test@test.com",
             )
             setBody(body)
         }
@@ -82,7 +82,7 @@ class CreateUserRouteTests : BaseUserRouteTest() {
                 username = "test",
                 password = "test1234",
                 inviteCode = null,
-                email = "test@test2.com"
+                email = "test@test2.com",
             )
             setBody(body)
         }
@@ -104,7 +104,7 @@ class CreateUserRouteTests : BaseUserRouteTest() {
                 username = "test",
                 password = "test1234",
                 inviteCode = null,
-                email = "test@test.com"
+                email = "test@test.com",
             )
             setBody(body)
         }
@@ -116,7 +116,7 @@ class CreateUserRouteTests : BaseUserRouteTest() {
                 username = "test2",
                 password = "test1234",
                 inviteCode = null,
-                email = "test@test.com"
+                email = "test@test.com",
             )
             setBody(body)
         }

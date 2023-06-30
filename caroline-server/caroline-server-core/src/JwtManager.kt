@@ -33,7 +33,7 @@ public object JwtManager {
 
     public fun createToken(
         apiKey: String,
-        expiresInMs: Long = (7 * 24 * 60 * 60)
+        expiresInMs: Long = (7 * 24 * 60 * 60),
     ): String {
         check(this::issuer.isInitialized) { "JwtManager must be configured." }
         return JWT.create()

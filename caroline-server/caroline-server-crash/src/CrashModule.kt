@@ -1,4 +1,5 @@
 @file:JvmName("CrashModule")
+
 package cloud.caroline
 
 import cloud.caroline.internal.carolineProperty

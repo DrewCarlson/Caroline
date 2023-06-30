@@ -1,8 +1,6 @@
 package cloud.caroline.logging
 
 import cloud.caroline.core.CarolineSDK
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 
 private const val DEFAULT_MESSAGE_BUFFER_SIZE = 150
 
@@ -24,13 +22,13 @@ public interface CarolineLogger {
             logSchedule: LogSchedule,
             outputLogDispatcher: LogDispatcher = HttpLogDispatcher(sdk),
             cachingLogDispatcher: CachingLogDispatcher? = null,
-            messageBufferSize: Int = DEFAULT_MESSAGE_BUFFER_SIZE
+            messageBufferSize: Int = DEFAULT_MESSAGE_BUFFER_SIZE,
         ): CarolineLogger {
             return CarolineLoggerImpl(
                 cachingLogDispatcher = cachingLogDispatcher,
                 outputLogDispatcher = outputLogDispatcher,
                 logSchedule = logSchedule,
-                messageBufferSize = messageBufferSize
+                messageBufferSize = messageBufferSize,
             )
         }
     }

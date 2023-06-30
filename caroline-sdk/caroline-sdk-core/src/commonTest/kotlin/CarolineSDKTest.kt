@@ -23,7 +23,7 @@ class CarolineSDKTest {
         }
         assertTrue(
             error.message.orEmpty().contains("serverUrl"),
-            "Exception should mention serverUrl"
+            "Exception should mention serverUrl",
         )
     }
 
@@ -37,7 +37,7 @@ class CarolineSDKTest {
         }
         assertTrue(
             error.message.orEmpty().contains("projectId"),
-            "Exception should mention projectId"
+            "Exception should mention projectId",
         )
     }
 
@@ -52,7 +52,7 @@ class CarolineSDKTest {
         }
         assertTrue(
             error.message.orEmpty().contains("apiKey"),
-            "Exception should mention apiKey"
+            "Exception should mention apiKey",
         )
     }
 }

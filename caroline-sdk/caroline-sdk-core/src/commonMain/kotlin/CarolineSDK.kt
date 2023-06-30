@@ -66,7 +66,7 @@ public fun CarolineCloudSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineS
             serviceUrls.putAll(
                 CarolineSDK.Type.values().associateWith { type ->
                     "${type.name.lowercase()}.[serverUrl]"
-                }
+                },
             )
         }
         .build()

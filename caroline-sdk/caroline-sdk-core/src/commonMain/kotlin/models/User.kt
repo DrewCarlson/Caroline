@@ -9,7 +9,7 @@ public data class User(
     val id: String,
     val username: String,
     val displayName: String,
-    val email: String?
+    val email: String?,
 )
 
 @Serializable
@@ -17,7 +17,7 @@ public data class UserCredentials(
     @SerialName("_id")
     val id: String,
     val passwordHash: String,
-    val permissions: Set<Permission>
+    val permissions: Set<Permission>,
 )
 
 @Serializable
@@ -70,6 +70,6 @@ public sealed class CreateUserResponse {
 
     @Serializable
     public enum class OtherError {
-        SERVER_ERROR
+        SERVER_ERROR,
     }
 }

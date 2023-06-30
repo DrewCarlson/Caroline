@@ -28,7 +28,7 @@ internal class CarolineSDKImpl(
     override val apiKey: String,
     private val serviceUrlMap: Map<CarolineSDK.Type, String>,
     httpClient: HttpClient,
-    dispatcher: CoroutineDispatcher
+    dispatcher: CoroutineDispatcher,
 ) : CarolineSDK {
 
     private val tokenLock = Mutex()

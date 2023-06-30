@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 public data class CreateSessionBody(
     val username: String,
-    val password: String
+    val password: String,
 )
 
 @Serializable
@@ -18,7 +18,7 @@ public sealed class CreateSessionResponse {
 
     @Serializable
     public data class Failed(
-        val errors: Set<SessionError>
+        val errors: Set<SessionError>,
     ) : CreateSessionResponse()
 
     @Serializable
@@ -26,6 +26,6 @@ public sealed class CreateSessionResponse {
         USERNAME_INVALID,
         USERNAME_NOT_FOUND,
         PASSWORD_INVALID,
-        PASSWORD_INCORRECT
+        PASSWORD_INCORRECT,
     }
 }

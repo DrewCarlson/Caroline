@@ -35,12 +35,12 @@ public class CarolineProjectService(
             id = ObjectId.get().toString(),
             name = queryProjectName,
             displayName = body.name,
-            description = body.description
+            description = body.description,
         )
         val projectDetails = ProjectDetails(
             id = project.id,
             ownerId = ownerUserId,
-            apiKeys = listOf(rootApiKey)
+            apiKeys = listOf(rootApiKey),
         )
         val apiKeyCredentials = ApiKeyCredentials(
             apiKey = rootApiKey,
@@ -56,7 +56,7 @@ public class CarolineProjectService(
                     projectId = project.id,
                     services = setOf(Services.ALL),
                 ),
-            )
+            ),
         )
 
         projectDb.insertOne(project)

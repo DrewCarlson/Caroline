@@ -19,6 +19,6 @@ public interface CarolineCrash {
      */
     public fun report(
         throwable: Throwable,
-        attributes: Map<String, String> = emptyMap()
+        attributes: Map<String, String> = emptyMap(),
     )
 }

@@ -95,7 +95,7 @@ class CreateSessionRouteTests : BaseUserRouteTest() {
                 username = username,
                 password = password,
                 inviteCode = null,
-                email = email
+                email = email,
             )
             setBody(body)
         }.body<CreateUserResponse.Success>()

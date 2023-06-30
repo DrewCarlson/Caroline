@@ -11,7 +11,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 internal class HttpLogDispatcher(
-    private val sdk: CarolineSDK
+    private val sdk: CarolineSDK,
 ) : LogDispatcher {
     private val scope = CoroutineScope(sdk.scope.coroutineContext + SupervisorJob())
     private val serviceUrl = sdk.urlFor(CarolineSDK.Type.LOGGING)
