@@ -8,9 +8,9 @@ import cloud.caroline.core.models.*
 import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.service.CarolineProjectService
 import cloud.caroline.service.CarolineUserService
-import guru.zoroark.koa.dsl.DescriptionBuilder
-import guru.zoroark.koa.dsl.schema
-import guru.zoroark.koa.ktor.describe
+import guru.zoroark.tegral.openapi.dsl.OperationDsl
+import guru.zoroark.tegral.openapi.dsl.schema
+import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.Unauthorized
@@ -55,10 +55,10 @@ internal fun Route.addCoreRoutes(mongodb: CoroutineDatabase) {
                     required = true
                     schema<String>()
                 }
-                OK response {
+                OK.value response {
                     description = "The new session token."
                 }
-                Unauthorized response {
+                Unauthorized.value response {
                     description = "The API Key is missing or invalid."
                 }
             }
@@ -126,7 +126,7 @@ private fun Route.addSetupRoutes(
                         postForm(
                             action = "setup",
                             encType = FormEncType.multipartFormData,
-                            classes = "center"
+                            classes = "center",
                         ) {
                             textInput {
                                 name = "username"
@@ -182,7 +182,7 @@ private fun Route.addSetupRoutes(
                 setOf(
                     Permission.Global,
                     Permission.Admin(createProjects = true),
-                )
+                ),
             )
             when (userResponse) {
                 is CreateUserResponse.Success -> Unit
@@ -193,12 +193,13 @@ private fun Route.addSetupRoutes(
                 CreateProjectBody(
                     name = userResponse.user.username,
                     description = "A project for ${userResponse.user.displayName}",
-                )
+                ),
             )
             when (projectResponse) {
                 is CreateProjectResponse.Success -> Unit
                 CreateProjectResponse.Failed.InvalidRequestBody,
-                CreateProjectResponse.Failed.ProjectNameExists -> {
+                CreateProjectResponse.Failed.ProjectNameExists,
+                -> {
                     // TODO: Remove user and credentials
                     return@post call.respond("Failed to create project: $projectResponse")
                 }
@@ -222,7 +223,7 @@ private fun Route.addSetupRoutes(
 
 @KtorDsl
 private infix fun Route.describeCore(
-    block: DescriptionBuilder.() -> Unit,
+    block: OperationDsl.() -> Unit,
 ) = describe {
     block()
     tags += "Core"

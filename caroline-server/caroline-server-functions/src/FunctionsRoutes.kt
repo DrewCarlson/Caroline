@@ -5,9 +5,9 @@ import cloud.caroline.core.models.Services
 import cloud.caroline.internal.checkServicesPermission
 import cloud.caroline.models.CreateFunctionBody
 import cloud.caroline.models.CreateFunctionResponse
-import guru.zoroark.koa.dsl.DescriptionBuilder
-import guru.zoroark.koa.dsl.schema
-import guru.zoroark.koa.ktor.describe
+import guru.zoroark.tegral.openapi.dsl.OperationDsl
+import guru.zoroark.tegral.openapi.dsl.schema
+import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.*
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.server.routing.*
@@ -32,12 +32,16 @@ internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
             get {
             } describeFunctions {
                 summary = "List existing functions."
-                ContentType.Application.Json requestBody {
-                    schema<CreateFunctionBody>()
+                body {
+                    json {
+                        schema<CreateFunctionBody>()
+                    }
                 }
 
-                OK response ContentType.Application.Json {
-                    schema<CreateFunctionResponse>()
+                OK.value response {
+                    json {
+                        schema<CreateFunctionResponse>()
+                    }
                 }
             }
         }
@@ -48,12 +52,16 @@ internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
             post {
             } describeFunctions {
                 summary = "Create a new function."
-                ContentType.Application.Json requestBody {
-                    schema<CreateFunctionBody>()
+                body {
+                    json {
+                        schema<CreateFunctionBody>()
+                    }
                 }
 
-                OK response ContentType.Application.Json {
-                    schema<CreateFunctionResponse>()
+                OK.value response {
+                    json {
+                        schema<CreateFunctionResponse>()
+                    }
                 }
             }
         }
@@ -96,12 +104,16 @@ internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
                 put {
                 } describeFunctions {
                     summary = "Update function details."
-                    ContentType.Application.Json requestBody {
-                        schema<CreateFunctionBody>()
+                    body {
+                        json {
+                            schema<CreateFunctionBody>()
+                        }
                     }
 
-                    OK response ContentType.Application.Json {
-                        schema<CreateFunctionResponse>()
+                    OK.value response {
+                        json {
+                            schema<CreateFunctionResponse>()
+                        }
                     }
                 }
             }
@@ -124,7 +136,8 @@ internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
                 } describeFunctions {
                     summary = "Delete function."
 
-                    OK response ContentType.Application.Json {
+                    OK.value response {
+                        json {}
                     }
                 }
             }
@@ -147,7 +160,8 @@ internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
                 } describeFunctions {
                     summary = "Invoke function."
 
-                    OK response ContentType.Application.Json {
+                    OK.value response {
+                        json {}
                     }
                 }
 
@@ -155,7 +169,8 @@ internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
                 } describeFunctions {
                     summary = "Invoke function."
 
-                    OK response ContentType.Application.Json {
+                    OK.value response {
+                        json {}
                     }
                 }
             }
@@ -164,7 +179,7 @@ internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
 }
 
 @KtorDsl
-private infix fun Route.describeFunctions(block: DescriptionBuilder.() -> Unit) = describe {
+private infix fun Route.describeFunctions(block: OperationDsl.() -> Unit) = describe {
     block()
     tags += "Functions"
     security("JWT")

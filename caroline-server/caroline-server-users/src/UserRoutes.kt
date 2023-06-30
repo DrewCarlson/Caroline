@@ -8,10 +8,9 @@ import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
 import cloud.caroline.data.UserSession
 import cloud.caroline.service.CarolineUserService
-import guru.zoroark.koa.dsl.DescriptionBuilder
-import guru.zoroark.koa.dsl.schema
-import guru.zoroark.koa.ktor.describe
-import io.ktor.http.*
+import guru.zoroark.tegral.openapi.dsl.OperationDsl
+import guru.zoroark.tegral.openapi.dsl.schema
+import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
 import io.ktor.server.application.*
@@ -20,7 +19,6 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 import io.ktor.util.*
-import io.swagger.v3.oas.models.headers.Header
 import org.litote.kmongo.coroutine.CoroutineDatabase
 
 internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
@@ -44,9 +42,11 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
             summary = "Create a new user."
             security("JWT")
             security("Session")
-            ContentType.Application.Json requestBody {
+            body {
                 description = "Details for the new user."
-                schema<CreateUserBody>()
+                json {
+                    schema<CreateUserBody>()
+                }
             }
 
             "createSession" queryParameter {
@@ -54,9 +54,13 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
                 schema<Boolean>()
             }
 
-            OK response ContentType.Application.Json {
-                schema<CreateUserResponse>()
-                headers[UserSession.KEY] = Header().description("The user session string.")
+            OK.value response {
+                json {
+                    schema<CreateUserResponse>()
+                }
+                UserSession.KEY header {
+                    // TODO: description = "The user session string."
+                }
             }
         }
 
@@ -73,12 +77,16 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
             } describe {
                 summary = "Create a new user session."
                 tags += "Users"
-                ContentType.Application.Json requestBody {
-                    schema<CreateSessionBody>()
+                body {
+                    json {
+                        schema<CreateSessionBody>()
+                    }
                 }
-                OK response ContentType.Application.Json {
+                OK.value response {
                     description = "The session has been created for the user."
-                    schema<CreateSessionResponse>()
+                    json {
+                        schema<CreateSessionResponse>()
+                    }
                 }
             }
         }
@@ -87,7 +95,7 @@ internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
 
 @KtorDsl
 private infix fun Route.describeUsers(
-    block: DescriptionBuilder.() -> Unit,
+    block: OperationDsl.() -> Unit,
 ) = describe {
     block()
     tags += "Users"

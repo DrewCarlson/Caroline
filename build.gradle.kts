@@ -31,7 +31,12 @@ subprojects {
             target("**/**.kt")
             // licenseHeaderFile(rootDir.resolve("licenseHeader.txt"))
             ktlint(libs.versions.ktlint.get())
-                .userData(mapOf("disabled_rules" to "no-wildcard-imports,no-unused-imports"))
+                .editorConfigOverride(
+                    mapOf(
+                        "ktlint_standard_no-wildcard-imports" to "disabled",
+                        "ktlint_standard_no-unused-imports" to "disabled",
+                    ),
+                )
         }
     }
 }

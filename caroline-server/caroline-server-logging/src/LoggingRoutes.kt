@@ -7,11 +7,9 @@ import cloud.caroline.internal.carolinePropertyInt
 import cloud.caroline.internal.checkServicesPermission
 import cloud.caroline.logging.LogRecord
 import com.mongodb.reactivestreams.client.MongoClient
-import guru.zoroark.koa.dsl.DescriptionBuilder
-import guru.zoroark.koa.dsl.schema
-import guru.zoroark.koa.dsl.schemaArray
-import guru.zoroark.koa.ktor.describe
-import io.ktor.http.*
+import guru.zoroark.tegral.openapi.dsl.OperationDsl
+import guru.zoroark.tegral.openapi.dsl.schema
+import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.server.application.*
@@ -56,9 +54,11 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                 summary = "Create a new logging channel."
                 security("JWT")
                 security("Session")
-                OK response ContentType.Text.Plain {
+                OK.value response {
                     description = "The new logging channel key."
-                    schema(ObjectId.get().toString())
+                    plainText {
+                        schema(ObjectId.get().toString())
+                    }
                 }
             }
         }
@@ -123,10 +123,12 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                             description = "Return items created after this unix timestamp"
                             schema(System.currentTimeMillis())
                         }
-                        OK response ContentType.Application.Json {
-                            schemaArray<LogRecord>()
+                        OK.value response {
+                            json {
+                                schema<List<LogRecord>>()
+                            }
                         }
-                        NotFound response {
+                        NotFound.value response {
                             description = "The provided log key does not exist."
                         }
                     }
@@ -176,11 +178,13 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                             schema<String>()
                         }
 
-                        ContentType.Application.Json requestBody {
-                            schemaArray<LogRecord>()
+                        body {
+                            json {
+                                schema<List<LogRecord>>()
+                            }
                         }
 
-                        OK response {
+                        OK.value response {
                             description = "The log messages have been received and will be stored in the log channel."
                         }
                     }
@@ -212,7 +216,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                         schema<String>()
                     }
 
-                    OK response {
+                    OK.value response {
                         description = "The log channel has been deleted."
                     }
                 }
@@ -222,7 +226,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
 }
 
 @KtorDsl
-private infix fun Route.describeLogging(block: DescriptionBuilder.() -> Unit) = describe {
+private infix fun Route.describeLogging(block: OperationDsl.() -> Unit) = describe {
     block()
     tags += "Logging"
     security("JWT")

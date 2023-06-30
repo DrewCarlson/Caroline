@@ -3,10 +3,10 @@
 package cloud.caroline
 
 import cloud.caroline.data.UserSession
-import guru.zoroark.koa.ktor.Koa
-import guru.zoroark.koa.ktor.respondOpenApiDocument
-import guru.zoroark.koa.ktor.ui.KoaSwaggerUi
-import guru.zoroark.koa.ktor.ui.swaggerUi
+import guru.zoroark.tegral.openapi.ktor.TegralOpenApiKtor
+import guru.zoroark.tegral.openapi.ktor.openApiEndpoint
+import guru.zoroark.tegral.openapi.ktorui.TegralSwaggerUiKtor
+import guru.zoroark.tegral.openapi.ktorui.swaggerUiEndpoint
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.server.application.*
@@ -31,23 +31,23 @@ fun Application.module(testing: Boolean = false) {
     install(AutoHeadResponse)
     install(CachingHeaders)
 
-    install(Koa) {
+    install(TegralOpenApiKtor) {
         title = "Caroline"
-        typeProperty = "__type"
-        "JWT" securityScheme SecurityScheme().apply {
-            type(SecurityScheme.Type.HTTP)
-            `in`(SecurityScheme.In.HEADER)
-            name("Authorization")
-            scheme("bearer")
-            bearerFormat("JWT")
+        // TODO: typeProperty = "__type"
+        "JWT" securityScheme {
+            type = SecurityScheme.Type.HTTP
+            inLocation = SecurityScheme.In.HEADER
+            name = "Authorization"
+            scheme = "bearer"
+            bearerFormat = "JWT"
         }
-        "Session" securityScheme SecurityScheme().apply {
-            type(SecurityScheme.Type.APIKEY)
-            `in`(SecurityScheme.In.HEADER)
-            name(UserSession.KEY)
+        "Session" securityScheme {
+            type = SecurityScheme.Type.APIKEY
+            inLocation = SecurityScheme.In.HEADER
+            name = UserSession.KEY
         }
     }
-    install(KoaSwaggerUi)
+    install(TegralSwaggerUiKtor)
     install(CallLogging) {
         level = Level.INFO
     }
@@ -71,9 +71,7 @@ fun Application.module(testing: Boolean = false) {
         anyHost()
     }
     routing {
-        get("/openapi.json") {
-            call.respondOpenApiDocument()
-        }
-        swaggerUi("/swagger", "/openapi.json")
+        openApiEndpoint("/openapi")
+        swaggerUiEndpoint("/swagger", "/openapi")
     }
 }

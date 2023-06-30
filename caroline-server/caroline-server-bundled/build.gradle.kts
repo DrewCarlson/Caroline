@@ -55,7 +55,7 @@ dependencies {
     implementation(libs.ktor.server.callLogging)
     implementation(libs.ktor.server.autoHeadResponse)
     implementation(libs.ktor.server.websockets)
-    implementation(libs.bundles.koa)
+    implementation(libs.tegral.openapi.feature)
 
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)

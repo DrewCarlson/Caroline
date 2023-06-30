@@ -4,7 +4,7 @@ import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
 import com.mongodb.ConnectionString
-import guru.zoroark.koa.ktor.Koa
+import guru.zoroark.tegral.openapi.ktor.TegralOpenApiKtor
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
@@ -41,7 +41,7 @@ open class BaseProjectRouteTest {
                 }
             }
             application {
-                install(Koa)
+                install(TegralOpenApiKtor)
                 coreModule()
                 projectModule()
             }

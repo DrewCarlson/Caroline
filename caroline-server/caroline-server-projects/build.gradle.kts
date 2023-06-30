@@ -36,7 +36,7 @@ dependencies {
     implementation(libs.logback)
 
     implementation(libs.kmongo)
-    implementation(libs.koa.ktor)
+    implementation(libs.bundles.tegral.ktor)
 
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
