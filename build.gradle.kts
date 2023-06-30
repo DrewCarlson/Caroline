@@ -42,9 +42,8 @@ subprojects {
     }
 
     apply(plugin = "org.jetbrains.kotlinx.kover")
-    dependencies {
-        allprojects
-            .filter { it.plugins.hasPlugin("org.jetbrains.kotlin") }
-            .forEach(::kover)
-    }
+}
+
+dependencies {
+    subprojects.forEach(::kover)
 }
