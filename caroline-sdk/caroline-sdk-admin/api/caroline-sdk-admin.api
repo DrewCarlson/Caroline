@@ -16,12 +16,11 @@ public final class cloud/caroline/admin/api/ApiKeyCredentials {
 	public final fun getProjectId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final fun write$Self (Lcloud/caroline/admin/api/ApiKeyCredentials;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/ApiKeyCredentials;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/ApiKeyCredentials$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/ApiKeyCredentials$$serializer;
-	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/ApiKeyCredentials;
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
@@ -48,12 +47,11 @@ public final class cloud/caroline/admin/api/CreateProjectBody {
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final fun write$Self (Lcloud/caroline/admin/api/CreateProjectBody;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/CreateProjectBody;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/CreateProjectBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/CreateProjectBody$$serializer;
-	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/CreateProjectBody;
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
@@ -70,7 +68,7 @@ public final class cloud/caroline/admin/api/CreateProjectBody$Companion {
 public abstract class cloud/caroline/admin/api/CreateProjectResponse {
 	public static final field Companion Lcloud/caroline/admin/api/CreateProjectResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
-	public static final fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/CreateProjectResponse$Companion {
@@ -81,7 +79,7 @@ public abstract class cloud/caroline/admin/api/CreateProjectResponse$Failed : cl
 	public static final field Companion Lcloud/caroline/admin/api/CreateProjectResponse$Failed$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getMessage ()Ljava/lang/String;
-	public static final fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse$Failed;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse$Failed;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/CreateProjectResponse$Failed$Companion {
@@ -111,12 +109,11 @@ public final class cloud/caroline/admin/api/CreateProjectResponse$Success : clou
 	public final fun getProject ()Lcloud/caroline/core/models/Project;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse$Success;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse$Success;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/CreateProjectResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/CreateProjectResponse$Success$$serializer;
-	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/CreateProjectResponse$Success;
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
@@ -148,12 +145,11 @@ public final class cloud/caroline/admin/api/ProjectDetails {
 	public final fun getOwnerId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final fun write$Self (Lcloud/caroline/admin/api/ProjectDetails;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/ProjectDetails;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/ProjectDetails$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/ProjectDetails$$serializer;
-	public static final synthetic field descriptor Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/ProjectDetails;
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;

@@ -1,8 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    kotlin("jvm")
-    kotlin("plugin.serialization")
+    id("caroline-server-lib")
 }
 
 dependencies {
@@ -34,25 +31,4 @@ dependencies {
     implementation(libs.logback)
 
     implementation(libs.kmongo)
-    implementation(libs.bundles.tegral.ktor)
-
-    testImplementation(kotlin("test"))
-    testImplementation(kotlin("test-junit"))
-    testImplementation(libs.ktor.server.tests)
-}
-
-kotlin {
-    explicitApi()
-    sourceSets["main"].kotlin.srcDirs("src")
-    sourceSets["test"].kotlin.srcDirs("test")
-}
-
-sourceSets["main"].resources.srcDirs("resources")
-sourceSets["test"].resources.srcDirs("testresources")
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "11"
-        freeCompilerArgs = freeCompilerArgs + listOf("-opt-in=kotlin.RequiresOptIn")
-    }
 }

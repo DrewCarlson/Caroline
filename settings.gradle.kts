@@ -2,6 +2,15 @@ rootProject.name = "caroline"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
+pluginManagement {
+    includeBuild("build-logic")
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
 include(
     ":caroline-sdk:caroline-sdk-admin",
     ":caroline-sdk:caroline-sdk-analytics",

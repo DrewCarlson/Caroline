@@ -20,6 +20,10 @@ dokka = "1.8.20"
 binary_compat = "0.13.2"
 tegral = "0.0.4"
 
+# Android
+minSdk = "24"
+compileSdk = "33"
+
 [plugins]
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
