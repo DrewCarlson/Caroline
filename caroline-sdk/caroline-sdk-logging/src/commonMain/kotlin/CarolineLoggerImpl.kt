@@ -36,6 +36,7 @@ internal class CarolineLoggerImpl(
                 is LogSchedule.Interval -> {
                     // TODO: Interval scheduling
                 }
+                is LogSchedule.Manual -> Unit // Nothing to do
             }
         } else {
             when (logSchedule) {
@@ -59,6 +60,7 @@ internal class CarolineLoggerImpl(
                 is LogSchedule.Interval -> {
                     // TODO: Interval scheduling
                 }
+                is LogSchedule.Manual -> Unit // Nothing to do
             }
         }
     }

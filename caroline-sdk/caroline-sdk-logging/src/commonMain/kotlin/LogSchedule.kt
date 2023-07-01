@@ -31,4 +31,10 @@ public sealed class LogSchedule {
      * Only delivers all messages when the buffer is full.
      */
     public object WhenBufferFull : LogSchedule()
+
+    /**
+     * Do not automatically deliver log messages, relying only on
+     * manual calls to [CarolineLogger.flush].
+     */
+    public object Manual : LogSchedule()
 }
