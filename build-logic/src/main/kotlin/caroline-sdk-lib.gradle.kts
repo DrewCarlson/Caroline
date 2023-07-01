@@ -43,6 +43,9 @@ kotlin {
         }
     }*/
     sourceSets {
+        all {
+            explicitApi()
+        }
         named("commonTest") {
             dependencies {
                 implementation(kotlin("test-common"))
