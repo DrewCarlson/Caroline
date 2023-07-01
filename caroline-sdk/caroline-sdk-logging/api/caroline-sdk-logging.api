@@ -118,6 +118,10 @@ public final class cloud/caroline/logging/LogSchedule$Interval : cloud/caroline/
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class cloud/caroline/logging/LogSchedule$Manual : cloud/caroline/logging/LogSchedule {
+	public static final field INSTANCE Lcloud/caroline/logging/LogSchedule$Manual;
+}
+
 public final class cloud/caroline/logging/LogSchedule$WhenBufferFull : cloud/caroline/logging/LogSchedule {
 	public static final field INSTANCE Lcloud/caroline/logging/LogSchedule$WhenBufferFull;
 }
