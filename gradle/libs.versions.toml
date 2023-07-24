@@ -98,7 +98,7 @@ bouncyCastle = { module = "org.bouncycastle:bcprov-jdk15on", version.ref = "boun
 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
-kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.9.0" }
+kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.10.0" }
 
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.10.1" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
