@@ -24,7 +24,7 @@ jobs:
       any: ${{ steps.check.outputs.any_changed }}
       docs: ${{ steps.docs.outputs.any_changed }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
           fetch-depth: 0
@@ -56,9 +56,9 @@ jobs:
     needs: [ file-changes ]
     if: needs.file-changes.outputs.any == 'true' || startsWith(github.ref, 'refs/tags/v')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v3
+      - uses: actions/cheactions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: 11
@@ -85,11 +85,11 @@ jobs:
     if: needs.file-changes.outputs.any == 'true' || startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: 'recursive'
 
-      - uses: actions/setup-java@v3
+      - uses: actions/cheactions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: 11
@@ -145,7 +145,7 @@ jobs:
           strip_v: true
           env_var_name: VERSION
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
         env:

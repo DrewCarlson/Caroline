@@ -4,7 +4,7 @@ coroutines = "1.7.3"
 serialization = "1.6.2"
 ktorio = "2.3.8"
 atomicfu = "0.23.2"
-kover = "0.7.4"
+kover = "0.7.5"
 datetime = "0.5.0"
 ktor_perm = "0.3.0-SNAPSHOT"
 kjob = "0.6.0"
@@ -15,7 +15,7 @@ ax_runner = "1.5.2"
 okhttp = "5.0.0-alpha.10"
 spotless = "6.25.0"
 ktlint = "1.1.1"
-agp = "8.1.4"
+agp = "8.2.2"
 dokka = "1.9.10"
 binary_compat = "0.14.0"
 tegral = "0.0.4"
@@ -100,7 +100,7 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
 kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.11.0" }
 
-androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.10.1" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
 embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.11.1" }
 
