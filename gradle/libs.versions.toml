@@ -1,23 +1,23 @@
 [versions]
-kotlin = "1.8.21"
+kotlin = "1.9.22"
 coroutines = "1.7.3"
-serialization = "1.5.1"
-ktorio = "2.3.2"
-atomicfu = "0.21.0"
-kover = "0.7.2"
-datetime = "0.4.0"
+serialization = "1.6.2"
+ktorio = "2.3.8"
+atomicfu = "0.23.2"
+kover = "0.7.4"
+datetime = "0.5.0"
 ktor_perm = "0.3.0-SNAPSHOT"
 kjob = "0.6.0"
 bouncy_castle = "1.70"
-logback = "1.4.8"
+logback = "1.4.14"
 shadowjar = "8.1.1"
 ax_runner = "1.5.2"
 okhttp = "5.0.0-alpha.10"
-spotless = "6.19.0"
-ktlint = "0.49.1"
-agp = "7.4.2"
-dokka = "1.8.20"
-binary_compat = "0.13.2"
+spotless = "6.25.0"
+ktlint = "1.1.1"
+agp = "8.1.4"
+dokka = "1.9.10"
+binary_compat = "0.14.0"
 tegral = "0.0.4"
 
 # Android
@@ -34,7 +34,7 @@ shadowjar = { id = "com.github.johnrengelman.shadow", version.ref = "shadowjar" 
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 binaryCompat = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binary_compat" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.25.2" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.27.0" }
 
 [libraries]
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -98,10 +98,11 @@ bouncyCastle = { module = "org.bouncycastle:bcprov-jdk15on", version.ref = "boun
 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
-kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.10.0" }
+kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.11.0" }
 
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.10.1" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
+embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.11.1" }
 
 [bundles]
 tegral-ktor = [ "tegral-core", "tegral-openapi-dsl", "tegral-openapi-ktor" ]
