@@ -8,7 +8,7 @@ kover = "0.7.5"
 datetime = "0.5.0"
 ktor_perm = "0.3.0-SNAPSHOT"
 kjob = "0.6.0"
-bouncy_castle = "1.70"
+bouncy_castle = "1.77"
 logback = "1.4.14"
 shadowjar = "8.1.1"
 ax_runner = "1.5.2"
@@ -94,7 +94,7 @@ tegral-openapi-dsl = { module = "guru.zoroark.tegral:tegral-openapi-dsl", versio
 tegral-openapi-ktor = { module = "guru.zoroark.tegral:tegral-openapi-ktor", version.ref = "tegral" }
 tegral-openapi-feature = { module = "guru.zoroark.tegral:tegral-openapi-feature", version.ref = "tegral" }
 
-bouncyCastle = { module = "org.bouncycastle:bcprov-jdk15on", version.ref = "bouncy_castle" }
+bouncyCastle = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncy_castle" }
 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
