@@ -30,79 +30,7 @@ internal fun Route.addSetupRoutes(
             if (initializeMutex.withLock { initialized.get() }) {
                 return@get call.respond(HttpStatusCode.NotFound)
             }
-            call.respondHtml(HttpStatusCode.OK) {
-                head {
-                    title("Caroline Setup")
-                    style {
-                        type = "text/css"
-                        unsafe {
-                            +"""
-                            .center {
-                                margin: 0 auto 0 auto;
-                                text-align: center;
-                            }
-                            .left {
-                                text-align: start;
-                                display: inline-block;
-                            }
-                            section {
-                                padding-top: 6px;
-                                padding-bottom: 6px;
-                            }
-                            form {
-                                display: flex;
-                                flex-direction: column;
-                                gap: 8px;
-                                width: 300px;
-                            }
-                            """.trimIndent()
-                        }
-                    }
-                }
-                body {
-                    header { h1(classes = "center") { +"Caroline Setup" } }
-                    section {
-                        div(classes = "center") {
-                            h3 { +"Welcome!" }
-                            div(classes = "left") {
-                                +"1. Create an Admin user"; br
-                                +"2. Copy the project API Key and ID"; br
-                            }
-                        }
-                    }
-                    section {
-                        postForm(
-                            action = "setup",
-                            encType = FormEncType.multipartFormData,
-                            classes = "center",
-                        ) {
-                            textInput {
-                                name = "username"
-                                placeholder = "Username"
-                                required = true
-                            }
-                            passwordInput {
-                                name = "password"
-                                placeholder = "Password"
-                                required = true
-                            }
-                            passwordInput {
-                                name = "password_confirm"
-                                placeholder = "Confirm Password"
-                                required = true
-                            }
-                            emailInput {
-                                name = "email"
-                                placeholder = "Email"
-                                required = true
-                            }
-                            submitInput {
-                                value = "Submit"
-                            }
-                        }
-                    }
-                }
-            }
+            call.respondHtml(HttpStatusCode.OK) { buildSetupHtml() }
         }
         post {
             if (initializeMutex.withLock { initialized.get() }) {
@@ -159,14 +87,98 @@ internal fun Route.addSetupRoutes(
             initialized.set(true)
             initializeMutex.unlock()
             call.respondHtml {
-                head { title("Caroline Setup") }
-                body {
-                    section { h3 { +"Welcome ${userResponse.user.displayName}!" } }
-                    section {
-                        +"Project ID: "; b { +projectResponse.project.id }
-                        br
-                        +"API Key: "; b { +projectResponse.credentials.apiKey }
-                    }
+                buildWelcomeHtml(
+                    displayName = userResponse.user.displayName,
+                    projectId = projectResponse.project.id,
+                    apiKey = projectResponse.credentials.apiKey,
+                )
+            }
+        }
+    }
+}
+
+@Suppress("ktlint")
+private fun HTML.buildWelcomeHtml(displayName: String, projectId: String, apiKey: String) {
+    head { title("Caroline Setup") }
+    body {
+        section { h3 { +"Welcome ${displayName}!" } }
+        section {
+            +"Project ID: "; b { +projectId }
+            br
+            +"API Key: "; b { +apiKey }
+        }
+    }
+}
+
+@Suppress("ktlint")
+private fun HTML.buildSetupHtml() {
+    head {
+        title("Caroline Setup")
+        style {
+            type = "text/css"
+            unsafe {
+                +"""
+                .center {
+                    margin: 0 auto 0 auto;
+                    text-align: center;
+                }
+                .left {
+                    text-align: start;
+                    display: inline-block;
+                }
+                section {
+                    padding-top: 6px;
+                    padding-bottom: 6px;
+                }
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    width: 300px;
+                }
+                """.trimIndent()
+            }
+        }
+    }
+    body {
+        header { h1(classes = "center") { +"Caroline Setup" } }
+        section {
+            div(classes = "center") {
+                h3 { +"Welcome!" }
+                div(classes = "left") {
+                    +"1. Create an Admin user"; br
+                    +"2. Copy the project API Key and ID"; br
+                }
+            }
+        }
+        section {
+            postForm(
+                action = "setup",
+                encType = FormEncType.multipartFormData,
+                classes = "center",
+            ) {
+                textInput {
+                    name = "username"
+                    placeholder = "Username"
+                    required = true
+                }
+                passwordInput {
+                    name = "password"
+                    placeholder = "Password"
+                    required = true
+                }
+                passwordInput {
+                    name = "password_confirm"
+                    placeholder = "Confirm Password"
+                    required = true
+                }
+                emailInput {
+                    name = "email"
+                    placeholder = "Email"
+                    required = true
+                }
+                submitInput {
+                    value = "Submit"
                 }
             }
         }

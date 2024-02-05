@@ -1,9 +1,11 @@
+@file:Suppress("FunctionName")
+
 package cloud.caroline.core
 
 import io.ktor.client.HttpClient
 import kotlinx.coroutines.CoroutineScope
 
-public interface CarolineSDK {
+public interface CarolineSdk {
 
     public val serverUrl: String
 
@@ -31,23 +33,23 @@ public interface CarolineSDK {
 }
 
 /**
- * Configure an instance of [CarolineSDK] to target a self-hosted Caroline deployment.
+ * Configure an instance of [CarolineSdk] to target a self-hosted Caroline deployment.
  *
  * ```kotlin
- * CarolineSDK {
+ * CarolineSdk {
  *     serverUrl = "https://yourdomain"
  *     projectId = "..."
  *     apiKey = "..."
  * }
  * ```
  */
-public fun CarolineSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineSDK {
-    return CarolineSDKBuilder().apply(configure).build()
+public fun CarolineSdk(configure: CarolineSdkBuilder.() -> Unit): CarolineSdk {
+    return CarolineSdkBuilder().apply(configure).build()
 }
 
 /**
- * Configure an instance of [CarolineSDK] to target https://caroline.cloud.
- * The only required configuration is your [CarolineSDK.projectId] and [CarolineSDK.apiKey]
+ * Configure an instance of [CarolineSdk] to target https://caroline.cloud.
+ * The only required configuration is your [CarolineSdk.projectId] and [CarolineSdk.apiKey]
  * provided when creating your project or under on the Security settings page.
  *
  * ```kotlin
@@ -57,14 +59,14 @@ public fun CarolineSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineSDK {
  * }
  * ```
  */
-public fun CarolineCloudSDK(configure: CarolineSDKBuilder.() -> Unit): CarolineSDK {
-    return CarolineSDKBuilder()
+public fun CarolineCloudSdk(configure: CarolineSdkBuilder.() -> Unit): CarolineSdk {
+    return CarolineSdkBuilder()
         .apply(configure)
         .apply {
             serverUrl = "https://caroline.cloud"
             serviceUrls.clear()
             serviceUrls.putAll(
-                CarolineSDK.Type.values().associateWith { type ->
+                CarolineSdk.Type.entries.associateWith { type ->
                     "${type.name.lowercase()}.[serverUrl]"
                 },
             )

@@ -1,23 +1,23 @@
 package cloud.caroline
 
-import cloud.caroline.core.CarolineSDK
+import cloud.caroline.core.CarolineSdk
 import kotlin.test.Test
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
-class CarolineSDKTest {
+class CarolineSdkTest {
 
     @Test
     fun testThrowsWithNoConfiguration() {
         assertFailsWith<IllegalArgumentException> {
-            CarolineSDK {}
+            CarolineSdk {}
         }
     }
 
     @Test
     fun testThrowsWithInvalidServerUrl() {
         val error = assertFailsWith<IllegalArgumentException> {
-            CarolineSDK {
+            CarolineSdk {
                 serverUrl = "test"
             }
         }
@@ -30,7 +30,7 @@ class CarolineSDKTest {
     @Test
     fun testThrowsWithBlankProjectId() {
         val error = assertFailsWith<IllegalArgumentException> {
-            CarolineSDK {
+            CarolineSdk {
                 serverUrl = "https://test"
                 projectId = ""
             }
@@ -44,7 +44,7 @@ class CarolineSDKTest {
     @Test
     fun testThrowsWithBlankApiKey() {
         val error = assertFailsWith<IllegalArgumentException> {
-            CarolineSDK {
+            CarolineSdk {
                 serverUrl = "https://test"
                 projectId = "abc"
                 apiKey = ""

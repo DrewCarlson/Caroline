@@ -55,17 +55,23 @@ public sealed class CreateUserResponse {
 
     @Serializable
     public enum class PasswordError {
-        TOO_SHORT, TOO_LONG, BLANK
+        TOO_SHORT,
+        TOO_LONG,
+        BLANK,
     }
 
     @Serializable
     public enum class UsernameError {
-        TOO_SHORT, TOO_LONG, BLANK, ALREADY_EXISTS
+        TOO_SHORT,
+        TOO_LONG,
+        BLANK,
+        ALREADY_EXISTS,
     }
 
     @Serializable
     public enum class EmailError {
-        INVALID, ALREADY_EXISTS
+        INVALID,
+        ALREADY_EXISTS,
     }
 
     @Serializable

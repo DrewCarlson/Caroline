@@ -3,7 +3,6 @@ public abstract interface class cloud/caroline/admin/CarolineAdminClient {
 
 public final class cloud/caroline/admin/api/ApiKeyCredentials {
 	public static final field Companion Lcloud/caroline/admin/api/ApiKeyCredentials$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/util/Set;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
@@ -16,7 +15,6 @@ public final class cloud/caroline/admin/api/ApiKeyCredentials {
 	public final fun getProjectId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/ApiKeyCredentials;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/ApiKeyCredentials$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -36,7 +34,6 @@ public final class cloud/caroline/admin/api/ApiKeyCredentials$Companion {
 
 public final class cloud/caroline/admin/api/CreateProjectBody {
 	public static final field Companion Lcloud/caroline/admin/api/CreateProjectBody$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
@@ -47,7 +44,6 @@ public final class cloud/caroline/admin/api/CreateProjectBody {
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/CreateProjectBody;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/CreateProjectBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -98,7 +94,6 @@ public final class cloud/caroline/admin/api/CreateProjectResponse$Failed$Project
 
 public final class cloud/caroline/admin/api/CreateProjectResponse$Success : cloud/caroline/admin/api/CreateProjectResponse {
 	public static final field Companion Lcloud/caroline/admin/api/CreateProjectResponse$Success$Companion;
-	public synthetic fun <init> (ILcloud/caroline/core/models/Project;Lcloud/caroline/admin/api/ApiKeyCredentials;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Lcloud/caroline/core/models/Project;Lcloud/caroline/admin/api/ApiKeyCredentials;)V
 	public final fun component1 ()Lcloud/caroline/core/models/Project;
 	public final fun component2 ()Lcloud/caroline/admin/api/ApiKeyCredentials;
@@ -109,7 +104,6 @@ public final class cloud/caroline/admin/api/CreateProjectResponse$Success : clou
 	public final fun getProject ()Lcloud/caroline/core/models/Project;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/CreateProjectResponse$Success;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/CreateProjectResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -129,7 +123,6 @@ public final class cloud/caroline/admin/api/CreateProjectResponse$Success$Compan
 
 public final class cloud/caroline/admin/api/ProjectDetails {
 	public static final field Companion Lcloud/caroline/admin/api/ProjectDetails$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Set;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
@@ -145,7 +138,6 @@ public final class cloud/caroline/admin/api/ProjectDetails {
 	public final fun getOwnerId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/admin/api/ProjectDetails;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/admin/api/ProjectDetails$$serializer : kotlinx/serialization/internal/GeneratedSerializer {

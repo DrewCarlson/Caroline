@@ -32,8 +32,8 @@ public abstract interface class cloud/caroline/logging/CarolineLogger {
 }
 
 public final class cloud/caroline/logging/CarolineLogger$Companion {
-	public final fun create (Lcloud/caroline/core/CarolineSDK;Lcloud/caroline/logging/LogSchedule;Lcloud/caroline/logging/LogDispatcher;Lcloud/caroline/logging/CachingLogDispatcher;I)Lcloud/caroline/logging/CarolineLogger;
-	public static synthetic fun create$default (Lcloud/caroline/logging/CarolineLogger$Companion;Lcloud/caroline/core/CarolineSDK;Lcloud/caroline/logging/LogSchedule;Lcloud/caroline/logging/LogDispatcher;Lcloud/caroline/logging/CachingLogDispatcher;IILjava/lang/Object;)Lcloud/caroline/logging/CarolineLogger;
+	public final fun create (Lcloud/caroline/core/CarolineSdk;Lcloud/caroline/logging/LogSchedule;Lcloud/caroline/logging/LogDispatcher;Lcloud/caroline/logging/CachingLogDispatcher;I)Lcloud/caroline/logging/CarolineLogger;
+	public static synthetic fun create$default (Lcloud/caroline/logging/CarolineLogger$Companion;Lcloud/caroline/core/CarolineSdk;Lcloud/caroline/logging/LogSchedule;Lcloud/caroline/logging/LogDispatcher;Lcloud/caroline/logging/CachingLogDispatcher;IILjava/lang/Object;)Lcloud/caroline/logging/CarolineLogger;
 }
 
 public final class cloud/caroline/logging/CarolineLogger$DefaultImpls {
@@ -54,7 +54,6 @@ public abstract interface class cloud/caroline/logging/LogDispatcher {
 
 public final class cloud/caroline/logging/LogRecord {
 	public static final field Companion Lcloud/caroline/logging/LogRecord$Companion;
-	public synthetic fun <init> (ILjava/lang/String;IJLjava/lang/String;Ljava/util/Map;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;IJLjava/lang/String;Ljava/util/Map;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()I
@@ -71,7 +70,6 @@ public final class cloud/caroline/logging/LogRecord {
 	public final fun getTimestamp ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/logging/LogRecord;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/logging/LogRecord$$serializer : kotlinx/serialization/internal/GeneratedSerializer {

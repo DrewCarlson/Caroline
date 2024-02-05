@@ -2,7 +2,7 @@
 
 ```kotlin
 // Configure SDK
-val sdk = CarolineSDK {
+val sdk = CarolineSdk {
     serverUrl = "https://caroline-server"
     projectId = "..."
     apiKey = "..."

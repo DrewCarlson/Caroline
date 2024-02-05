@@ -4,7 +4,7 @@ import io.ktor.client.*
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
-public class CarolineSDKBuilder internal constructor() {
+public class CarolineSdkBuilder internal constructor() {
 
     /**
      * The primary URL of the Caroline server to target.
@@ -42,13 +42,13 @@ public class CarolineSDKBuilder internal constructor() {
      * URL formats should either be `logging.\[serverUrl]` for subdomains or
      * `\[serverUrl]/logging` for a base path.
      *
-     * @see CarolineCloudSDK to configure url formats automatically when targeting caroline.cloud
+     * @see CarolineCloudSdk to configure url formats automatically when targeting caroline.cloud
      */
-    public val serviceUrls: MutableMap<CarolineSDK.Type, String> = mutableMapOf()
+    public val serviceUrls: MutableMap<CarolineSdk.Type, String> = mutableMapOf()
 
-    internal fun build(): CarolineSDK {
+    internal fun build(): CarolineSdk {
         require(serverUrl.isNotBlank()) {
-            "CarolineSDK `serverUrl` must be configured"
+            "CarolineSdk `serverUrl` must be configured"
         }
 
         require(serverUrl.startsWith("https://") || serverUrl.startsWith("http://")) {
@@ -56,17 +56,17 @@ public class CarolineSDKBuilder internal constructor() {
         }
 
         require(projectId.isNotBlank()) {
-            "CarolineSDK `projectId` must be configured"
+            "CarolineSdk `projectId` must be configured"
         }
 
         require(apiKey.isNotBlank()) {
-            "CarolineSDK `apiKey` must be configured"
+            "CarolineSdk `apiKey` must be configured"
         }
 
         serviceUrls.forEach { (type, format) ->
             require(format.contains("[serverUrl]")) {
-                "CarolineSDK `serviceUrls` must contain '[serverUrl]' to be formatted with the configured value\n" +
-                    "   CarolineSDK { serviceUrls[${type.name}] = \"${type.name.lowercase()}.[serverUrl]\" }"
+                "CarolineSdk `serviceUrls` must contain '[serverUrl]' to be formatted with the configured value\n" +
+                    "   CarolineSdk { serviceUrls[${type.name}] = \"${type.name.lowercase()}.[serverUrl]\" }"
             }
         }
         val formattedServiceUrls = serviceUrls.mapValues { (_, format) ->
@@ -77,6 +77,6 @@ public class CarolineSDKBuilder internal constructor() {
             httpClient = HttpClient()
         }
 
-        return CarolineSDKImpl(serverUrl, projectId, apiKey, formattedServiceUrls, httpClient, dispatcher)
+        return CarolineSdkImpl(serverUrl, projectId, apiKey, formattedServiceUrls, httpClient, dispatcher)
     }
 }

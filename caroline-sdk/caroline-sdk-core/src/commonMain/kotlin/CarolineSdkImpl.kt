@@ -22,14 +22,14 @@ import kotlinx.coroutines.sync.withLock
 
 private const val AUTHORIZATION = "Authorization"
 
-internal class CarolineSDKImpl(
+internal class CarolineSdkImpl(
     override val serverUrl: String,
     override val projectId: String,
     override val apiKey: String,
-    private val serviceUrlMap: Map<CarolineSDK.Type, String>,
+    private val serviceUrlMap: Map<CarolineSdk.Type, String>,
     httpClient: HttpClient,
     dispatcher: CoroutineDispatcher,
-) : CarolineSDK {
+) : CarolineSdk {
 
     private val tokenLock = Mutex()
     private val tokenFlow = MutableStateFlow<String?>(null)
@@ -60,7 +60,7 @@ internal class CarolineSDKImpl(
         }
     }
 
-    override fun urlFor(type: CarolineSDK.Type): String {
+    override fun urlFor(type: CarolineSdk.Type): String {
         return serviceUrlMap[type] ?: serverUrl
     }
 

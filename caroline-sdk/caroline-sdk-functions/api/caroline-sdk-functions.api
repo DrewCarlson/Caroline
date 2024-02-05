@@ -1,6 +1,5 @@
 public final class cloud/caroline/models/CreateFunctionBody {
 	public static final field Companion Lcloud/caroline/models/CreateFunctionBody$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun copy (Ljava/lang/String;)Lcloud/caroline/models/CreateFunctionBody;
@@ -9,7 +8,6 @@ public final class cloud/caroline/models/CreateFunctionBody {
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/models/CreateFunctionBody;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/models/CreateFunctionBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -44,7 +42,6 @@ public final class cloud/caroline/models/CreateFunctionResponse$Failed : cloud/c
 
 public final class cloud/caroline/models/CreateFunctionResponse$Success : cloud/caroline/models/CreateFunctionResponse {
 	public static final field Companion Lcloud/caroline/models/CreateFunctionResponse$Success$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun copy (Ljava/lang/String;)Lcloud/caroline/models/CreateFunctionResponse$Success;
@@ -53,7 +50,6 @@ public final class cloud/caroline/models/CreateFunctionResponse$Success : cloud/
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/models/CreateFunctionResponse$Success;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/models/CreateFunctionResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {

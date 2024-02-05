@@ -10,7 +10,6 @@ public final class cloud/caroline/crash/CarolineCrash$DefaultImpls {
 
 public final class cloud/caroline/crash/CrashReport {
 	public static final field Companion Lcloud/caroline/crash/CrashReport$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Ljava/util/Map;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;Ljava/util/Map;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/util/Map;
@@ -21,7 +20,6 @@ public final class cloud/caroline/crash/CrashReport {
 	public final fun getStacktrace ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcloud/caroline/crash/CrashReport;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class cloud/caroline/crash/CrashReport$$serializer : kotlinx/serialization/internal/GeneratedSerializer {

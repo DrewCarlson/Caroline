@@ -6,14 +6,19 @@ import kotlinx.serialization.SerializationException
 
 @Serializable
 public enum class Services {
-    ALL, LOGGING, CRASH, USER, FUNCTIONS, PROJECTS,
+    ALL,
+    LOGGING,
+    CRASH,
+    USER,
+    FUNCTIONS,
+    PROJECTS,
 }
 
 @Serializable
 public sealed class Permission {
 
     @Serializable
-    public object Global : Permission()
+    public data object Global : Permission()
 
     @Serializable
     public data class Admin(

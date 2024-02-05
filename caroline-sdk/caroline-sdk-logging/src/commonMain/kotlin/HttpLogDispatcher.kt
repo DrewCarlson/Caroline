@@ -1,6 +1,6 @@
 package cloud.caroline.logging
 
-import cloud.caroline.core.CarolineSDK
+import cloud.caroline.core.CarolineSdk
 import io.ktor.client.request.*
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
@@ -11,10 +11,10 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 internal class HttpLogDispatcher(
-    private val sdk: CarolineSDK,
+    private val sdk: CarolineSdk,
 ) : LogDispatcher {
     private val scope = CoroutineScope(sdk.scope.coroutineContext + SupervisorJob())
-    private val serviceUrl = sdk.urlFor(CarolineSDK.Type.LOGGING)
+    private val serviceUrl = sdk.urlFor(CarolineSdk.Type.LOGGING)
 
     override fun dispatch(records: List<LogRecord>): Boolean {
         if (!scope.isActive) return false

@@ -1,6 +1,6 @@
 package cloud.caroline.logging
 
-import cloud.caroline.core.CarolineSDK
+import cloud.caroline.core.CarolineSdk
 
 private const val DEFAULT_MESSAGE_BUFFER_SIZE = 150
 
@@ -18,7 +18,7 @@ public interface CarolineLogger {
          * given [logSchedule].
          */
         public fun create(
-            sdk: CarolineSDK,
+            sdk: CarolineSdk,
             logSchedule: LogSchedule,
             outputLogDispatcher: LogDispatcher = HttpLogDispatcher(sdk),
             cachingLogDispatcher: CachingLogDispatcher? = null,
