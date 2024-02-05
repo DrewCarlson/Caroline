@@ -40,7 +40,7 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - uses: actions/cheactions/setup-java@v4
+      - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: 11
@@ -64,7 +64,7 @@ jobs:
     if: needs.file-changes.outputs.any == 'true' || github.ref_name == 'main'
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/cheactions/setup-java@v4
+      - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: 11
