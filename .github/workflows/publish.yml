@@ -64,7 +64,7 @@ jobs:
           java-version: 11
 
       - name: Cache Build files
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.konan
@@ -95,7 +95,7 @@ jobs:
           java-version: 11
 
       - name: Cache Build files
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.konan
