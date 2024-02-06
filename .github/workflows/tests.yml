@@ -47,7 +47,7 @@ jobs:
             :caroline-server:caroline-server-users:check
 
       - name: Archive Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
           name: test-results-server
@@ -91,7 +91,7 @@ jobs:
             jsTest
 
       - name: Archive Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
           name: test-results-sdk
