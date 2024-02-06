@@ -102,7 +102,7 @@ kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version 
 
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
-embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.11.1" }
+embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.12.2" }
 
 [bundles]
 tegral-ktor = [ "tegral-core", "tegral-openapi-dsl", "tegral-openapi-ktor" ]
