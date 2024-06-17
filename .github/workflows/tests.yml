@@ -33,7 +33,7 @@ jobs:
         with:
           mongodb-version: 4.4
 
-      - uses: gradle/gradle-build-action@v2
+      - uses: gradle/gradle-build-action@v3
         with:
           arguments: |
             :caroline-server:caroline-server-bundled:build
@@ -82,7 +82,7 @@ jobs:
       #        if: ${{ startsWith(matrix.os, 'macos') }}
       #        with:
       #          arguments: macosTest # iosTest tvosTest watchosX86Test
-      - uses: gradle/gradle-build-action@v2
+      - uses: gradle/gradle-build-action@v3
         name: Test Linux/Jvm/Js Targets
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
         with:
@@ -106,7 +106,7 @@ jobs:
         uses: supercharge/mongodb-github-action@v1.9.0
         with:
           mongodb-version: 4.4
-      - uses: gradle/gradle-build-action@v2
+      - uses: gradle/gradle-build-action@v3
         name: Generate Kover report
         with:
           arguments: koverXmlReport
