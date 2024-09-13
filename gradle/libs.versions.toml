@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.9.22"
-coroutines = "1.7.3"
+coroutines = "1.9.0"
 serialization = "1.6.2"
 ktorio = "2.3.8"
 atomicfu = "0.23.2"
