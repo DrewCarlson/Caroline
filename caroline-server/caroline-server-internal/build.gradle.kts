@@ -14,6 +14,4 @@ dependencies {
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.auth)
     implementation(libs.ktor.client.core)
-
-    implementation(libs.kmongo)
 }

@@ -55,10 +55,7 @@ internal fun Route.addCoreRoutes(mongodb: CoroutineDatabase) {
             }
         }
 
-        val requiresSetup = runBlocking { projectService.getProjectsCount() == 0L }
-        if (requiresSetup) {
-            addSetupRoutes(userService, projectService)
-        }
+        addSetupRoutes(userService, projectService)
     }
 }
 

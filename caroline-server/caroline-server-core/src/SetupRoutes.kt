@@ -14,6 +14,7 @@ import io.ktor.server.html.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.html.*
@@ -23,6 +24,10 @@ internal fun Route.addSetupRoutes(
     userService: CarolineUserService,
     projectService: CarolineProjectService,
 ) {
+    val requiresSetup = runBlocking { projectService.getProjectsCount() == 0L }
+    if (!requiresSetup) {
+        return
+    }
     val initializeMutex = Mutex()
     val initialized = AtomicBoolean(false)
     route("/setup") {
@@ -102,6 +107,11 @@ private fun HTML.buildWelcomeHtml(displayName: String, projectId: String, apiKey
     head { title("Caroline Setup") }
     body {
         section { h3 { +"Welcome ${displayName}!" } }
+        section {
+            div(classes = "center") {
+                +"Please make a permanent copy of the following details, they will never be shown again!"
+            }
+        }
         section {
             +"Project ID: "; b { +projectId }
             br
