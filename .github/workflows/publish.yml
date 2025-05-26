@@ -24,14 +24,14 @@ jobs:
       any: ${{ steps.check.outputs.any_changed }}
       docs: ${{ steps.docs.outputs.any_changed }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
         with:
           submodules: 'recursive'
           fetch-depth: 0
 
       - name: Get changed files
         id: check
-        uses: tj-actions/changed-files@v42
+        uses: tj-actions/changed-files@823fcebdb31bb35fdf2229d9f769b400309430d0
         with:
           files: |
             .github/workflows/publish.yml
@@ -44,7 +44,7 @@ jobs:
 
       - name: Get changed files
         id: docs
-        uses: tj-actions/changed-files@v42
+        uses: tj-actions/changed-files@823fcebdb31bb35fdf2229d9f769b400309430d0
         with:
           files: |
             .github/workflows/publish.yml
@@ -56,25 +56,26 @@ jobs:
     needs: [ file-changes ]
     if: needs.file-changes.outputs.any == 'true' || startsWith(github.ref, 'refs/tags/v')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@3b6c050358614dd082e53cdbc55580431fc4e437
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244
 
       - name: Cache Build files
-        uses: actions/cache@v3
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
           path: |
             ~/.konan
             ~/.gradle
           key: ${{ runner.os }}-${{ hashFiles('gradle.properties') }}
 
-      - uses: gradle/gradle-build-action@v2
-        name: Publish
-        with:
-          arguments: clean publish
+      - name: Publish
+        run: ./gradlew clean publish
 
   publish-docker:
     runs-on: ubuntu-latest
@@ -85,30 +86,31 @@ jobs:
     if: needs.file-changes.outputs.any == 'true' || startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
         with:
           submodules: 'recursive'
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@3b6c050358614dd082e53cdbc55580431fc4e437
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244
 
       - name: Cache Build files
-        uses: actions/cache@v3
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
           path: |
             ~/.konan
             ~/.gradle
           key: ${{ runner.os }}-${{ hashFiles('gradle.properties') }}
 
-      - uses: gradle/gradle-build-action@v2
-        name: Build Server
-        with:
-          arguments: :caroline-server:caroline-server-bundled:installShadowDist
+      - name: Build Server
+        run: ./gradlew :caroline-server:caroline-server-bundled:installShadowDist
 
       - name: Container registry Log in
-        uses: docker/login-action@v2
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -116,7 +118,7 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
@@ -124,12 +126,16 @@ jobs:
             type=ref,event=branch,enable=${{ startsWith(github.ref, 'refs/tags/v') == false }}
             type=semver,pattern={{version}},enable=${{ startsWith(github.ref, 'refs/tags/v') }}
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build and push Docker image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4
         with:
           context: .
           file: Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
@@ -145,7 +151,7 @@ jobs:
           strip_v: true
           env_var_name: VERSION
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
         env:

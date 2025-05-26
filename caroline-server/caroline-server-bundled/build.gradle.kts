@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -55,7 +56,6 @@ dependencies {
     implementation(libs.ktor.server.callLogging)
     implementation(libs.ktor.server.autoHeadResponse)
     implementation(libs.ktor.server.websockets)
-    implementation(libs.tegral.openapi.feature)
 
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)
@@ -82,8 +82,8 @@ sourceSets["main"].resources.srcDirs("resources")
 sourceSets["test"].resources.srcDirs("testresources")
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "11"
-        freeCompilerArgs = freeCompilerArgs + listOf("-opt-in=kotlin.RequiresOptIn")
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
+        freeCompilerArgs.addAll(listOf("-opt-in=kotlin.RequiresOptIn"))
     }
 }

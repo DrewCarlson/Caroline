@@ -6,18 +6,11 @@ import cloud.caroline.core.models.*
 import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.service.CarolineProjectService
 import cloud.caroline.service.CarolineUserService
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
-import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.Unauthorized
-import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.util.*
-import kotlinx.coroutines.runBlocking
 import org.litote.kmongo.coroutine.CoroutineDatabase
 
 internal fun Route.addCoreRoutes(mongodb: CoroutineDatabase) {
@@ -39,7 +32,7 @@ internal fun Route.addCoreRoutes(mongodb: CoroutineDatabase) {
                     ?: return@post call.respond(Unauthorized)
 
                 call.respond(JwtManager.createToken(credentials.apiKey))
-            } describeCore {
+            }/* describeCore {
                 summary = "Create an API token for the project."
                 X_CAROLINE_API_KEY headerParameter {
                     description = "The API key to create a token for."
@@ -52,13 +45,13 @@ internal fun Route.addCoreRoutes(mongodb: CoroutineDatabase) {
                 Unauthorized.value response {
                     description = "The API Key is missing or invalid."
                 }
-            }
+            }*/
         }
 
         addSetupRoutes(userService, projectService)
     }
 }
-
+/*
 @KtorDsl
 private infix fun Route.describeCore(
     block: OperationDsl.() -> Unit,
@@ -66,4 +59,4 @@ private infix fun Route.describeCore(
     block()
     tags += "Core"
     security("JWT")
-}
+}*/

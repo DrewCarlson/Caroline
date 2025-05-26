@@ -1,6 +1,4 @@
-FROM mcr.microsoft.com/java/jre:11-zulu-alpine
-
-RUN apk add --update --no-cache bash
+FROM azul/zulu-openjdk:21-jre-latest
 
 WORKDIR /app
 COPY . /app

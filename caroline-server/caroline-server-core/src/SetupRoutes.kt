@@ -9,7 +9,6 @@ import cloud.caroline.service.CarolineProjectService
 import cloud.caroline.service.CarolineUserService
 import io.ktor.http.*
 import io.ktor.http.content.*
-import io.ktor.server.application.*
 import io.ktor.server.html.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
@@ -42,9 +41,13 @@ internal fun Route.addSetupRoutes(
                 return@post call.respond(HttpStatusCode.NotFound)
             }
             initializeMutex.lock()
-            val formData = call.receiveMultipart()
-                .readAllParts().filterIsInstance<PartData.FormItem>()
-                .map(PartData.FormItem::value)
+            val formData = mutableListOf<String>()
+            call.receiveMultipart()
+                .forEachPart { part ->
+                    if (part is PartData.FormItem) {
+                        formData.add(part.value)
+                    }
+                }
 
             if (formData[1] != formData[2]) {
                 return@post call.respondHtml {
@@ -83,7 +86,7 @@ internal fun Route.addSetupRoutes(
                 is CreateProjectResponse.Success -> Unit
                 CreateProjectResponse.Failed.InvalidRequestBody,
                 CreateProjectResponse.Failed.ProjectNameExists,
-                -> {
+                    -> {
                     userService.deleteUser(userResponse.user.id)
                     initializeMutex.unlock()
                     return@post call.respond("Failed to create project: $projectResponse")

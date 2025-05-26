@@ -16,13 +16,13 @@ jobs:
     outputs:
       any: ${{ steps.changes.outputs.any_changed }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
         with:
           submodules: 'recursive'
           fetch-depth: 0
       - name: Get changed files
         id: changes
-        uses: tj-actions/changed-files@v42
+        uses: tj-actions/changed-files@823fcebdb31bb35fdf2229d9f769b400309430d0
         with:
           files: |
             .github/workflows/spotless.yml
@@ -36,47 +36,49 @@ jobs:
     needs: [ file-changes ]
     if: needs.file-changes.outputs.any == 'true' || github.ref_name == 'main'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
         with:
           submodules: 'recursive'
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@3b6c050358614dd082e53cdbc55580431fc4e437
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244
 
       - name: Cache Build files
-        uses: actions/cache@v3
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
           path: |
             ~/.konan
             ~/.gradle
           key: ${{ runner.os }}-${{ hashFiles('gradle.properties') }}-v2
 
-      - uses: gradle/gradle-build-action@v2
-        name: Spotless Check
-        with:
-          arguments: spotlessCheck
+      - name: Spotless Check
+        run: ./gradlew spotlessCheck
 
   api-check:
     runs-on: ubuntu-latest
     needs: [ file-changes ]
     if: needs.file-changes.outputs.any == 'true' || github.ref_name == 'main'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
+      - uses: actions/setup-java@3b6c050358614dd082e53cdbc55580431fc4e437
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244
 
       - name: Cache Build files
-        uses: actions/cache@v3
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
           path: |
             ~/.gradle
           key: ${{ runner.os }}-${{ hashFiles('gradle.properties') }}
 
-      - uses: gradle/gradle-build-action@v2
-        name: Check public api compatibility
-        with:
-          arguments: apiCheck
+      - name: Check public api compatibility
+        run: ./gradlew apiCheck

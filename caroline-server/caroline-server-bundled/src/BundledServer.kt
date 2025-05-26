@@ -2,23 +2,17 @@
 
 package cloud.caroline
 
-import cloud.caroline.data.UserSession
-import guru.zoroark.tegral.openapi.ktor.TegralOpenApiKtor
-import guru.zoroark.tegral.openapi.ktor.openApiEndpoint
-import guru.zoroark.tegral.openapi.ktorui.TegralSwaggerUiKtor
-import guru.zoroark.tegral.openapi.ktorui.swaggerUiEndpoint
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.server.application.*
 import io.ktor.server.plugins.autohead.*
 import io.ktor.server.plugins.cachingheaders.*
-import io.ktor.server.plugins.callloging.*
+import io.ktor.server.plugins.calllogging.CallLogging
 import io.ktor.server.plugins.compression.*
 import io.ktor.server.plugins.conditionalheaders.*
 import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.forwardedheaders.*
 import io.ktor.server.routing.*
-import io.swagger.v3.oas.models.security.SecurityScheme
 import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -31,7 +25,7 @@ fun Application.module(testing: Boolean = false) {
     install(AutoHeadResponse)
     install(CachingHeaders)
 
-    install(TegralOpenApiKtor) {
+    /*install(TegralOpenApiKtor) {
         title = "Caroline"
         // TODO: typeProperty = "__type"
         "JWT" securityScheme {
@@ -47,7 +41,7 @@ fun Application.module(testing: Boolean = false) {
             name = UserSession.KEY
         }
     }
-    install(TegralSwaggerUiKtor)
+    install(TegralSwaggerUiKtor)*/
     install(CallLogging) {
         level = Level.INFO
     }
@@ -71,7 +65,7 @@ fun Application.module(testing: Boolean = false) {
         anyHost()
     }
     routing {
-        openApiEndpoint("/openapi")
-        swaggerUiEndpoint("/swagger", "/openapi")
+        //openApiEndpoint("/openapi")
+        //swaggerUiEndpoint("/swagger", "/openapi")
     }
 }

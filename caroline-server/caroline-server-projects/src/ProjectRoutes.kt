@@ -2,7 +2,6 @@ package cloud.caroline
 
 import cloud.caroline.admin.api.ApiKeyCredentials
 import cloud.caroline.admin.api.CreateProjectBody
-import cloud.caroline.admin.api.CreateProjectResponse
 import cloud.caroline.admin.api.ProjectDetails
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.Project
@@ -11,20 +10,15 @@ import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.data.UserSession
 import cloud.caroline.internal.checkServicesPermission
 import cloud.caroline.service.CarolineProjectService
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.Forbidden
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
-import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
-import io.ktor.util.*
 import org.drewcarlson.ktor.permissions.withPermission
 import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
@@ -56,7 +50,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                     projectDb.find().toList()
                 }
                 call.respond(projects)
-            } describeProject {
+            }/* describeProject {
                 summary = "List projects accessible to the authentication token."
                 OK.value response {
                     description = "A list of project details."
@@ -64,7 +58,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                         schema<List<Project>>()
                     }
                 }
-            }
+            }*/
         }
 
         withPermission<Permission>({
@@ -78,7 +72,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                     ?: return@post call.respond(UnprocessableEntity)
                 val session = call.principal<UserSession>()!!
                 call.respond(projectService.createProject(session.userId, body))
-            } describeProject {
+            }/* describeProject {
                 summary = "Create a new project."
                 security("JWT")
                 security("Session")
@@ -93,7 +87,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                         schema<CreateProjectResponse>()
                     }
                 }
-            }
+            }*/
         }
 
         route("/{projectId}") {
@@ -110,7 +104,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
             }) {
                 get {
                     call.respond(OK)
-                } describeProject {
+                }/* describeProject {
                     summary = "Get project details."
                     security("JWT")
                     security("Session")
@@ -118,7 +112,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                         description = "The project id to query."
                         schema<String>()
                     }
-                }
+                }*/
             }
 
             withPermission<Permission>({
@@ -133,7 +127,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                 }
             }) {
                 put {
-                } describeProject {
+                }/* describeProject {
                     summary = "Update a project."
                     security("JWT")
                     security("Session")
@@ -143,7 +137,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                     OK.value response {
                         description = "The project has been updated."
                     }
-                }
+                }*/
             }
 
             withPermission<Permission>({
@@ -163,7 +157,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                     projectDetailsDb.deleteOneById(projectId)
                     apiKeyCredentialsDb.deleteMany(ApiKeyCredentials::projectId eq projectId)
                     call.respond(OK)
-                } describeProject {
+                }/* describeProject {
                     summary = "Delete a project by id, this operation cannot be reverted."
                     security("JWT")
                     security("Session")
@@ -180,7 +174,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                     Forbidden.value response {
                         description = "The associated authentication details do not have project deletion permissions."
                     }
-                }
+                }*/
             }
 
             route("/api-key") {
@@ -203,7 +197,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                             .find(ApiKeyCredentials::projectId eq projectDetails.id)
                             .toList()
                         call.respond(credentials)
-                    } describeProject {
+                    }/* describeProject {
                         summary = "List all the API keys for a project."
                         "projectId" pathParameter {
                             description = "The project id."
@@ -213,7 +207,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                                 schema<List<ApiKeyCredentials>>()
                             }
                         }
-                    }
+                    }*/
 
                     post {
                         val projectId: String by call.parameters
@@ -235,7 +229,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                         } else {
                             call.respond(Forbidden)
                         }
-                    } describeProject {
+                    }/* describeProject {
                         summary = "Create a new project API key."
                         "projectId" pathParameter {
                             description = "The project id."
@@ -246,7 +240,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                                 schema<List<Permission>>()
                             }
                         }
-                    }
+                    }*/
 
                     route("/{apiKey}") {
                         get {
@@ -259,7 +253,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                             ) ?: return@get call.respond(NotFound)
 
                             call.respond(result.permissions)
-                        } describeProject {
+                        }/* describeProject {
                             summary = "Get the permissions for an API key."
                             "projectId" pathParameter {
                                 description = "The project id."
@@ -272,7 +266,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                                     schema<List<Permission>>()
                                 }
                             }
-                        }
+                        }*/
                         delete {
                             val apiKey: String by call.parameters
                             val projectId: String by call.parameters
@@ -289,7 +283,7 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                             } else {
                                 call.respond(NotFound)
                             }
-                        } describeProject {
+                        }/* describeProject {
                             summary = "Delete an API key."
                             "projectId" pathParameter {
                                 description = "The project id."
@@ -300,14 +294,14 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                             OK.value response {
                                 description = "The API key has been deleted."
                             }
-                        }
+                        }*/
                     }
                 }
             }
         }
     }
 }
-
+/*
 @KtorDsl
 private infix fun Route.describeProject(block: OperationDsl.() -> Unit) = describe {
     block()
@@ -315,3 +309,4 @@ private infix fun Route.describeProject(block: OperationDsl.() -> Unit) = descri
     security("JWT")
     security("Session")
 }
+*/

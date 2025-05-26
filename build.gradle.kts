@@ -17,7 +17,6 @@ plugins {
 allprojects {
     repositories {
         mavenCentral()
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     }
     plugins.withType<NodeJsRootPlugin> {
         the<YarnRootExtension>().lockFileDirectory = rootDir.resolve("gradle/kotlin-js-store")
@@ -30,7 +29,7 @@ subprojects {
         kotlin {
             target("**/**.kt")
             // licenseHeaderFile(rootDir.resolve("licenseHeader.txt"))
-            ktlint(libs.versions.ktlint.get())
+            /*ktlint(libs.versions.ktlint.get())
                 .editorConfigOverride(
                     mapOf(
                         "ktlint_standard_no-wildcard-imports" to "disabled",
@@ -38,7 +37,7 @@ subprojects {
                         "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
                         "ij_kotlin_allow_trailing_comma" to "true",
                     ),
-                )
+                )*/
         }
     }
 

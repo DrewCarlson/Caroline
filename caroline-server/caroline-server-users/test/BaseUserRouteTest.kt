@@ -3,11 +3,9 @@ package cloud.caroline.user
 import cloud.caroline.coreModule
 import cloud.caroline.userModule
 import com.mongodb.ConnectionString
-import guru.zoroark.tegral.openapi.ktor.TegralOpenApiKtor
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.application.*
 import io.ktor.server.config.*
 import io.ktor.server.testing.*
 import kotlinx.coroutines.runBlocking
@@ -35,7 +33,7 @@ open class BaseUserRouteTest {
                 }
             }
             application {
-                install(TegralOpenApiKtor)
+                //install(TegralOpenApiKtor)
                 coreModule()
                 userModule()
             }

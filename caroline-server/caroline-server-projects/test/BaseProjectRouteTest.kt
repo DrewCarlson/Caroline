@@ -4,11 +4,9 @@ import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
 import com.mongodb.ConnectionString
-import guru.zoroark.tegral.openapi.ktor.TegralOpenApiKtor
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.application.*
 import io.ktor.server.config.*
 import io.ktor.server.testing.*
 import kotlinx.coroutines.runBlocking
@@ -41,7 +39,7 @@ open class BaseProjectRouteTest {
                 }
             }
             application {
-                install(TegralOpenApiKtor)
+                //install(TegralOpenApiKtor)
                 coreModule()
                 projectModule()
             }

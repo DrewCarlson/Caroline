@@ -7,18 +7,13 @@ import cloud.caroline.internal.carolinePropertyInt
 import cloud.caroline.internal.checkServicesPermission
 import cloud.caroline.logging.LogRecord
 import com.mongodb.reactivestreams.client.MongoClient
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
-import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
-import io.ktor.util.*
 import org.bson.types.ObjectId
 import org.drewcarlson.ktor.permissions.withPermission
 import org.litote.kmongo.coroutine.CoroutineDatabase
@@ -50,7 +45,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                 val logKey = ObjectId.get().toString()
                 projectDb.createCollection("logs-$logKey")
                 call.respond(OK, logKey)
-            } describeLogging {
+            }/* describeLogging {
                 summary = "Create a new logging channel."
                 security("JWT")
                 security("Session")
@@ -60,7 +55,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                         schema(ObjectId.get().toString())
                     }
                 }
-            }
+            }*/
         }
         withPermission<Permission>({
             checkServicesPermission(Services.LOGGING, requireId = false)
@@ -70,11 +65,11 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
             }
         }) {
             get("/channels") {
-            } describeLogging {
+            }/* describeLogging {
                 summary = "List available log channels"
                 security("JWT")
                 security("Session")
-            }
+            }*/
         }
         route("/{logKey}") {
             route("/record") {
@@ -107,7 +102,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                             .toList()
 
                         call.respond(slice)
-                    } describeLogging {
+                    }/* describeLogging {
                         summary = "Get log items for the given log key."
                         security("Session")
                         security("JWT")
@@ -131,7 +126,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                         NotFound.value response {
                             description = "The provided log key does not exist."
                         }
-                    }
+                    }*/
                 }
 
                 withPermission<Permission>({
@@ -170,7 +165,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                                 logRecordDb.insertMany(chunk)
                             }
                         }
-                    } describeLogging {
+                    } /*describeLogging {
                         summary = "Add new records to a log."
                         security("JWT")
                         "logKey" pathParameter {
@@ -187,7 +182,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                         OK.value response {
                             description = "The log messages have been received and will be stored in the log channel."
                         }
-                    }
+                    }*/
                 }
             }
 
@@ -209,7 +204,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                     projectDb.dropCollection("logs-$logKey")
 
                     call.respond(OK)
-                } describeLogging {
+                } /*describeLogging {
                     summary = "Delete a log channel."
                     "logKey" pathParameter {
                         description = "The log key to delete."
@@ -219,12 +214,12 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                     OK.value response {
                         description = "The log channel has been deleted."
                     }
-                }
+                }*/
             }
         }
     }
 }
-
+/*
 @KtorDsl
 private infix fun Route.describeLogging(block: OperationDsl.() -> Unit) = describe {
     block()
@@ -232,3 +227,4 @@ private infix fun Route.describeLogging(block: OperationDsl.() -> Unit) = descri
     security("JWT")
     security("Session")
 }
+*/

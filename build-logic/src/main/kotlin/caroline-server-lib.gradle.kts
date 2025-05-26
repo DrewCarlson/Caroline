@@ -1,6 +1,6 @@
-import org.gradle.api.JavaVersion
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.kotlin
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -20,7 +20,7 @@ sourceSets["test"].resources.srcDirs("testresources")
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 dependencies {
-    implementation(libs.findBundle("tegral-ktor").get())
+    //implementation(libs.findBundle("tegral-ktor").get())
 
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
@@ -29,7 +29,7 @@ dependencies {
 
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.majorVersion
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
     }
 }
