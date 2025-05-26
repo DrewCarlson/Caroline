@@ -36,7 +36,7 @@ jobs:
         with:
           mongodb-version: 4.4
 
-      - run: |
+      - run: >
           ./gradlew
           :caroline-server:caroline-server-bundled:build
           :caroline-server:caroline-server-core:check
@@ -91,10 +91,7 @@ jobs:
       #          arguments: macosTest # iosTest tvosTest watchosX86Test
       - name: Test Linux/Jvm/Js Targets
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
-        run: | #linuxX64Test
-          ./gradlew
-          jvmTest
-          jsTest
+        run: ./gradlew jvmTest jsTest #linuxX64Test
 
       - name: Archive Test Results
         uses: actions/upload-artifact@6027e3dd177782cd8ab9af838c04fd81a07f1d47
