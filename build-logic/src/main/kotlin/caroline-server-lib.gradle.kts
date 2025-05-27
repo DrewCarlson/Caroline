@@ -21,7 +21,11 @@ sourceSets["test"].resources.srcDirs("testresources")
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 dependencies {
-    //implementation(libs.findBundle("tegral-ktor").get())
+    if (!name.startsWith("tegral")) {
+        implementation(project(":libraries:tegral-openapi-dsl"))
+        implementation(project(":libraries:tegral-openapi-ktor"))
+        implementation(project(":libraries:tegral-openapi-ktorui"))
+    }
 
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))

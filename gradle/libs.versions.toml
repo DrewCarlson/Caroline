@@ -19,6 +19,8 @@ agp = "8.2.2"
 dokka = "1.9.10"
 binary_compat = "0.17.0"
 mongo = "5.5.0"
+swaggerCore = "2.2.25"
+swaggerUi = "5.17.14"
 
 # Android
 minSdk = "24"
@@ -99,5 +101,9 @@ mongo-bson = { module = "org.mongodb:bson-kotlinx", version.ref = "mongo" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
 embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.11.1" }
+
+swaggerCore-models = { module = "io.swagger.core.v3:swagger-models", version.ref = "swaggerCore" }
+swaggerCore-core = { module = "io.swagger.core.v3:swagger-core", version.ref = "swaggerCore" }
+swaggerUi = { module = "org.webjars:swagger-ui", version.ref = "swaggerUi" }
 
 [bundles]

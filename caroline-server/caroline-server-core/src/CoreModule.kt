@@ -59,12 +59,12 @@ public fun Application.coreModule() {
             verifier(JwtManager.verifier())
             validate { credential ->
                 val audience = credential.payload.audience.firstOrNull() ?: return@validate null
-                val credentials = apiKeyDb.find(Filters.eq("_id", audience))
+                val credentials = apiKeyDb.find(Filters.eq(ApiKeyCredentials::projectId.name, audience))
                     .firstOrNull()
                     ?: return@validate null
                 ProjectUserSession(
                     projectId = credentials.projectId,
-                    apiKey = audience,
+                    apiKey = credentials.apiKey,
                     permissions = credentials.permissions,
                     payload = credential.payload,
                 )

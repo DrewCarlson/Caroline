@@ -2,6 +2,7 @@ package cloud.caroline
 
 import cloud.caroline.admin.api.ApiKeyCredentials
 import cloud.caroline.admin.api.CreateProjectBody
+import cloud.caroline.admin.api.CreateProjectResponse
 import cloud.caroline.admin.api.ProjectDetails
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.Project
@@ -13,6 +14,9 @@ import cloud.caroline.service.CarolineProjectService
 import com.mongodb.client.model.Filters
 import com.mongodb.client.model.Updates
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
+import guru.zoroark.tegral.openapi.dsl.OperationDsl
+import guru.zoroark.tegral.openapi.dsl.schema
+import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.Forbidden
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
@@ -22,6 +26,7 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
+import io.ktor.utils.io.KtorDsl
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.toList
 import org.drewcarlson.ktor.permissions.withPermission
@@ -52,7 +57,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     projectDb.find().toList()
                 }
                 call.respond(projects)
-            }/* describeProject {
+            } describeProject {
                 summary = "List projects accessible to the authentication token."
                 OK.value response {
                     description = "A list of project details."
@@ -60,7 +65,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                         schema<List<Project>>()
                     }
                 }
-            }*/
+            }
         }
 
         withPermission<Permission>({
@@ -74,7 +79,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     ?: return@post call.respond(UnprocessableEntity)
                 val session = call.principal<UserSession>()!!
                 call.respond(projectService.createProject(session.userId, body))
-            }/* describeProject {
+            } describeProject {
                 summary = "Create a new project."
                 security("JWT")
                 security("Session")
@@ -89,7 +94,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                         schema<CreateProjectResponse>()
                     }
                 }
-            }*/
+            }
         }
 
         route("/{projectId}") {
@@ -106,7 +111,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
             }) {
                 get {
                     call.respond(OK)
-                }/* describeProject {
+                } describeProject {
                     summary = "Get project details."
                     security("JWT")
                     security("Session")
@@ -114,7 +119,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                         description = "The project id to query."
                         schema<String>()
                     }
-                }*/
+                }
             }
 
             withPermission<Permission>({
@@ -129,7 +134,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 put {
-                }/* describeProject {
+                } describeProject {
                     summary = "Update a project."
                     security("JWT")
                     security("Session")
@@ -139,7 +144,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     OK.value response {
                         description = "The project has been updated."
                     }
-                }*/
+                }
             }
 
             withPermission<Permission>({
@@ -159,7 +164,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     projectDetailsDb.deleteOne(Filters.eq("_id", projectId))
                     apiKeyCredentialsDb.deleteMany(Filters.eq(ApiKeyCredentials::projectId.name, projectId))
                     call.respond(OK)
-                }/* describeProject {
+                } describeProject {
                     summary = "Delete a project by id, this operation cannot be reverted."
                     security("JWT")
                     security("Session")
@@ -176,7 +181,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     Forbidden.value response {
                         description = "The associated authentication details do not have project deletion permissions."
                     }
-                }*/
+                }
             }
 
             route("/api-key") {
@@ -200,7 +205,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                             .find(Filters.eq(ApiKeyCredentials::projectId.name, projectDetails.id))
                             .toList()
                         call.respond(credentials)
-                    }/* describeProject {
+                    } describeProject {
                         summary = "List all the API keys for a project."
                         "projectId" pathParameter {
                             description = "The project id."
@@ -210,7 +215,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                                 schema<List<ApiKeyCredentials>>()
                             }
                         }
-                    }*/
+                    }
 
                     post {
                         val projectId: String by call.parameters
@@ -233,7 +238,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                         } else {
                             call.respond(Forbidden)
                         }
-                    }/* describeProject {
+                    } describeProject {
                         summary = "Create a new project API key."
                         "projectId" pathParameter {
                             description = "The project id."
@@ -244,7 +249,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                                 schema<List<Permission>>()
                             }
                         }
-                    }*/
+                    }
 
                     route("/{apiKey}") {
                         get {
@@ -259,7 +264,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                             ).firstOrNull() ?: return@get call.respond(NotFound)
 
                             call.respond(result.permissions)
-                        }/* describeProject {
+                        } describeProject {
                             summary = "Get the permissions for an API key."
                             "projectId" pathParameter {
                                 description = "The project id."
@@ -272,7 +277,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                                     schema<List<Permission>>()
                                 }
                             }
-                        }*/
+                        }
                         delete {
                             val apiKey: String by call.parameters
                             val projectId: String by call.parameters
@@ -291,7 +296,7 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                             } else {
                                 call.respond(NotFound)
                             }
-                        }/* describeProject {
+                        } describeProject {
                             summary = "Delete an API key."
                             "projectId" pathParameter {
                                 description = "The project id."
@@ -302,14 +307,14 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                             OK.value response {
                                 description = "The API key has been deleted."
                             }
-                        }*/
+                        }
                     }
                 }
             }
         }
     }
 }
-/*
+
 @KtorDsl
 private infix fun Route.describeProject(block: OperationDsl.() -> Unit) = describe {
     block()
@@ -317,4 +322,3 @@ private infix fun Route.describeProject(block: OperationDsl.() -> Unit) = descri
     security("JWT")
     security("Session")
 }
-*/

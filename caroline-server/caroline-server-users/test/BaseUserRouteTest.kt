@@ -9,7 +9,6 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.config.*
 import io.ktor.server.testing.*
 import kotlinx.coroutines.runBlocking
-import org.junit.After
 import org.junit.Before
 
 open class BaseUserRouteTest {
@@ -32,7 +31,6 @@ open class BaseUserRouteTest {
                 }
             }
             application {
-                //install(TegralOpenApiKtor)
                 coreModule()
                 userModule()
             }

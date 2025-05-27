@@ -3,7 +3,6 @@ package cloud.caroline
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
-import com.mongodb.ConnectionString
 import com.mongodb.kotlin.client.coroutine.MongoClient
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.client.*
@@ -38,7 +37,6 @@ open class BaseProjectRouteTest {
                 }
             }
             application {
-                //install(TegralOpenApiKtor)
                 coreModule()
                 projectModule()
             }

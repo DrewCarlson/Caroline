@@ -32,13 +32,13 @@ public object JwtManager {
     }
 
     public fun createToken(
-        apiKey: String,
+        projectId: String,
         expiresInMs: Long = (7 * 24 * 60 * 60),
     ): String {
         check(this::issuer.isInitialized) { "JwtManager must be configured." }
         return JWT.create()
             .withIssuer(issuer)
-            .withAudience(apiKey)
+            .withAudience(projectId)
             .withIssuedAt(Date())
             .apply {
                 if (expiresInMs > 0) {

@@ -76,6 +76,9 @@ dependencies {
     implementation(libs.mongo.driver)
     implementation(libs.mongo.bson)
 
+    implementation(projects.libraries.tegralOpenapiKtor)
+    implementation(projects.libraries.tegralOpenapiKtorui)
+
     testImplementation(kotlin("test-junit"))
     testImplementation(libs.ktor.server.tests)
 }

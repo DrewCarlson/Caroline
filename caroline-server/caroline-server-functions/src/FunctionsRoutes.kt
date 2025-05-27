@@ -3,9 +3,16 @@ package cloud.caroline
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.Services
 import cloud.caroline.internal.checkServicesPermission
+import cloud.caroline.models.CreateFunctionBody
+import cloud.caroline.models.CreateFunctionResponse
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
+import guru.zoroark.tegral.openapi.dsl.OperationDsl
+import guru.zoroark.tegral.openapi.dsl.schema
+import guru.zoroark.tegral.openapi.ktor.describe
+import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
+import io.ktor.utils.io.KtorDsl
 import org.drewcarlson.ktor.permissions.withPermission
 
 internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
@@ -22,7 +29,7 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
             }
         }) {
             get {
-            }/* describeFunctions {
+            } describeFunctions {
                 summary = "List existing functions."
                 body {
                     json {
@@ -35,14 +42,14 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                         schema<CreateFunctionResponse>()
                     }
                 }
-            }*/
+            }
         }
 
         withPermission<Permission>({
             checkServicesPermission(Services.FUNCTIONS)
         }) {
             post {
-            }/* describeFunctions {
+            } describeFunctions {
                 summary = "Create a new function."
                 body {
                     json {
@@ -55,7 +62,7 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                         schema<CreateFunctionResponse>()
                     }
                 }
-            }*/
+            }
         }
 
         route("/{functionId}") {
@@ -74,9 +81,9 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 get {
-                }/* describeFunctions {
+                } describeFunctions {
                     summary = "Get function by id."
-                }*/
+                }
             }
 
             withPermission<Permission>({
@@ -94,7 +101,7 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 put {
-                }/* describeFunctions {
+                } describeFunctions {
                     summary = "Update function details."
                     body {
                         json {
@@ -107,7 +114,7 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                             schema<CreateFunctionResponse>()
                         }
                     }
-                }*/
+                }
             }
 
             withPermission<Permission>({
@@ -125,13 +132,13 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 delete {
-                }/* describeFunctions {
+                } describeFunctions {
                     summary = "Delete function."
 
                     OK.value response {
                         json {}
                     }
-                }*/
+                }
             }
 
             withPermission<Permission>({
@@ -149,27 +156,27 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 get("/invoke") {
-                }/* describeFunctions {
+                } describeFunctions {
                     summary = "Invoke function."
 
                     OK.value response {
                         json {}
                     }
-                }*/
+                }
 
                 post("/invoke") {
-                }/* describeFunctions {
+                } describeFunctions {
                     summary = "Invoke function."
 
                     OK.value response {
                         json {}
                     }
-                }*/
+                }
             }
         }
     }
 }
-/*
+
 @KtorDsl
 private infix fun Route.describeFunctions(block: OperationDsl.() -> Unit) = describe {
     block()
@@ -177,4 +184,3 @@ private infix fun Route.describeFunctions(block: OperationDsl.() -> Unit) = desc
     security("JWT")
     security("Session")
 }
-*/

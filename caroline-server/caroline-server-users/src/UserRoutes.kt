@@ -9,11 +9,16 @@ import cloud.caroline.core.models.UserCredentials
 import cloud.caroline.data.UserSession
 import cloud.caroline.service.CarolineUserService
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
+import guru.zoroark.tegral.openapi.dsl.OperationDsl
+import guru.zoroark.tegral.openapi.dsl.schema
+import guru.zoroark.tegral.openapi.ktor.describe
+import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
+import io.ktor.utils.io.KtorDsl
 
 internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
     val users = mongodb.getCollection<User>("user")
@@ -32,7 +37,7 @@ internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
                 }
             }
             call.respond(response)
-        }/* describeUsers {
+        } describeUsers {
             summary = "Create a new user."
             security("JWT")
             security("Session")
@@ -56,7 +61,7 @@ internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
                     // TODO: description = "The user session string."
                 }
             }
-        }*/
+        }
 
         route("/session") {
             post {
@@ -68,7 +73,7 @@ internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
                     call.sessions.set(UserSession(response.user.id, response.permissions))
                 }
                 call.respond(response)
-            }/* describe {
+            } describe {
                 summary = "Create a new user session."
                 tags += "Users"
                 body {
@@ -82,11 +87,11 @@ internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
                         schema<CreateSessionResponse>()
                     }
                 }
-            }*/
+            }
         }
     }
 }
-/*
+
 @KtorDsl
 private infix fun Route.describeUsers(
     block: OperationDsl.() -> Unit,
@@ -95,4 +100,4 @@ private infix fun Route.describeUsers(
     tags += "Users"
     security("JWT")
     security("Session")
-}*/
+}
