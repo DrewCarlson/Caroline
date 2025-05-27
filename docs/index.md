@@ -2,7 +2,6 @@
 
 **_[WIP] This project is unfinished and not ready for use, most features described are not complete._**
 
-[![](https://img.shields.io/badge/-sponsor-ff69b4)](https://github.com/sponsors/DrewCarlson)
 [![Maven Central](https://img.shields.io/maven-central/v/cloud.caroline/caroline-sdk-core?label=Release&color=blue)](https://search.maven.org/search?q=g:cloud.caroline)
 [![codecov](https://img.shields.io/codecov/c/github/drewcarlson/caroline?token=8KSLSMHQSX)](https://codecov.io/gh/DrewCarlson/Caroline)
 [![](https://github.com/DrewCarlson/Caroline/workflows/Tests/badge.svg)](https://github.com/DrewCarlson/Caroline/actions/workflows/tests.yml)
