@@ -10,6 +10,9 @@ import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.data.UserSession
 import cloud.caroline.internal.checkServicesPermission
 import cloud.caroline.service.CarolineProjectService
+import com.mongodb.client.model.Filters
+import com.mongodb.client.model.Updates
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.http.HttpStatusCode.Companion.Forbidden
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
@@ -19,16 +22,14 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.toList
 import org.drewcarlson.ktor.permissions.withPermission
-import org.litote.kmongo.coroutine.CoroutineDatabase
-import org.litote.kmongo.eq
-import org.litote.kmongo.`in`
-import org.litote.kmongo.pull
 
-internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
-    val projectDb = mongodb.getCollection<Project>()
-    val projectDetailsDb = mongodb.getCollection<ProjectDetails>()
-    val apiKeyCredentialsDb = mongodb.getCollection<ApiKeyCredentials>()
+internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
+    val projectDb = mongodb.getCollection<Project>("project")
+    val projectDetailsDb = mongodb.getCollection<ProjectDetails>("project-details")
+    val apiKeyCredentialsDb = mongodb.getCollection<ApiKeyCredentials>("api-key-credentials")
     val projectService = CarolineProjectService(projectDb, projectDetailsDb, apiKeyCredentialsDb)
 
     route("/project") {
@@ -45,7 +46,8 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                     }
                 }
                 val projects = if (projectViewIds.isNotEmpty()) {
-                    projectDb.find(Project::id `in` projectViewIds).toList()
+                    projectDb.find(Filters.`in`(Project::id.name, projectViewIds))
+                        .toList()
                 } else {
                     projectDb.find().toList()
                 }
@@ -153,9 +155,9 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
             }) {
                 delete {
                     val projectId: String by call.parameters
-                    projectDb.deleteOneById(projectId)
-                    projectDetailsDb.deleteOneById(projectId)
-                    apiKeyCredentialsDb.deleteMany(ApiKeyCredentials::projectId eq projectId)
+                    projectDb.deleteOne(Filters.eq("_id", projectId))
+                    projectDetailsDb.deleteOne(Filters.eq("_id", projectId))
+                    apiKeyCredentialsDb.deleteMany(Filters.eq(ApiKeyCredentials::projectId.name, projectId))
                     call.respond(OK)
                 }/* describeProject {
                     summary = "Delete a project by id, this operation cannot be reverted."
@@ -191,10 +193,11 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                 }) {
                     get {
                         val projectId: String by call.parameters
-                        val projectDetails = projectDetailsDb.findOneById(projectId)
+                        val projectDetails = projectDetailsDb.find(Filters.eq("_id", projectId))
+                            .firstOrNull()
                             ?: return@get call.respond(NotFound)
                         val credentials = apiKeyCredentialsDb
-                            .find(ApiKeyCredentials::projectId eq projectDetails.id)
+                            .find(Filters.eq(ApiKeyCredentials::projectId.name, projectDetails.id))
                             .toList()
                         call.respond(credentials)
                     }/* describeProject {
@@ -211,7 +214,8 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
 
                     post {
                         val projectId: String by call.parameters
-                        val projectDetails = projectDetailsDb.findOneById(projectId)
+                        val projectDetails = projectDetailsDb.find(Filters.eq("_id", projectId))
+                            .firstOrNull()
                             ?: return@post call.respond(NotFound)
                         val permissions = call.receiveNullable<Set<Permission>>()
                             ?: return@post call.respond(UnprocessableEntity)
@@ -247,10 +251,12 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                             val apiKey: String by call.parameters
                             val projectId: String by call.parameters
 
-                            val result = apiKeyCredentialsDb.findOne(
-                                ApiKeyCredentials::apiKey eq apiKey,
-                                ApiKeyCredentials::projectId eq projectId,
-                            ) ?: return@get call.respond(NotFound)
+                            val result = apiKeyCredentialsDb.find(
+                                Filters.and(
+                                    Filters.eq("_id", apiKey),
+                                    Filters.eq(ApiKeyCredentials::projectId.name, projectId),
+                                )
+                            ).firstOrNull() ?: return@get call.respond(NotFound)
 
                             call.respond(result.permissions)
                         }/* describeProject {
@@ -271,12 +277,14 @@ internal fun Route.addProjectRoutes(mongodb: CoroutineDatabase) {
                             val apiKey: String by call.parameters
                             val projectId: String by call.parameters
                             val result = apiKeyCredentialsDb.deleteOne(
-                                ApiKeyCredentials::apiKey eq apiKey,
-                                ApiKeyCredentials::projectId eq projectId,
+                                Filters.and(
+                                    Filters.eq("_id", apiKey),
+                                    Filters.eq(ApiKeyCredentials::projectId.name, projectId),
+                                )
                             )
                             projectDetailsDb.updateOne(
-                                ProjectDetails::id eq projectId,
-                                pull(ProjectDetails::apiKeys, apiKey),
+                                Filters.eq("_id", projectId),
+                                Updates.pull(ProjectDetails::apiKeys.name, apiKey),
                             )
                             if (result.deletedCount == 1L) {
                                 call.respond(OK)

@@ -18,6 +18,7 @@ ktlint = "1.1.1"
 agp = "8.2.2"
 dokka = "1.9.10"
 binary_compat = "0.17.0"
+mongo = "5.5.0"
 
 # Android
 minSdk = "24"
@@ -92,7 +93,8 @@ bouncyCastle = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "boun
 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
-kmongo = { module = "org.litote.kmongo:kmongo-coroutine-serialization", version = "4.11.0" }
+mongo-driver = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongo" }
+mongo-bson = { module = "org.mongodb:bson-kotlinx", version.ref = "mongo" }
 
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }

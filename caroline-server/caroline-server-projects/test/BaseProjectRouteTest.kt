@@ -4,6 +4,8 @@ import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
 import com.mongodb.ConnectionString
+import com.mongodb.kotlin.client.coroutine.MongoClient
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
@@ -12,18 +14,15 @@ import io.ktor.server.testing.*
 import kotlinx.coroutines.runBlocking
 import org.bson.types.ObjectId
 import org.junit.Before
-import org.litote.kmongo.coroutine.CoroutineDatabase
-import org.litote.kmongo.coroutine.coroutine
-import org.litote.kmongo.reactivestreams.KMongo
 
 open class BaseProjectRouteTest {
 
-    lateinit var testDb: CoroutineDatabase
+    lateinit var testDb: MongoDatabase
 
     @Before
     fun setup() {
-        val kmongo = KMongo.createClient(ConnectionString("mongodb://localhost"))
-        testDb = kmongo.getDatabase("caroline-tests").coroutine
+        val kmongo = MongoClient.create("mongodb://localhost")
+        testDb = kmongo.getDatabase("caroline-tests")
         runBlocking { testDb.drop() }
     }
 
@@ -53,8 +52,8 @@ open class BaseProjectRouteTest {
     }
 
     suspend fun createUser(permissions: Set<Permission> = setOf(Permission.Global)) {
-        val userCollection = testDb.getCollection<User>()
-        val userCredentialsCollection = testDb.getCollection<UserCredentials>()
+        val userCollection = testDb.getCollection<User>("users")
+        val userCredentialsCollection = testDb.getCollection<UserCredentials>("user-credentials")
         userCollection.insertOne(
             User(ObjectId.get().toString(), "test", "test", "test@test.com"),
         )

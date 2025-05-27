@@ -3,12 +3,12 @@ package cloud.caroline
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.Services
 import cloud.caroline.internal.checkServicesPermission
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
 import org.drewcarlson.ktor.permissions.withPermission
-import org.litote.kmongo.coroutine.CoroutineDatabase
 
-internal fun Route.addFunctionsRoutes(mongodb: CoroutineDatabase) {
+internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
     route("/functions") {
         withPermission<Permission>({
             checkServicesPermission(Services.FUNCTIONS)

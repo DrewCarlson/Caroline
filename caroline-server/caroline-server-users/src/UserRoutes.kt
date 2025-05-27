@@ -8,16 +8,16 @@ import cloud.caroline.core.models.User
 import cloud.caroline.core.models.UserCredentials
 import cloud.caroline.data.UserSession
 import cloud.caroline.service.CarolineUserService
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
-import org.litote.kmongo.coroutine.CoroutineDatabase
 
-internal fun Route.addUserRoutes(mongodb: CoroutineDatabase) {
-    val users = mongodb.getCollection<User>()
-    val credentialsDb = mongodb.getCollection<UserCredentials>()
+internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
+    val users = mongodb.getCollection<User>("user")
+    val credentialsDb = mongodb.getCollection<UserCredentials>("user-credentials")
     val userService = CarolineUserService(users, credentialsDb)
     route("/user") {
         post {

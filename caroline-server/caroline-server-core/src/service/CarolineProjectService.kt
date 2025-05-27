@@ -5,18 +5,19 @@ import cloud.caroline.admin.api.CreateProjectBody
 import cloud.caroline.admin.api.CreateProjectResponse
 import cloud.caroline.admin.api.ProjectDetails
 import cloud.caroline.core.models.*
+import com.mongodb.client.model.Filters
+import com.mongodb.kotlin.client.coroutine.MongoCollection
+import kotlinx.coroutines.flow.firstOrNull
 import org.bouncycastle.util.encoders.Hex
 import org.bson.types.ObjectId
-import org.litote.kmongo.coroutine.CoroutineCollection
-import org.litote.kmongo.eq
 import kotlin.random.Random
 
 private const val API_KEY_BYTES = 48
 
 public class CarolineProjectService(
-    private val projectDb: CoroutineCollection<Project>,
-    private val projectDetailsDb: CoroutineCollection<ProjectDetails>,
-    private val apiKeyCredentialsDb: CoroutineCollection<ApiKeyCredentials>,
+    private val projectDb: MongoCollection<Project>,
+    private val projectDetailsDb: MongoCollection<ProjectDetails>,
+    private val apiKeyCredentialsDb: MongoCollection<ApiKeyCredentials>,
 ) {
 
     public suspend fun getProjectsCount(): Long? {
@@ -25,7 +26,8 @@ public class CarolineProjectService(
 
     public suspend fun createProject(ownerUserId: String, body: CreateProjectBody): CreateProjectResponse {
         val queryProjectName = body.name.lowercase().replace(' ', '-')
-        val existingByName = projectDb.findOne(Project::name eq queryProjectName)
+        val existingByName = projectDb.find(Filters.eq(Project::name.name, queryProjectName))
+            .firstOrNull()
         if (existingByName != null) {
             return CreateProjectResponse.Failed.ProjectNameExists
         }

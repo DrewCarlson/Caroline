@@ -6,19 +6,21 @@ import cloud.caroline.core.models.*
 import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.service.CarolineProjectService
 import cloud.caroline.service.CarolineUserService
+import com.mongodb.client.model.Filters
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.http.HttpStatusCode.Companion.Unauthorized
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import org.litote.kmongo.coroutine.CoroutineDatabase
+import kotlinx.coroutines.flow.firstOrNull
 
-internal fun Route.addCoreRoutes(mongodb: CoroutineDatabase) {
-    val projectsDb = mongodb.getCollection<Project>()
-    val projectDetailsDb = mongodb.getCollection<ProjectDetails>()
-    val apiKeyCredsDb = mongodb.getCollection<ApiKeyCredentials>()
-    val usersDb = mongodb.getCollection<User>()
-    val userCredentialsDb = mongodb.getCollection<UserCredentials>()
+internal fun Route.addCoreRoutes(mongodb: MongoDatabase) {
+    val projectsDb = mongodb.getCollection<Project>("project")
+    val projectDetailsDb = mongodb.getCollection<ProjectDetails>("project-details")
+    val apiKeyCredsDb = mongodb.getCollection<ApiKeyCredentials>("api-key-credentials")
+    val usersDb = mongodb.getCollection<User>("user")
+    val userCredentialsDb = mongodb.getCollection<UserCredentials>("user-credentials")
     val userService = CarolineUserService(usersDb, userCredentialsDb)
     val projectService = CarolineProjectService(projectsDb, projectDetailsDb, apiKeyCredsDb)
     route("/core") {
@@ -28,7 +30,8 @@ internal fun Route.addCoreRoutes(mongodb: CoroutineDatabase) {
                 val jwtApiKey = call.principal<ProjectUserSession>()?.apiKey
                 val credentials = (apiKey ?: jwtApiKey)
                     ?.takeUnless(String::isNullOrBlank)
-                    ?.let { apiKeyCredsDb.findOneById(it) }
+                    ?.let { apiKeyCredsDb.find(Filters.eq("_id", it)) }
+                    ?.firstOrNull()
                     ?: return@post call.respond(Unauthorized)
 
                 call.respond(JwtManager.createToken(credentials.apiKey))

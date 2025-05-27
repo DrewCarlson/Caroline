@@ -1,9 +1,9 @@
 package cloud.caroline
 
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.server.routing.*
-import org.litote.kmongo.coroutine.CoroutineDatabase
 
-internal fun Route.addCrashRoutes(mongodb: CoroutineDatabase) {
+internal fun Route.addCrashRoutes(mongodb: MongoDatabase) {
     route("/crash") {
     }
 }

@@ -67,7 +67,8 @@ dependencies {
 
     implementation(libs.logback)
 
-    implementation(libs.kmongo)
+    implementation(libs.mongo.driver)
+    implementation(libs.mongo.bson)
 
     testImplementation(kotlin("test-junit"))
     testImplementation(libs.ktor.server.tests)

@@ -31,5 +31,6 @@ dependencies {
 
     implementation(libs.logback)
 
-    implementation(libs.kmongo)
+    implementation(libs.mongo.driver)
+    implementation(libs.mongo.bson)
 }

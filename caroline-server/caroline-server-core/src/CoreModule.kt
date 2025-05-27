@@ -9,6 +9,8 @@ import cloud.caroline.data.RestrictedSession
 import cloud.caroline.data.UserSession
 import cloud.caroline.internal.carolineProperty
 import com.mongodb.ConnectionString
+import com.mongodb.client.model.Filters
+import com.mongodb.kotlin.client.coroutine.MongoClient
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -18,12 +20,10 @@ import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
-import kotlinx.serialization.encodeToString
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.serialization.json.Json
 import org.bouncycastle.util.encoders.Hex
 import org.drewcarlson.ktor.permissions.PermissionAuthorization
-import org.litote.kmongo.coroutine.coroutine
-import org.litote.kmongo.reactivestreams.KMongo
 import kotlin.random.Random
 
 private const val SESSION_KEY_BYTES = 32
@@ -44,9 +44,9 @@ public fun Application.coreModule() {
     val databaseName = carolineProperty("databaseName")
     val apiPath = carolineProperty("apiBasePath", CAROLINE_API_PATH)
 
-    val kmongo = KMongo.createClient(ConnectionString(mongoUrl))
-    val mongodb = kmongo.getDatabase(databaseName).coroutine
-    val apiKeyDb = mongodb.getCollection<ApiKeyCredentials>()
+    val kmongo = MongoClient.create(mongoUrl)
+    val mongodb = kmongo.getDatabase(databaseName)
+    val apiKeyDb = mongodb.getCollection<ApiKeyCredentials>("api-key-credentials")
 
     val jwtIssuer = carolineProperty("jwtIssuer")
     val jwtRealm = carolineProperty("jwtRealm")
@@ -59,7 +59,9 @@ public fun Application.coreModule() {
             verifier(JwtManager.verifier())
             validate { credential ->
                 val audience = credential.payload.audience.firstOrNull() ?: return@validate null
-                val credentials = apiKeyDb.findOneById(audience) ?: return@validate null
+                val credentials = apiKeyDb.find(Filters.eq("_id", audience))
+                    .firstOrNull()
+                    ?: return@validate null
                 ProjectUserSession(
                     projectId = credentials.projectId,
                     apiKey = audience,

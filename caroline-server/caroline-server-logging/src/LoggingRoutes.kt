@@ -6,7 +6,9 @@ import cloud.caroline.data.ProjectUserSession
 import cloud.caroline.internal.carolinePropertyInt
 import cloud.caroline.internal.checkServicesPermission
 import cloud.caroline.logging.LogRecord
-import com.mongodb.reactivestreams.client.MongoClient
+import com.mongodb.client.model.Filters
+import com.mongodb.kotlin.client.coroutine.MongoClient
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.server.auth.*
@@ -14,15 +16,16 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
+import kotlinx.coroutines.flow.any
+import kotlinx.coroutines.flow.none
+import kotlinx.coroutines.flow.toList
+import org.bson.BsonDocument
 import org.bson.types.ObjectId
 import org.drewcarlson.ktor.permissions.withPermission
-import org.litote.kmongo.coroutine.CoroutineDatabase
-import org.litote.kmongo.coroutine.coroutine
-import org.litote.kmongo.gte
 
 private const val DEFAULT_RECORD_RETURN_LIMIT = 100
 
-internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatabase) {
+internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: MongoDatabase) {
     /*runBlocking { // TODO: Do something like this when an logging is enabled for a project
         if (!mongoDb.listCollectionNames().contains("logRecord")) {
             mongoDb.createCollection("logRecord", CreateCollectionOptions().apply {
@@ -41,7 +44,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
         }) {
             post("/create") {
                 val projectId = call.principal<ProjectUserSession>()!!.projectId
-                val projectDb = kmongo.getDatabase(projectId).coroutine
+                val projectDb = kmongo.getDatabase(projectId)
                 val logKey = ObjectId.get().toString()
                 projectDb.createCollection("logs-$logKey")
                 call.respond(OK, logKey)
@@ -88,16 +91,16 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                         val logKey: String by call.parameters
                         val limit: Int? by call.parameters
                         val offset: Long? by call.parameters
-                        val filter = offset?.let { LogRecord::timestamp gte offset }
+                        val filter = offset?.let { Filters.gte(LogRecord::timestamp.name, it) }
 
-                        val projectDb = kmongo.getDatabase(projectId).coroutine
-                        if (!projectDb.listCollectionNames().contains("logs-$logKey")) {
+                        val projectDb = kmongo.getDatabase(projectId)
+                        if (projectDb.listCollectionNames().none { it == "logs-$logKey" }) {
                             return@get call.respond(NotFound)
                         }
                         val logRecordDb = projectDb.getCollection<LogRecord>("logs-$logKey")
 
                         val slice = logRecordDb
-                            .find(filter)
+                            .find(filter ?: BsonDocument())
                             .limit((limit ?: defaultRecordLimit).coerceIn(1, defaultRecordLimit))
                             .toList()
 
@@ -156,7 +159,7 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                         call.respond(OK)
 
                         if (records?.isNotEmpty() == true) {
-                            val projectDb = kmongo.getDatabase(projectId).coroutine
+                            val projectDb = kmongo.getDatabase(projectId)
                             val logRecordDb = projectDb.getCollection<LogRecord>("logs-$logKey")
 
                             records.chunked(100) { chunk ->
@@ -200,8 +203,8 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: CoroutineDatab
                     val projectId = call.principal<ProjectUserSession>()!!.projectId
                     val logKey: String by call.parameters
 
-                    val projectDb = kmongo.getDatabase(projectId).coroutine
-                    projectDb.dropCollection("logs-$logKey")
+                    val projectDb = kmongo.getDatabase(projectId)
+                    projectDb.getCollection<LogRecord>("logs-$logKey").drop()
 
                     call.respond(OK)
                 } /*describeLogging {

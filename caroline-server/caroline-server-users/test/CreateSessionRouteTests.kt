@@ -86,9 +86,12 @@ class CreateSessionRouteTests : BaseUserRouteTest() {
         assertTrue(sessionResponse.errors.contains(CreateSessionResponse.SessionError.USERNAME_INVALID))
     }
 
-    suspend fun HttpClient.createUser() = createUser("test", "test1234", "test@test.com")
 
-    suspend fun HttpClient.createUser(username: String, password: String, email: String) {
+    suspend fun HttpClient.createUser(
+        username: String = "test",
+        password: String = "test1234",
+        email: String = "test@test.com"
+    ) {
         post("/api/user") {
             contentType(ContentType.Application.Json)
             val body = CreateUserBody(

@@ -2,10 +2,11 @@ package cloud.caroline.service
 
 import cloud.caroline.core.models.*
 import com.mongodb.MongoQueryException
+import com.mongodb.client.model.Filters
+import com.mongodb.kotlin.client.coroutine.MongoCollection
+import kotlinx.coroutines.flow.firstOrNull
 import org.bouncycastle.crypto.generators.OpenBSDBCrypt
 import org.bson.types.ObjectId
-import org.litote.kmongo.coroutine.CoroutineCollection
-import org.litote.kmongo.eq
 import kotlin.random.Random
 
 private const val USERNAME_LENGTH_MIN = 4
@@ -17,8 +18,8 @@ private const val SALT_BYTES = 16
 private const val BCRYPT_COST = 10
 
 public class CarolineUserService(
-    private val users: CoroutineCollection<User>,
-    private val credentialsDb: CoroutineCollection<UserCredentials>,
+    private val users: MongoCollection<User>,
+    private val credentialsDb: MongoCollection<UserCredentials>,
 ) {
 
     public suspend fun createUser(body: CreateUserBody, permissions: Set<Permission>): CreateUserResponse {
@@ -45,9 +46,9 @@ public class CarolineUserService(
 
         val username = body.username.lowercase()
         val email = body.email.lowercase()
-        if (users.findOne(User::username eq username) != null) {
+        if (users.find(Filters.eq(User::username.name, username)).firstOrNull() != null) {
             return CreateUserResponse.Failed(CreateUserResponse.UsernameError.ALREADY_EXISTS, null, null)
-        } else if (users.findOne(User::email eq email) != null) {
+        } else if (users.find(Filters.eq(User::email.name, email)).firstOrNull() != null) {
             return CreateUserResponse.Failed(null, null, CreateUserResponse.EmailError.ALREADY_EXISTS)
         }
 
@@ -86,10 +87,12 @@ public class CarolineUserService(
             return CreateSessionResponse.Failed(errors)
         }
 
-        val user = users.findOne(User::username eq username)
+        val user = users.find(Filters.eq(User::username.name, username))
+            .firstOrNull()
             ?: return CreateSessionResponse.Failed(setOf(CreateSessionResponse.SessionError.USERNAME_NOT_FOUND))
 
-        val auth = credentialsDb.findOne(UserCredentials::id eq user.id)
+        val auth = credentialsDb.find(Filters.eq("_id", user.id))
+            .firstOrNull()
             ?: return CreateSessionResponse.Failed(setOf(CreateSessionResponse.SessionError.USERNAME_NOT_FOUND))
 
         return if (verifyPassword(body.password, auth.passwordHash)) {
@@ -101,8 +104,8 @@ public class CarolineUserService(
 
     public suspend fun deleteUser(id: String): Boolean {
         return try {
-            val result = users.deleteOneById(id)
-            credentialsDb.deleteOneById(id)
+            val result = users.deleteOne(Filters.eq("_id", id))
+            credentialsDb.deleteOne(Filters.eq("_id", id))
             result.deletedCount == 1L
         } catch (e: MongoQueryException) {
             e.printStackTrace()
