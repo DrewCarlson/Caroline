@@ -25,6 +25,7 @@ plugins {
 }*/
 
 kotlin {
+    jvmToolchain(21)
     jvm()
     js(IR) {
         nodejs()

@@ -9,6 +9,7 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain(21)
     explicitApi()
     sourceSets["main"].kotlin.srcDirs("src")
     sourceSets["test"].kotlin.srcDirs("test")
