@@ -2,7 +2,6 @@ package cloud.caroline.data
 
 import cloud.caroline.core.models.Permission
 import com.auth0.jwt.interfaces.Payload
-import io.ktor.server.auth.*
 import kotlinx.serialization.Serializable
 import java.time.Instant
 
@@ -25,6 +24,6 @@ public data class ProjectUserSession(
     override val permissions: Set<Permission>,
 ) : RestrictedSession
 
-public interface RestrictedSession : Principal {
+public interface RestrictedSession {
     public val permissions: Set<Permission>
 }
