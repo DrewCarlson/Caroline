@@ -33,6 +33,4 @@ dependencies {
 
     implementation(libs.mongo.driver)
     implementation(libs.mongo.bson)
-
-    testImplementation(projects.carolineServer.carolineServerBundled)
 }

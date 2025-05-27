@@ -1,7 +1,6 @@
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.multiplatform) apply false
     alias(libs.plugins.jvm) apply false
@@ -42,6 +41,7 @@ subprojects {
     }
 
     apply(plugin = "org.jetbrains.kotlinx.kover")
+    kover {}
 
     if (project.name != "caroline-server-bundled") {
         apply(plugin = "org.jetbrains.dokka")
