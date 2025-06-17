@@ -122,7 +122,7 @@ jobs:
     steps:
       - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
       - name: Download sdk test results
-        uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e
+        uses: actions/download-artifact@448e3f862ab3ef47aa50ff917776823c9946035b
         with:
           pattern: test-results*
       - name: Publish Unit Test Results
