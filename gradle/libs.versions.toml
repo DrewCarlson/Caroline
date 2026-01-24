@@ -100,7 +100,7 @@ mongo-bson = { module = "org.mongodb:bson-kotlinx", version.ref = "mongo" }
 
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
-embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.11.1" }
+embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.24.0" }
 
 swaggerCore-models = { module = "io.swagger.core.v3:swagger-models", version.ref = "swaggerCore" }
 swaggerCore-core = { module = "io.swagger.core.v3:swagger-core", version.ref = "swaggerCore" }
