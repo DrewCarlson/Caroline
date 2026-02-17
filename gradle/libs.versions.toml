@@ -18,7 +18,7 @@ ktlint = "1.1.1"
 agp = "9.0.1"
 dokka = "2.2.0-Beta"
 mongo = "5.7.0-beta0"
-swaggerCore = "2.2.42"
+swaggerCore = "2.2.43"
 swaggerUi = "5.31.0"
 
 # Android
