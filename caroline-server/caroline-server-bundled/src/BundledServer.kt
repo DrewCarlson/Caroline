@@ -27,7 +27,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @JvmOverloads
 fun Application.module(testing: Boolean = false) {
     install(ConditionalHeaders)
-    install(ForwardedHeaders) // WARNING: for security, do not include this if not behind a reverse proxy
+    //install(ForwardedHeaders) // WARNING: for security, do not include this if not behind a reverse proxy
     install(AutoHeadResponse)
     install(CachingHeaders)
 
