@@ -96,7 +96,7 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 mongo-driver = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongo" }
 mongo-bson = { module = "org.mongodb:bson-kotlinx", version.ref = "mongo" }
 
-androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.17.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
 embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.11.1" }
 
