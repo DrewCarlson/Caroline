@@ -32,7 +32,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('gradle.properties') }}
 
       - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@315db7fe45ac2880b7758f1933e6e5d59afd5e94
+        uses: supercharge/mongodb-github-action@9306129218d23ef2e0a9e11bd708950d886bb855
         with:
           mongodb-version: 4.4
 
@@ -106,7 +106,7 @@ jobs:
     steps:
       - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
       - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@315db7fe45ac2880b7758f1933e6e5d59afd5e94
+        uses: supercharge/mongodb-github-action@9306129218d23ef2e0a9e11bd708950d886bb855
         with:
           mongodb-version: 4.4
       - name: Generate Kover report

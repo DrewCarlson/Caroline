@@ -31,7 +31,7 @@ jobs:
 
       - name: Get changed files
         id: check
-        uses: tj-actions/changed-files@8cba46e29c11878d930bca7870bb54394d3e8b21
+        uses: tj-actions/changed-files@875e6e5df8b8b00995fe6f0afd7ff1531ac1c47d
         with:
           files: |
             .github/workflows/publish.yml
@@ -44,7 +44,7 @@ jobs:
 
       - name: Get changed files
         id: docs
-        uses: tj-actions/changed-files@8cba46e29c11878d930bca7870bb54394d3e8b21
+        uses: tj-actions/changed-files@875e6e5df8b8b00995fe6f0afd7ff1531ac1c47d
         with:
           files: |
             .github/workflows/publish.yml
@@ -130,7 +130,7 @@ jobs:
         uses: docker/setup-buildx-action@7c525be6cc8a882d5163ce04293cac18617c709f
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@ee4ca427a2f43b6a16632044ca514c076267da23
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8
         with:
           context: .
           file: Dockerfile
