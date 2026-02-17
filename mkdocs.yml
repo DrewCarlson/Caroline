@@ -1,6 +1,11 @@
 site_name: Caroline
+site_description: Privacy respecting backend services with multiplatform Kotlin SDKs.
 site_url: https://docs.caroline.cloud/
 repo_url: https://github.com/drewcarlson/caroline
+remote_branch: gh-pages
+docs_dir: docs
+edit_uri: edit/main/docs/
+copyright: 'Copyright &copy; 2026 Drew Carlson'
 
 theme:
   name: material
@@ -8,8 +13,8 @@ theme:
     scheme: slate
   icon:
     repo: fontawesome/brands/github
-
-docs_dir: docs
+  features:
+    - content.action.edit
 
 markdown_extensions:
   - admonition
@@ -20,15 +25,18 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
   - search
+  - mike
   - markdownextradata: {}
 
 extra:
-  version: !ENV [VERSION, '0.0.1-test']
+  caroline_version: !ENV [VERSION, '0.0.1-test']
+  version:
+    provider: mike
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/DrewCarlson/Caroline
