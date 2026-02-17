@@ -19,6 +19,7 @@ sourceSets["main"].resources.srcDirs("resources")
 sourceSets["test"].resources.srcDirs("testresources")
 
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+val ktorLibs = extensions.getByType<VersionCatalogsExtension>().named("ktorLibs")
 
 dependencies {
     if (!name.startsWith("tegral")) {
@@ -29,7 +30,7 @@ dependencies {
 
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
-    testImplementation(libs.findLibrary("ktor-server-tests").get())
+    testImplementation(ktorLibs.findLibrary("server-testHost").get())
 }
 
 

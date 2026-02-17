@@ -12,14 +12,14 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.serialization.json)
 
-    implementation(libs.ktor.server.core)
-    implementation(libs.ktor.server.websockets)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.websockets)
 
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.okhttp)
-    implementation(libs.ktor.client.logging)
-    implementation(libs.ktor.client.contentNegotiation)
-    implementation(libs.ktor.serialization)
+    implementation(ktorLibs.client.core)
+    implementation(ktorLibs.client.okhttp)
+    implementation(ktorLibs.client.logging)
+    implementation(ktorLibs.client.contentNegotiation)
+    implementation(ktorLibs.serialization.kotlinx.json)
 
     implementation(libs.bouncyCastle)
 

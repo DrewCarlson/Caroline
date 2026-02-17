@@ -10,9 +10,9 @@ kotlin {
                 implementation(libs.coroutines.core)
                 implementation(libs.serialization.json)
 
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.contentNegotiation)
-                implementation(libs.ktor.serialization)
+                implementation(ktorLibs.client.core)
+                implementation(ktorLibs.client.contentNegotiation)
+                implementation(ktorLibs.serialization.kotlinx.json)
             }
         }
     }

@@ -13,9 +13,6 @@ plugins {
 }
 
 allprojects {
-    repositories {
-        mavenCentral()
-    }
     plugins.withType<NodeJsRootPlugin> {
         the<YarnRootExtension>().lockFileDirectory = rootDir.resolve("gradle/kotlin-js-store")
     }

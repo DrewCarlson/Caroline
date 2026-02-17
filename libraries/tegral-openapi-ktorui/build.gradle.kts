@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation(libs.swaggerUi)
-    implementation(libs.ktor.server.core)
+    implementation(ktorLibs.server.core)
 
-    //testImplementation(libs.ktor.server.test)
+    //testImplementation(ktorLibs.server.test)
 }

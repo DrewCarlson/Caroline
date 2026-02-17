@@ -12,7 +12,7 @@ kotlin {
                 implementation(libs.coroutines.core)
                 implementation(libs.serialization.json)
 
-                implementation(libs.ktor.client.core)
+                implementation(ktorLibs.client.core)
             }
         }
     }

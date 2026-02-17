@@ -5,7 +5,7 @@ plugins {
 dependencies {
     api(project(":libraries:tegral-openapi-dsl"))
 
-    api(libs.ktor.server.core)
+    api(ktorLibs.server.core)
 
-    //testImplementation(libs.ktor.server.test)
+    //testImplementation(ktorLibs.server.test)
 }

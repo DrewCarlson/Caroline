@@ -2,6 +2,26 @@ rootProject.name = "caroline"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    versionCatalogs {
+        create("ktorLibs") {
+            val ktorVersion = file("gradle/libs.versions.toml")
+                .useLines { lines ->
+                    lines.firstNotNullOfOrNull { line ->
+                        line.substringAfter("ktor = \"", "")
+                            .trimEnd('"')
+                            .takeIf(String::isNotBlank)
+                    }
+                }
+            from("io.ktor:ktor-version-catalog:${ktorVersion}")
+        }
+    }
+}
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {

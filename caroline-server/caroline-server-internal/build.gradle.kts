@@ -11,7 +11,7 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.serialization.json)
 
-    implementation(libs.ktor.server.core)
-    implementation(libs.ktor.server.auth)
-    implementation(libs.ktor.client.core)
+    implementation(ktorLibs.server.core)
+    implementation(ktorLibs.server.auth)
+    implementation(ktorLibs.client.core)
 }
