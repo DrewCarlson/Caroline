@@ -58,7 +58,7 @@ public interface MediaTypeDsl {
  * The type `T` will be converted to a schema.
  */
 @TegralDsl
-public inline fun <reified T> MediaTypeDsl.schema() = schema(typeOf<T>())
+public inline fun <reified T> MediaTypeDsl.schema(): Unit = schema(typeOf<T>())
 
 /**
  * Set the schema to be of type `T`, with the given object set as the example.

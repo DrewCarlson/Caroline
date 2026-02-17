@@ -1,14 +1,12 @@
-import org.gradle.api.JavaVersion
-import org.gradle.api.artifacts.VersionCatalogsExtension
+@file:OptIn(ExperimentalAbiValidation::class)
+
 import org.gradle.kotlin.dsl.kotlin
-import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
     //id("com.android.library")
-    id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 /*android {
@@ -43,6 +41,9 @@ kotlin {
             kotlinOptions.jvmTarget = JavaVersion.VERSION_11.majorVersion
         }
     }*/
+    abiValidation {
+        enabled.set(true)
+    }
     sourceSets {
         all {
             explicitApi()

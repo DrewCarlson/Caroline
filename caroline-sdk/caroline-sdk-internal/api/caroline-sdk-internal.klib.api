@@ -1,0 +1,10 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-internal>
+final val cloud.caroline.internal/carolineJson // cloud.caroline.internal/carolineJson|{}carolineJson[0]
+    final fun <get-carolineJson>(): kotlinx.serialization.json/Json // cloud.caroline.internal/carolineJson.<get-carolineJson>|<get-carolineJson>(){}[0]

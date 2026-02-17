@@ -1,5 +1,6 @@
 public abstract interface class cloud/caroline/analytics/CarolineAnalytics {
 	public abstract fun track (Ljava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun track$default (Lcloud/caroline/analytics/CarolineAnalytics;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 }
 
 public final class cloud/caroline/analytics/CarolineAnalytics$DefaultImpls {

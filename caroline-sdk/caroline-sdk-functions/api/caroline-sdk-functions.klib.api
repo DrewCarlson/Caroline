@@ -1,0 +1,71 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-functions>
+final class cloud.caroline.models/CreateFunctionBody { // cloud.caroline.models/CreateFunctionBody|null[0]
+    constructor <init>(kotlin/String) // cloud.caroline.models/CreateFunctionBody.<init>|<init>(kotlin.String){}[0]
+
+    final val name // cloud.caroline.models/CreateFunctionBody.name|{}name[0]
+        final fun <get-name>(): kotlin/String // cloud.caroline.models/CreateFunctionBody.name.<get-name>|<get-name>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.models/CreateFunctionBody.component1|component1(){}[0]
+    final fun copy(kotlin/String = ...): cloud.caroline.models/CreateFunctionBody // cloud.caroline.models/CreateFunctionBody.copy|copy(kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.models/CreateFunctionBody.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.models/CreateFunctionBody.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.models/CreateFunctionBody.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.models/CreateFunctionBody> { // cloud.caroline.models/CreateFunctionBody.$serializer|null[0]
+        final val descriptor // cloud.caroline.models/CreateFunctionBody.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.models/CreateFunctionBody.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.models/CreateFunctionBody.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.models/CreateFunctionBody // cloud.caroline.models/CreateFunctionBody.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.models/CreateFunctionBody) // cloud.caroline.models/CreateFunctionBody.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.models.CreateFunctionBody){}[0]
+    }
+
+    final object Companion { // cloud.caroline.models/CreateFunctionBody.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.models/CreateFunctionBody> // cloud.caroline.models/CreateFunctionBody.Companion.serializer|serializer(){}[0]
+    }
+}
+
+sealed class cloud.caroline.models/CreateFunctionResponse { // cloud.caroline.models/CreateFunctionResponse|null[0]
+    final class Success : cloud.caroline.models/CreateFunctionResponse { // cloud.caroline.models/CreateFunctionResponse.Success|null[0]
+        constructor <init>(kotlin/String) // cloud.caroline.models/CreateFunctionResponse.Success.<init>|<init>(kotlin.String){}[0]
+
+        final val name // cloud.caroline.models/CreateFunctionResponse.Success.name|{}name[0]
+            final fun <get-name>(): kotlin/String // cloud.caroline.models/CreateFunctionResponse.Success.name.<get-name>|<get-name>(){}[0]
+
+        final fun component1(): kotlin/String // cloud.caroline.models/CreateFunctionResponse.Success.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): cloud.caroline.models/CreateFunctionResponse.Success // cloud.caroline.models/CreateFunctionResponse.Success.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.models/CreateFunctionResponse.Success.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.models/CreateFunctionResponse.Success.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.models/CreateFunctionResponse.Success.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.models/CreateFunctionResponse.Success> { // cloud.caroline.models/CreateFunctionResponse.Success.$serializer|null[0]
+            final val descriptor // cloud.caroline.models/CreateFunctionResponse.Success.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.models/CreateFunctionResponse.Success.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.models/CreateFunctionResponse.Success.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.models/CreateFunctionResponse.Success // cloud.caroline.models/CreateFunctionResponse.Success.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.models/CreateFunctionResponse.Success) // cloud.caroline.models/CreateFunctionResponse.Success.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.models.CreateFunctionResponse.Success){}[0]
+        }
+
+        final object Companion { // cloud.caroline.models/CreateFunctionResponse.Success.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.models/CreateFunctionResponse.Success> // cloud.caroline.models/CreateFunctionResponse.Success.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.models/CreateFunctionResponse.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.models/CreateFunctionResponse> // cloud.caroline.models/CreateFunctionResponse.Companion.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.models/CreateFunctionResponse.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+
+    final object Failed : cloud.caroline.models/CreateFunctionResponse, kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.models/CreateFunctionResponse.Failed|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.models/CreateFunctionResponse.Failed> // cloud.caroline.models/CreateFunctionResponse.Failed.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.models/CreateFunctionResponse.Failed.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+}

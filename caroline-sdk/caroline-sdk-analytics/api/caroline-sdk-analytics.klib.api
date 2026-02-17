@@ -1,0 +1,11 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-analytics>
+abstract interface cloud.caroline.analytics/CarolineAnalytics { // cloud.caroline.analytics/CarolineAnalytics|null[0]
+    abstract fun track(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.analytics/CarolineAnalytics.track|track(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+}

@@ -1,0 +1,165 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-admin>
+abstract interface cloud.caroline.admin/CarolineAdminClient // cloud.caroline.admin/CarolineAdminClient|null[0]
+
+final class cloud.caroline.admin.api/ApiKeyCredentials { // cloud.caroline.admin.api/ApiKeyCredentials|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin.collections/Set<cloud.caroline.core.models/Permission>) // cloud.caroline.admin.api/ApiKeyCredentials.<init>|<init>(kotlin.String;kotlin.String;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+
+    final val apiKey // cloud.caroline.admin.api/ApiKeyCredentials.apiKey|{}apiKey[0]
+        final fun <get-apiKey>(): kotlin/String // cloud.caroline.admin.api/ApiKeyCredentials.apiKey.<get-apiKey>|<get-apiKey>(){}[0]
+    final val permissions // cloud.caroline.admin.api/ApiKeyCredentials.permissions|{}permissions[0]
+        final fun <get-permissions>(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.admin.api/ApiKeyCredentials.permissions.<get-permissions>|<get-permissions>(){}[0]
+    final val projectId // cloud.caroline.admin.api/ApiKeyCredentials.projectId|{}projectId[0]
+        final fun <get-projectId>(): kotlin/String // cloud.caroline.admin.api/ApiKeyCredentials.projectId.<get-projectId>|<get-projectId>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.admin.api/ApiKeyCredentials.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.admin.api/ApiKeyCredentials.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.admin.api/ApiKeyCredentials.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin.collections/Set<cloud.caroline.core.models/Permission> = ...): cloud.caroline.admin.api/ApiKeyCredentials // cloud.caroline.admin.api/ApiKeyCredentials.copy|copy(kotlin.String;kotlin.String;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.admin.api/ApiKeyCredentials.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.admin.api/ApiKeyCredentials.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.admin.api/ApiKeyCredentials.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.admin.api/ApiKeyCredentials> { // cloud.caroline.admin.api/ApiKeyCredentials.$serializer|null[0]
+        final val descriptor // cloud.caroline.admin.api/ApiKeyCredentials.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.admin.api/ApiKeyCredentials.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.admin.api/ApiKeyCredentials.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.admin.api/ApiKeyCredentials // cloud.caroline.admin.api/ApiKeyCredentials.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.admin.api/ApiKeyCredentials) // cloud.caroline.admin.api/ApiKeyCredentials.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.admin.api.ApiKeyCredentials){}[0]
+    }
+
+    final object Companion { // cloud.caroline.admin.api/ApiKeyCredentials.Companion|null[0]
+        final val $childSerializers // cloud.caroline.admin.api/ApiKeyCredentials.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.admin.api/ApiKeyCredentials> // cloud.caroline.admin.api/ApiKeyCredentials.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.admin.api/CreateProjectBody { // cloud.caroline.admin.api/CreateProjectBody|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // cloud.caroline.admin.api/CreateProjectBody.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val description // cloud.caroline.admin.api/CreateProjectBody.description|{}description[0]
+        final fun <get-description>(): kotlin/String // cloud.caroline.admin.api/CreateProjectBody.description.<get-description>|<get-description>(){}[0]
+    final val name // cloud.caroline.admin.api/CreateProjectBody.name|{}name[0]
+        final fun <get-name>(): kotlin/String // cloud.caroline.admin.api/CreateProjectBody.name.<get-name>|<get-name>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.admin.api/CreateProjectBody.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.admin.api/CreateProjectBody.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): cloud.caroline.admin.api/CreateProjectBody // cloud.caroline.admin.api/CreateProjectBody.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.admin.api/CreateProjectBody.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.admin.api/CreateProjectBody.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.admin.api/CreateProjectBody.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.admin.api/CreateProjectBody> { // cloud.caroline.admin.api/CreateProjectBody.$serializer|null[0]
+        final val descriptor // cloud.caroline.admin.api/CreateProjectBody.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.admin.api/CreateProjectBody.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.admin.api/CreateProjectBody.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.admin.api/CreateProjectBody // cloud.caroline.admin.api/CreateProjectBody.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.admin.api/CreateProjectBody) // cloud.caroline.admin.api/CreateProjectBody.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.admin.api.CreateProjectBody){}[0]
+    }
+
+    final object Companion { // cloud.caroline.admin.api/CreateProjectBody.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.admin.api/CreateProjectBody> // cloud.caroline.admin.api/CreateProjectBody.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.admin.api/ProjectDetails { // cloud.caroline.admin.api/ProjectDetails|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin.collections/List<kotlin/String>, kotlin.collections/Set<kotlin/String> = ...) // cloud.caroline.admin.api/ProjectDetails.<init>|<init>(kotlin.String;kotlin.String;kotlin.collections.List<kotlin.String>;kotlin.collections.Set<kotlin.String>){}[0]
+
+    final val apiKeys // cloud.caroline.admin.api/ProjectDetails.apiKeys|{}apiKeys[0]
+        final fun <get-apiKeys>(): kotlin.collections/List<kotlin/String> // cloud.caroline.admin.api/ProjectDetails.apiKeys.<get-apiKeys>|<get-apiKeys>(){}[0]
+    final val developerIds // cloud.caroline.admin.api/ProjectDetails.developerIds|{}developerIds[0]
+        final fun <get-developerIds>(): kotlin.collections/Set<kotlin/String> // cloud.caroline.admin.api/ProjectDetails.developerIds.<get-developerIds>|<get-developerIds>(){}[0]
+    final val id // cloud.caroline.admin.api/ProjectDetails.id|{}id[0]
+        final fun <get-id>(): kotlin/String // cloud.caroline.admin.api/ProjectDetails.id.<get-id>|<get-id>(){}[0]
+    final val ownerId // cloud.caroline.admin.api/ProjectDetails.ownerId|{}ownerId[0]
+        final fun <get-ownerId>(): kotlin/String // cloud.caroline.admin.api/ProjectDetails.ownerId.<get-ownerId>|<get-ownerId>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.admin.api/ProjectDetails.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.admin.api/ProjectDetails.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<kotlin/String> // cloud.caroline.admin.api/ProjectDetails.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/Set<kotlin/String> // cloud.caroline.admin.api/ProjectDetails.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/Set<kotlin/String> = ...): cloud.caroline.admin.api/ProjectDetails // cloud.caroline.admin.api/ProjectDetails.copy|copy(kotlin.String;kotlin.String;kotlin.collections.List<kotlin.String>;kotlin.collections.Set<kotlin.String>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.admin.api/ProjectDetails.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.admin.api/ProjectDetails.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.admin.api/ProjectDetails.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.admin.api/ProjectDetails> { // cloud.caroline.admin.api/ProjectDetails.$serializer|null[0]
+        final val descriptor // cloud.caroline.admin.api/ProjectDetails.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.admin.api/ProjectDetails.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.admin.api/ProjectDetails.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.admin.api/ProjectDetails // cloud.caroline.admin.api/ProjectDetails.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.admin.api/ProjectDetails) // cloud.caroline.admin.api/ProjectDetails.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.admin.api.ProjectDetails){}[0]
+    }
+
+    final object Companion { // cloud.caroline.admin.api/ProjectDetails.Companion|null[0]
+        final val $childSerializers // cloud.caroline.admin.api/ProjectDetails.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.admin.api/ProjectDetails> // cloud.caroline.admin.api/ProjectDetails.Companion.serializer|serializer(){}[0]
+    }
+}
+
+sealed class cloud.caroline.admin.api/CreateProjectResponse { // cloud.caroline.admin.api/CreateProjectResponse|null[0]
+    final class Success : cloud.caroline.admin.api/CreateProjectResponse { // cloud.caroline.admin.api/CreateProjectResponse.Success|null[0]
+        constructor <init>(cloud.caroline.core.models/Project, cloud.caroline.admin.api/ApiKeyCredentials) // cloud.caroline.admin.api/CreateProjectResponse.Success.<init>|<init>(cloud.caroline.core.models.Project;cloud.caroline.admin.api.ApiKeyCredentials){}[0]
+
+        final val credentials // cloud.caroline.admin.api/CreateProjectResponse.Success.credentials|{}credentials[0]
+            final fun <get-credentials>(): cloud.caroline.admin.api/ApiKeyCredentials // cloud.caroline.admin.api/CreateProjectResponse.Success.credentials.<get-credentials>|<get-credentials>(){}[0]
+        final val project // cloud.caroline.admin.api/CreateProjectResponse.Success.project|{}project[0]
+            final fun <get-project>(): cloud.caroline.core.models/Project // cloud.caroline.admin.api/CreateProjectResponse.Success.project.<get-project>|<get-project>(){}[0]
+
+        final fun component1(): cloud.caroline.core.models/Project // cloud.caroline.admin.api/CreateProjectResponse.Success.component1|component1(){}[0]
+        final fun component2(): cloud.caroline.admin.api/ApiKeyCredentials // cloud.caroline.admin.api/CreateProjectResponse.Success.component2|component2(){}[0]
+        final fun copy(cloud.caroline.core.models/Project = ..., cloud.caroline.admin.api/ApiKeyCredentials = ...): cloud.caroline.admin.api/CreateProjectResponse.Success // cloud.caroline.admin.api/CreateProjectResponse.Success.copy|copy(cloud.caroline.core.models.Project;cloud.caroline.admin.api.ApiKeyCredentials){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.admin.api/CreateProjectResponse.Success.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.admin.api/CreateProjectResponse.Success.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.admin.api/CreateProjectResponse.Success.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.admin.api/CreateProjectResponse.Success> { // cloud.caroline.admin.api/CreateProjectResponse.Success.$serializer|null[0]
+            final val descriptor // cloud.caroline.admin.api/CreateProjectResponse.Success.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.admin.api/CreateProjectResponse.Success.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.admin.api/CreateProjectResponse.Success.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.admin.api/CreateProjectResponse.Success // cloud.caroline.admin.api/CreateProjectResponse.Success.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.admin.api/CreateProjectResponse.Success) // cloud.caroline.admin.api/CreateProjectResponse.Success.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.admin.api.CreateProjectResponse.Success){}[0]
+        }
+
+        final object Companion { // cloud.caroline.admin.api/CreateProjectResponse.Success.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.admin.api/CreateProjectResponse.Success> // cloud.caroline.admin.api/CreateProjectResponse.Success.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    sealed class Failed : cloud.caroline.admin.api/CreateProjectResponse { // cloud.caroline.admin.api/CreateProjectResponse.Failed|null[0]
+        abstract val message // cloud.caroline.admin.api/CreateProjectResponse.Failed.message|{}message[0]
+            abstract fun <get-message>(): kotlin/String // cloud.caroline.admin.api/CreateProjectResponse.Failed.message.<get-message>|<get-message>(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.admin.api/CreateProjectResponse.Failed.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.admin.api/CreateProjectResponse.Failed> // cloud.caroline.admin.api/CreateProjectResponse.Failed.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.admin.api/CreateProjectResponse.Failed.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+
+        final object InvalidRequestBody : cloud.caroline.admin.api/CreateProjectResponse.Failed { // cloud.caroline.admin.api/CreateProjectResponse.Failed.InvalidRequestBody|null[0]
+            final val message // cloud.caroline.admin.api/CreateProjectResponse.Failed.InvalidRequestBody.message|{}message[0]
+                final fun <get-message>(): kotlin/String // cloud.caroline.admin.api/CreateProjectResponse.Failed.InvalidRequestBody.message.<get-message>|<get-message>(){}[0]
+        }
+
+        final object ProjectNameExists : cloud.caroline.admin.api/CreateProjectResponse.Failed { // cloud.caroline.admin.api/CreateProjectResponse.Failed.ProjectNameExists|null[0]
+            final val message // cloud.caroline.admin.api/CreateProjectResponse.Failed.ProjectNameExists.message|{}message[0]
+                final fun <get-message>(): kotlin/String // cloud.caroline.admin.api/CreateProjectResponse.Failed.ProjectNameExists.message.<get-message>|<get-message>(){}[0]
+        }
+    }
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.admin.api/CreateProjectResponse.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.admin.api/CreateProjectResponse> // cloud.caroline.admin.api/CreateProjectResponse.Companion.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.admin.api/CreateProjectResponse.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+}

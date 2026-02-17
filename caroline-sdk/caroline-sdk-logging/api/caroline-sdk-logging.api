@@ -22,13 +22,21 @@ public final class cloud/caroline/logging/CarolineLogLevel {
 public abstract interface class cloud/caroline/logging/CarolineLogger {
 	public static final field Companion Lcloud/caroline/logging/CarolineLogger$Companion;
 	public abstract fun flush (Z)V
+	public static synthetic fun flush$default (Lcloud/caroline/logging/CarolineLogger;ZILjava/lang/Object;)V
 	public abstract fun log (ILjava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun log$default (Lcloud/caroline/logging/CarolineLogger;ILjava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 	public abstract fun logDebug (Ljava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun logDebug$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 	public abstract fun logError (Ljava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun logError$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 	public abstract fun logFatal (Ljava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun logFatal$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 	public abstract fun logInfo (Ljava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun logInfo$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 	public abstract fun logTrace (Ljava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun logTrace$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 	public abstract fun logWarn (Ljava/lang/String;Ljava/util/Map;)V
+	public static synthetic fun logWarn$default (Lcloud/caroline/logging/CarolineLogger;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 }
 
 public final class cloud/caroline/logging/CarolineLogger$Companion {
@@ -72,7 +80,7 @@ public final class cloud/caroline/logging/LogRecord {
 	public fun toString ()Ljava/lang/String;
 }
 
-public synthetic class cloud/caroline/logging/LogRecord$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+public final synthetic class cloud/caroline/logging/LogRecord$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/logging/LogRecord$$serializer;
 	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/logging/LogRecord;
@@ -80,6 +88,7 @@ public synthetic class cloud/caroline/logging/LogRecord$$serializer : kotlinx/se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/logging/LogRecord;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class cloud/caroline/logging/LogRecord$Companion {

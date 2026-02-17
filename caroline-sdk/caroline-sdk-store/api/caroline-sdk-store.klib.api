@@ -1,0 +1,9 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-store>
+abstract interface cloud.caroline.store/CarolineStore // cloud.caroline.store/CarolineStore|null[0]

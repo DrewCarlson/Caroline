@@ -2,7 +2,3 @@ public final class cloud/caroline/internal/CarolineJsonKt {
 	public static final fun getCarolineJson ()Lkotlinx/serialization/json/Json;
 }
 
-public final class cloud/caroline/internal/UtilsKt {
-	public static final fun currentSystemMs ()J
-}
-

@@ -17,7 +17,7 @@ public final class cloud/caroline/admin/api/ApiKeyCredentials {
 	public fun toString ()Ljava/lang/String;
 }
 
-public synthetic class cloud/caroline/admin/api/ApiKeyCredentials$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+public final synthetic class cloud/caroline/admin/api/ApiKeyCredentials$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/ApiKeyCredentials$$serializer;
 	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/ApiKeyCredentials;
@@ -25,6 +25,7 @@ public synthetic class cloud/caroline/admin/api/ApiKeyCredentials$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/admin/api/ApiKeyCredentials;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class cloud/caroline/admin/api/ApiKeyCredentials$Companion {
@@ -45,7 +46,7 @@ public final class cloud/caroline/admin/api/CreateProjectBody {
 	public fun toString ()Ljava/lang/String;
 }
 
-public synthetic class cloud/caroline/admin/api/CreateProjectBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+public final synthetic class cloud/caroline/admin/api/CreateProjectBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/CreateProjectBody$$serializer;
 	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/CreateProjectBody;
@@ -53,6 +54,7 @@ public synthetic class cloud/caroline/admin/api/CreateProjectBody$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/admin/api/CreateProjectBody;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class cloud/caroline/admin/api/CreateProjectBody$Companion {
@@ -104,7 +106,7 @@ public final class cloud/caroline/admin/api/CreateProjectResponse$Success : clou
 	public fun toString ()Ljava/lang/String;
 }
 
-public synthetic class cloud/caroline/admin/api/CreateProjectResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+public final synthetic class cloud/caroline/admin/api/CreateProjectResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/CreateProjectResponse$Success$$serializer;
 	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/CreateProjectResponse$Success;
@@ -112,6 +114,7 @@ public synthetic class cloud/caroline/admin/api/CreateProjectResponse$Success$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/admin/api/CreateProjectResponse$Success;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class cloud/caroline/admin/api/CreateProjectResponse$Success$Companion {
@@ -137,7 +140,7 @@ public final class cloud/caroline/admin/api/ProjectDetails {
 	public fun toString ()Ljava/lang/String;
 }
 
-public synthetic class cloud/caroline/admin/api/ProjectDetails$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+public final synthetic class cloud/caroline/admin/api/ProjectDetails$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/admin/api/ProjectDetails$$serializer;
 	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/admin/api/ProjectDetails;
@@ -145,6 +148,7 @@ public synthetic class cloud/caroline/admin/api/ProjectDetails$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/admin/api/ProjectDetails;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class cloud/caroline/admin/api/ProjectDetails$Companion {

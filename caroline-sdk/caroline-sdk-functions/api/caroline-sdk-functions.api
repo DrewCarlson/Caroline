@@ -10,7 +10,7 @@ public final class cloud/caroline/models/CreateFunctionBody {
 	public fun toString ()Ljava/lang/String;
 }
 
-public synthetic class cloud/caroline/models/CreateFunctionBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+public final synthetic class cloud/caroline/models/CreateFunctionBody$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/models/CreateFunctionBody$$serializer;
 	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/models/CreateFunctionBody;
@@ -18,6 +18,7 @@ public synthetic class cloud/caroline/models/CreateFunctionBody$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/models/CreateFunctionBody;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class cloud/caroline/models/CreateFunctionBody$Companion {
@@ -51,7 +52,7 @@ public final class cloud/caroline/models/CreateFunctionResponse$Success : cloud/
 	public fun toString ()Ljava/lang/String;
 }
 
-public synthetic class cloud/caroline/models/CreateFunctionResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+public final synthetic class cloud/caroline/models/CreateFunctionResponse$Success$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
 	public static final field INSTANCE Lcloud/caroline/models/CreateFunctionResponse$Success$$serializer;
 	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
 	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcloud/caroline/models/CreateFunctionResponse$Success;
@@ -59,6 +60,7 @@ public synthetic class cloud/caroline/models/CreateFunctionResponse$Success$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcloud/caroline/models/CreateFunctionResponse$Success;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class cloud/caroline/models/CreateFunctionResponse$Success$Companion {

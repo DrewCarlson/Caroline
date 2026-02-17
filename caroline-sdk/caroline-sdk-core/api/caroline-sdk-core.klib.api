@@ -1,0 +1,700 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-core>
+final enum class cloud.caroline.core.models/Services : kotlin/Enum<cloud.caroline.core.models/Services> { // cloud.caroline.core.models/Services|null[0]
+    enum entry ALL // cloud.caroline.core.models/Services.ALL|null[0]
+    enum entry CRASH // cloud.caroline.core.models/Services.CRASH|null[0]
+    enum entry FUNCTIONS // cloud.caroline.core.models/Services.FUNCTIONS|null[0]
+    enum entry LOGGING // cloud.caroline.core.models/Services.LOGGING|null[0]
+    enum entry PROJECTS // cloud.caroline.core.models/Services.PROJECTS|null[0]
+    enum entry USER // cloud.caroline.core.models/Services.USER|null[0]
+
+    final val entries // cloud.caroline.core.models/Services.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<cloud.caroline.core.models/Services> // cloud.caroline.core.models/Services.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): cloud.caroline.core.models/Services // cloud.caroline.core.models/Services.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<cloud.caroline.core.models/Services> // cloud.caroline.core.models/Services.values|values#static(){}[0]
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/Services.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Services> // cloud.caroline.core.models/Services.Companion.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/Services.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+}
+
+abstract interface cloud.caroline.core/CarolineSdk { // cloud.caroline.core/CarolineSdk|null[0]
+    abstract val apiKey // cloud.caroline.core/CarolineSdk.apiKey|{}apiKey[0]
+        abstract fun <get-apiKey>(): kotlin/String // cloud.caroline.core/CarolineSdk.apiKey.<get-apiKey>|<get-apiKey>(){}[0]
+    abstract val httpClient // cloud.caroline.core/CarolineSdk.httpClient|{}httpClient[0]
+        abstract fun <get-httpClient>(): io.ktor.client/HttpClient // cloud.caroline.core/CarolineSdk.httpClient.<get-httpClient>|<get-httpClient>(){}[0]
+    abstract val projectId // cloud.caroline.core/CarolineSdk.projectId|{}projectId[0]
+        abstract fun <get-projectId>(): kotlin/String // cloud.caroline.core/CarolineSdk.projectId.<get-projectId>|<get-projectId>(){}[0]
+    abstract val scope // cloud.caroline.core/CarolineSdk.scope|{}scope[0]
+        abstract fun <get-scope>(): kotlinx.coroutines/CoroutineScope // cloud.caroline.core/CarolineSdk.scope.<get-scope>|<get-scope>(){}[0]
+    abstract val serverUrl // cloud.caroline.core/CarolineSdk.serverUrl|{}serverUrl[0]
+        abstract fun <get-serverUrl>(): kotlin/String // cloud.caroline.core/CarolineSdk.serverUrl.<get-serverUrl>|<get-serverUrl>(){}[0]
+
+    abstract fun urlFor(cloud.caroline.core/CarolineSdk.Type): kotlin/String // cloud.caroline.core/CarolineSdk.urlFor|urlFor(cloud.caroline.core.CarolineSdk.Type){}[0]
+
+    final enum class Type : kotlin/Enum<cloud.caroline.core/CarolineSdk.Type> { // cloud.caroline.core/CarolineSdk.Type|null[0]
+        enum entry ADMIN // cloud.caroline.core/CarolineSdk.Type.ADMIN|null[0]
+        enum entry ANALYTICS // cloud.caroline.core/CarolineSdk.Type.ANALYTICS|null[0]
+        enum entry AUTH // cloud.caroline.core/CarolineSdk.Type.AUTH|null[0]
+        enum entry CONFIG // cloud.caroline.core/CarolineSdk.Type.CONFIG|null[0]
+        enum entry CORE // cloud.caroline.core/CarolineSdk.Type.CORE|null[0]
+        enum entry CRASH // cloud.caroline.core/CarolineSdk.Type.CRASH|null[0]
+        enum entry FUNCTIONS // cloud.caroline.core/CarolineSdk.Type.FUNCTIONS|null[0]
+        enum entry LOGGING // cloud.caroline.core/CarolineSdk.Type.LOGGING|null[0]
+        enum entry STORE // cloud.caroline.core/CarolineSdk.Type.STORE|null[0]
+
+        final val entries // cloud.caroline.core/CarolineSdk.Type.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<cloud.caroline.core/CarolineSdk.Type> // cloud.caroline.core/CarolineSdk.Type.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): cloud.caroline.core/CarolineSdk.Type // cloud.caroline.core/CarolineSdk.Type.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<cloud.caroline.core/CarolineSdk.Type> // cloud.caroline.core/CarolineSdk.Type.values|values#static(){}[0]
+    }
+}
+
+final class cloud.caroline.core.models/CreateSessionBody { // cloud.caroline.core.models/CreateSessionBody|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // cloud.caroline.core.models/CreateSessionBody.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val password // cloud.caroline.core.models/CreateSessionBody.password|{}password[0]
+        final fun <get-password>(): kotlin/String // cloud.caroline.core.models/CreateSessionBody.password.<get-password>|<get-password>(){}[0]
+    final val username // cloud.caroline.core.models/CreateSessionBody.username|{}username[0]
+        final fun <get-username>(): kotlin/String // cloud.caroline.core.models/CreateSessionBody.username.<get-username>|<get-username>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.core.models/CreateSessionBody.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.core.models/CreateSessionBody.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): cloud.caroline.core.models/CreateSessionBody // cloud.caroline.core.models/CreateSessionBody.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/CreateSessionBody.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.core.models/CreateSessionBody.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.core.models/CreateSessionBody.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/CreateSessionBody> { // cloud.caroline.core.models/CreateSessionBody.$serializer|null[0]
+        final val descriptor // cloud.caroline.core.models/CreateSessionBody.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/CreateSessionBody.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/CreateSessionBody.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/CreateSessionBody // cloud.caroline.core.models/CreateSessionBody.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/CreateSessionBody) // cloud.caroline.core.models/CreateSessionBody.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.CreateSessionBody){}[0]
+    }
+
+    final object Companion { // cloud.caroline.core.models/CreateSessionBody.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateSessionBody> // cloud.caroline.core.models/CreateSessionBody.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.core.models/CreateUserBody { // cloud.caroline.core.models/CreateUserBody|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String? = ..., kotlin/String? = ...) // cloud.caroline.core.models/CreateUserBody.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String?;kotlin.String?){}[0]
+
+    final val email // cloud.caroline.core.models/CreateUserBody.email|{}email[0]
+        final fun <get-email>(): kotlin/String // cloud.caroline.core.models/CreateUserBody.email.<get-email>|<get-email>(){}[0]
+    final val inviteCode // cloud.caroline.core.models/CreateUserBody.inviteCode|{}inviteCode[0]
+        final fun <get-inviteCode>(): kotlin/String? // cloud.caroline.core.models/CreateUserBody.inviteCode.<get-inviteCode>|<get-inviteCode>(){}[0]
+    final val password // cloud.caroline.core.models/CreateUserBody.password|{}password[0]
+        final fun <get-password>(): kotlin/String // cloud.caroline.core.models/CreateUserBody.password.<get-password>|<get-password>(){}[0]
+    final val projectId // cloud.caroline.core.models/CreateUserBody.projectId|{}projectId[0]
+        final fun <get-projectId>(): kotlin/String? // cloud.caroline.core.models/CreateUserBody.projectId.<get-projectId>|<get-projectId>(){}[0]
+    final val username // cloud.caroline.core.models/CreateUserBody.username|{}username[0]
+        final fun <get-username>(): kotlin/String // cloud.caroline.core.models/CreateUserBody.username.<get-username>|<get-username>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.core.models/CreateUserBody.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.core.models/CreateUserBody.component2|component2(){}[0]
+    final fun component3(): kotlin/String // cloud.caroline.core.models/CreateUserBody.component3|component3(){}[0]
+    final fun component4(): kotlin/String? // cloud.caroline.core.models/CreateUserBody.component4|component4(){}[0]
+    final fun component5(): kotlin/String? // cloud.caroline.core.models/CreateUserBody.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ...): cloud.caroline.core.models/CreateUserBody // cloud.caroline.core.models/CreateUserBody.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String?;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/CreateUserBody.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.core.models/CreateUserBody.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.core.models/CreateUserBody.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/CreateUserBody> { // cloud.caroline.core.models/CreateUserBody.$serializer|null[0]
+        final val descriptor // cloud.caroline.core.models/CreateUserBody.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/CreateUserBody.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/CreateUserBody.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/CreateUserBody // cloud.caroline.core.models/CreateUserBody.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/CreateUserBody) // cloud.caroline.core.models/CreateUserBody.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.CreateUserBody){}[0]
+    }
+
+    final object Companion { // cloud.caroline.core.models/CreateUserBody.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserBody> // cloud.caroline.core.models/CreateUserBody.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.core.models/Project { // cloud.caroline.core.models/Project|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String) // cloud.caroline.core.models/Project.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+
+    final val description // cloud.caroline.core.models/Project.description|{}description[0]
+        final fun <get-description>(): kotlin/String // cloud.caroline.core.models/Project.description.<get-description>|<get-description>(){}[0]
+    final val displayName // cloud.caroline.core.models/Project.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // cloud.caroline.core.models/Project.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val id // cloud.caroline.core.models/Project.id|{}id[0]
+        final fun <get-id>(): kotlin/String // cloud.caroline.core.models/Project.id.<get-id>|<get-id>(){}[0]
+    final val name // cloud.caroline.core.models/Project.name|{}name[0]
+        final fun <get-name>(): kotlin/String // cloud.caroline.core.models/Project.name.<get-name>|<get-name>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.core.models/Project.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.core.models/Project.component2|component2(){}[0]
+    final fun component3(): kotlin/String // cloud.caroline.core.models/Project.component3|component3(){}[0]
+    final fun component4(): kotlin/String // cloud.caroline.core.models/Project.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): cloud.caroline.core.models/Project // cloud.caroline.core.models/Project.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/Project.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.core.models/Project.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.core.models/Project.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/Project> { // cloud.caroline.core.models/Project.$serializer|null[0]
+        final val descriptor // cloud.caroline.core.models/Project.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/Project.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/Project.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/Project // cloud.caroline.core.models/Project.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/Project) // cloud.caroline.core.models/Project.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.Project){}[0]
+    }
+
+    final object Companion { // cloud.caroline.core.models/Project.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Project> // cloud.caroline.core.models/Project.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.core.models/UpdateUserBody { // cloud.caroline.core.models/UpdateUserBody|null[0]
+    constructor <init>(kotlin/String, kotlin/String?, kotlin/String?) // cloud.caroline.core.models/UpdateUserBody.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String?){}[0]
+
+    final val currentPassword // cloud.caroline.core.models/UpdateUserBody.currentPassword|{}currentPassword[0]
+        final fun <get-currentPassword>(): kotlin/String? // cloud.caroline.core.models/UpdateUserBody.currentPassword.<get-currentPassword>|<get-currentPassword>(){}[0]
+    final val displayName // cloud.caroline.core.models/UpdateUserBody.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // cloud.caroline.core.models/UpdateUserBody.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val password // cloud.caroline.core.models/UpdateUserBody.password|{}password[0]
+        final fun <get-password>(): kotlin/String? // cloud.caroline.core.models/UpdateUserBody.password.<get-password>|<get-password>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.core.models/UpdateUserBody.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // cloud.caroline.core.models/UpdateUserBody.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // cloud.caroline.core.models/UpdateUserBody.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ...): cloud.caroline.core.models/UpdateUserBody // cloud.caroline.core.models/UpdateUserBody.copy|copy(kotlin.String;kotlin.String?;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/UpdateUserBody.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.core.models/UpdateUserBody.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.core.models/UpdateUserBody.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/UpdateUserBody> { // cloud.caroline.core.models/UpdateUserBody.$serializer|null[0]
+        final val descriptor // cloud.caroline.core.models/UpdateUserBody.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/UpdateUserBody.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/UpdateUserBody.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/UpdateUserBody // cloud.caroline.core.models/UpdateUserBody.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/UpdateUserBody) // cloud.caroline.core.models/UpdateUserBody.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.UpdateUserBody){}[0]
+    }
+
+    final object Companion { // cloud.caroline.core.models/UpdateUserBody.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/UpdateUserBody> // cloud.caroline.core.models/UpdateUserBody.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.core.models/User { // cloud.caroline.core.models/User|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String?) // cloud.caroline.core.models/User.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String?){}[0]
+
+    final val displayName // cloud.caroline.core.models/User.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // cloud.caroline.core.models/User.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val email // cloud.caroline.core.models/User.email|{}email[0]
+        final fun <get-email>(): kotlin/String? // cloud.caroline.core.models/User.email.<get-email>|<get-email>(){}[0]
+    final val id // cloud.caroline.core.models/User.id|{}id[0]
+        final fun <get-id>(): kotlin/String // cloud.caroline.core.models/User.id.<get-id>|<get-id>(){}[0]
+    final val username // cloud.caroline.core.models/User.username|{}username[0]
+        final fun <get-username>(): kotlin/String // cloud.caroline.core.models/User.username.<get-username>|<get-username>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.core.models/User.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.core.models/User.component2|component2(){}[0]
+    final fun component3(): kotlin/String // cloud.caroline.core.models/User.component3|component3(){}[0]
+    final fun component4(): kotlin/String? // cloud.caroline.core.models/User.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ...): cloud.caroline.core.models/User // cloud.caroline.core.models/User.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/User.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.core.models/User.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.core.models/User.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/User> { // cloud.caroline.core.models/User.$serializer|null[0]
+        final val descriptor // cloud.caroline.core.models/User.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/User.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/User.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/User // cloud.caroline.core.models/User.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/User) // cloud.caroline.core.models/User.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.User){}[0]
+    }
+
+    final object Companion { // cloud.caroline.core.models/User.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/User> // cloud.caroline.core.models/User.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.core.models/UserCredentials { // cloud.caroline.core.models/UserCredentials|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin.collections/Set<cloud.caroline.core.models/Permission>) // cloud.caroline.core.models/UserCredentials.<init>|<init>(kotlin.String;kotlin.String;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+
+    final val id // cloud.caroline.core.models/UserCredentials.id|{}id[0]
+        final fun <get-id>(): kotlin/String // cloud.caroline.core.models/UserCredentials.id.<get-id>|<get-id>(){}[0]
+    final val passwordHash // cloud.caroline.core.models/UserCredentials.passwordHash|{}passwordHash[0]
+        final fun <get-passwordHash>(): kotlin/String // cloud.caroline.core.models/UserCredentials.passwordHash.<get-passwordHash>|<get-passwordHash>(){}[0]
+    final val permissions // cloud.caroline.core.models/UserCredentials.permissions|{}permissions[0]
+        final fun <get-permissions>(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.core.models/UserCredentials.permissions.<get-permissions>|<get-permissions>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.core.models/UserCredentials.component1|component1(){}[0]
+    final fun component2(): kotlin/String // cloud.caroline.core.models/UserCredentials.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.core.models/UserCredentials.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin.collections/Set<cloud.caroline.core.models/Permission> = ...): cloud.caroline.core.models/UserCredentials // cloud.caroline.core.models/UserCredentials.copy|copy(kotlin.String;kotlin.String;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/UserCredentials.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.core.models/UserCredentials.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.core.models/UserCredentials.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/UserCredentials> { // cloud.caroline.core.models/UserCredentials.$serializer|null[0]
+        final val descriptor // cloud.caroline.core.models/UserCredentials.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/UserCredentials.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/UserCredentials.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/UserCredentials // cloud.caroline.core.models/UserCredentials.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/UserCredentials) // cloud.caroline.core.models/UserCredentials.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.UserCredentials){}[0]
+    }
+
+    final object Companion { // cloud.caroline.core.models/UserCredentials.Companion|null[0]
+        final val $childSerializers // cloud.caroline.core.models/UserCredentials.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/UserCredentials> // cloud.caroline.core.models/UserCredentials.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class cloud.caroline.core/CarolineSdkBuilder { // cloud.caroline.core/CarolineSdkBuilder|null[0]
+    final val serviceUrls // cloud.caroline.core/CarolineSdkBuilder.serviceUrls|{}serviceUrls[0]
+        final fun <get-serviceUrls>(): kotlin.collections/MutableMap<cloud.caroline.core/CarolineSdk.Type, kotlin/String> // cloud.caroline.core/CarolineSdkBuilder.serviceUrls.<get-serviceUrls>|<get-serviceUrls>(){}[0]
+
+    final var apiKey // cloud.caroline.core/CarolineSdkBuilder.apiKey|{}apiKey[0]
+        final fun <get-apiKey>(): kotlin/String // cloud.caroline.core/CarolineSdkBuilder.apiKey.<get-apiKey>|<get-apiKey>(){}[0]
+        final fun <set-apiKey>(kotlin/String) // cloud.caroline.core/CarolineSdkBuilder.apiKey.<set-apiKey>|<set-apiKey>(kotlin.String){}[0]
+    final var dispatcher // cloud.caroline.core/CarolineSdkBuilder.dispatcher|{}dispatcher[0]
+        final fun <get-dispatcher>(): kotlinx.coroutines/CoroutineDispatcher // cloud.caroline.core/CarolineSdkBuilder.dispatcher.<get-dispatcher>|<get-dispatcher>(){}[0]
+        final fun <set-dispatcher>(kotlinx.coroutines/CoroutineDispatcher) // cloud.caroline.core/CarolineSdkBuilder.dispatcher.<set-dispatcher>|<set-dispatcher>(kotlinx.coroutines.CoroutineDispatcher){}[0]
+    final var httpClient // cloud.caroline.core/CarolineSdkBuilder.httpClient|{}httpClient[0]
+        final fun <get-httpClient>(): io.ktor.client/HttpClient // cloud.caroline.core/CarolineSdkBuilder.httpClient.<get-httpClient>|<get-httpClient>(){}[0]
+        final fun <set-httpClient>(io.ktor.client/HttpClient) // cloud.caroline.core/CarolineSdkBuilder.httpClient.<set-httpClient>|<set-httpClient>(io.ktor.client.HttpClient){}[0]
+    final var projectId // cloud.caroline.core/CarolineSdkBuilder.projectId|{}projectId[0]
+        final fun <get-projectId>(): kotlin/String // cloud.caroline.core/CarolineSdkBuilder.projectId.<get-projectId>|<get-projectId>(){}[0]
+        final fun <set-projectId>(kotlin/String) // cloud.caroline.core/CarolineSdkBuilder.projectId.<set-projectId>|<set-projectId>(kotlin.String){}[0]
+    final var serverUrl // cloud.caroline.core/CarolineSdkBuilder.serverUrl|{}serverUrl[0]
+        final fun <get-serverUrl>(): kotlin/String // cloud.caroline.core/CarolineSdkBuilder.serverUrl.<get-serverUrl>|<get-serverUrl>(){}[0]
+        final fun <set-serverUrl>(kotlin/String) // cloud.caroline.core/CarolineSdkBuilder.serverUrl.<set-serverUrl>|<set-serverUrl>(kotlin.String){}[0]
+}
+
+sealed class cloud.caroline.core.models/CreateSessionResponse { // cloud.caroline.core.models/CreateSessionResponse|null[0]
+    final enum class SessionError : kotlin/Enum<cloud.caroline.core.models/CreateSessionResponse.SessionError> { // cloud.caroline.core.models/CreateSessionResponse.SessionError|null[0]
+        enum entry PASSWORD_INCORRECT // cloud.caroline.core.models/CreateSessionResponse.SessionError.PASSWORD_INCORRECT|null[0]
+        enum entry PASSWORD_INVALID // cloud.caroline.core.models/CreateSessionResponse.SessionError.PASSWORD_INVALID|null[0]
+        enum entry USERNAME_INVALID // cloud.caroline.core.models/CreateSessionResponse.SessionError.USERNAME_INVALID|null[0]
+        enum entry USERNAME_NOT_FOUND // cloud.caroline.core.models/CreateSessionResponse.SessionError.USERNAME_NOT_FOUND|null[0]
+
+        final val entries // cloud.caroline.core.models/CreateSessionResponse.SessionError.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<cloud.caroline.core.models/CreateSessionResponse.SessionError> // cloud.caroline.core.models/CreateSessionResponse.SessionError.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): cloud.caroline.core.models/CreateSessionResponse.SessionError // cloud.caroline.core.models/CreateSessionResponse.SessionError.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<cloud.caroline.core.models/CreateSessionResponse.SessionError> // cloud.caroline.core.models/CreateSessionResponse.SessionError.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/CreateSessionResponse.SessionError.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateSessionResponse.SessionError> // cloud.caroline.core.models/CreateSessionResponse.SessionError.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/CreateSessionResponse.SessionError.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final class Failed : cloud.caroline.core.models/CreateSessionResponse { // cloud.caroline.core.models/CreateSessionResponse.Failed|null[0]
+        constructor <init>(kotlin.collections/Set<cloud.caroline.core.models/CreateSessionResponse.SessionError>) // cloud.caroline.core.models/CreateSessionResponse.Failed.<init>|<init>(kotlin.collections.Set<cloud.caroline.core.models.CreateSessionResponse.SessionError>){}[0]
+
+        final val errors // cloud.caroline.core.models/CreateSessionResponse.Failed.errors|{}errors[0]
+            final fun <get-errors>(): kotlin.collections/Set<cloud.caroline.core.models/CreateSessionResponse.SessionError> // cloud.caroline.core.models/CreateSessionResponse.Failed.errors.<get-errors>|<get-errors>(){}[0]
+
+        final fun component1(): kotlin.collections/Set<cloud.caroline.core.models/CreateSessionResponse.SessionError> // cloud.caroline.core.models/CreateSessionResponse.Failed.component1|component1(){}[0]
+        final fun copy(kotlin.collections/Set<cloud.caroline.core.models/CreateSessionResponse.SessionError> = ...): cloud.caroline.core.models/CreateSessionResponse.Failed // cloud.caroline.core.models/CreateSessionResponse.Failed.copy|copy(kotlin.collections.Set<cloud.caroline.core.models.CreateSessionResponse.SessionError>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/CreateSessionResponse.Failed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/CreateSessionResponse.Failed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/CreateSessionResponse.Failed.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/CreateSessionResponse.Failed> { // cloud.caroline.core.models/CreateSessionResponse.Failed.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/CreateSessionResponse.Failed.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/CreateSessionResponse.Failed.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/CreateSessionResponse.Failed.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/CreateSessionResponse.Failed // cloud.caroline.core.models/CreateSessionResponse.Failed.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/CreateSessionResponse.Failed) // cloud.caroline.core.models/CreateSessionResponse.Failed.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.CreateSessionResponse.Failed){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/CreateSessionResponse.Failed.Companion|null[0]
+            final val $childSerializers // cloud.caroline.core.models/CreateSessionResponse.Failed.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateSessionResponse.Failed> // cloud.caroline.core.models/CreateSessionResponse.Failed.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Success : cloud.caroline.core.models/CreateSessionResponse { // cloud.caroline.core.models/CreateSessionResponse.Success|null[0]
+        constructor <init>(cloud.caroline.core.models/User, kotlin.collections/Set<cloud.caroline.core.models/Permission>) // cloud.caroline.core.models/CreateSessionResponse.Success.<init>|<init>(cloud.caroline.core.models.User;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+
+        final val permissions // cloud.caroline.core.models/CreateSessionResponse.Success.permissions|{}permissions[0]
+            final fun <get-permissions>(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.core.models/CreateSessionResponse.Success.permissions.<get-permissions>|<get-permissions>(){}[0]
+        final val user // cloud.caroline.core.models/CreateSessionResponse.Success.user|{}user[0]
+            final fun <get-user>(): cloud.caroline.core.models/User // cloud.caroline.core.models/CreateSessionResponse.Success.user.<get-user>|<get-user>(){}[0]
+
+        final fun component1(): cloud.caroline.core.models/User // cloud.caroline.core.models/CreateSessionResponse.Success.component1|component1(){}[0]
+        final fun component2(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.core.models/CreateSessionResponse.Success.component2|component2(){}[0]
+        final fun copy(cloud.caroline.core.models/User = ..., kotlin.collections/Set<cloud.caroline.core.models/Permission> = ...): cloud.caroline.core.models/CreateSessionResponse.Success // cloud.caroline.core.models/CreateSessionResponse.Success.copy|copy(cloud.caroline.core.models.User;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/CreateSessionResponse.Success.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/CreateSessionResponse.Success.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/CreateSessionResponse.Success.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/CreateSessionResponse.Success> { // cloud.caroline.core.models/CreateSessionResponse.Success.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/CreateSessionResponse.Success.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/CreateSessionResponse.Success.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/CreateSessionResponse.Success.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/CreateSessionResponse.Success // cloud.caroline.core.models/CreateSessionResponse.Success.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/CreateSessionResponse.Success) // cloud.caroline.core.models/CreateSessionResponse.Success.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.CreateSessionResponse.Success){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/CreateSessionResponse.Success.Companion|null[0]
+            final val $childSerializers // cloud.caroline.core.models/CreateSessionResponse.Success.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateSessionResponse.Success> // cloud.caroline.core.models/CreateSessionResponse.Success.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/CreateSessionResponse.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateSessionResponse> // cloud.caroline.core.models/CreateSessionResponse.Companion.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/CreateSessionResponse.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+}
+
+sealed class cloud.caroline.core.models/CreateUserResponse { // cloud.caroline.core.models/CreateUserResponse|null[0]
+    final enum class EmailError : kotlin/Enum<cloud.caroline.core.models/CreateUserResponse.EmailError> { // cloud.caroline.core.models/CreateUserResponse.EmailError|null[0]
+        enum entry ALREADY_EXISTS // cloud.caroline.core.models/CreateUserResponse.EmailError.ALREADY_EXISTS|null[0]
+        enum entry INVALID // cloud.caroline.core.models/CreateUserResponse.EmailError.INVALID|null[0]
+
+        final val entries // cloud.caroline.core.models/CreateUserResponse.EmailError.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<cloud.caroline.core.models/CreateUserResponse.EmailError> // cloud.caroline.core.models/CreateUserResponse.EmailError.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): cloud.caroline.core.models/CreateUserResponse.EmailError // cloud.caroline.core.models/CreateUserResponse.EmailError.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<cloud.caroline.core.models/CreateUserResponse.EmailError> // cloud.caroline.core.models/CreateUserResponse.EmailError.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/CreateUserResponse.EmailError.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserResponse.EmailError> // cloud.caroline.core.models/CreateUserResponse.EmailError.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/CreateUserResponse.EmailError.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final enum class OtherError : kotlin/Enum<cloud.caroline.core.models/CreateUserResponse.OtherError> { // cloud.caroline.core.models/CreateUserResponse.OtherError|null[0]
+        enum entry SERVER_ERROR // cloud.caroline.core.models/CreateUserResponse.OtherError.SERVER_ERROR|null[0]
+
+        final val entries // cloud.caroline.core.models/CreateUserResponse.OtherError.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<cloud.caroline.core.models/CreateUserResponse.OtherError> // cloud.caroline.core.models/CreateUserResponse.OtherError.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): cloud.caroline.core.models/CreateUserResponse.OtherError // cloud.caroline.core.models/CreateUserResponse.OtherError.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<cloud.caroline.core.models/CreateUserResponse.OtherError> // cloud.caroline.core.models/CreateUserResponse.OtherError.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/CreateUserResponse.OtherError.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserResponse.OtherError> // cloud.caroline.core.models/CreateUserResponse.OtherError.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/CreateUserResponse.OtherError.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final enum class PasswordError : kotlin/Enum<cloud.caroline.core.models/CreateUserResponse.PasswordError> { // cloud.caroline.core.models/CreateUserResponse.PasswordError|null[0]
+        enum entry BLANK // cloud.caroline.core.models/CreateUserResponse.PasswordError.BLANK|null[0]
+        enum entry TOO_LONG // cloud.caroline.core.models/CreateUserResponse.PasswordError.TOO_LONG|null[0]
+        enum entry TOO_SHORT // cloud.caroline.core.models/CreateUserResponse.PasswordError.TOO_SHORT|null[0]
+
+        final val entries // cloud.caroline.core.models/CreateUserResponse.PasswordError.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<cloud.caroline.core.models/CreateUserResponse.PasswordError> // cloud.caroline.core.models/CreateUserResponse.PasswordError.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): cloud.caroline.core.models/CreateUserResponse.PasswordError // cloud.caroline.core.models/CreateUserResponse.PasswordError.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<cloud.caroline.core.models/CreateUserResponse.PasswordError> // cloud.caroline.core.models/CreateUserResponse.PasswordError.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/CreateUserResponse.PasswordError.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserResponse.PasswordError> // cloud.caroline.core.models/CreateUserResponse.PasswordError.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/CreateUserResponse.PasswordError.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final enum class UsernameError : kotlin/Enum<cloud.caroline.core.models/CreateUserResponse.UsernameError> { // cloud.caroline.core.models/CreateUserResponse.UsernameError|null[0]
+        enum entry ALREADY_EXISTS // cloud.caroline.core.models/CreateUserResponse.UsernameError.ALREADY_EXISTS|null[0]
+        enum entry BLANK // cloud.caroline.core.models/CreateUserResponse.UsernameError.BLANK|null[0]
+        enum entry TOO_LONG // cloud.caroline.core.models/CreateUserResponse.UsernameError.TOO_LONG|null[0]
+        enum entry TOO_SHORT // cloud.caroline.core.models/CreateUserResponse.UsernameError.TOO_SHORT|null[0]
+
+        final val entries // cloud.caroline.core.models/CreateUserResponse.UsernameError.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<cloud.caroline.core.models/CreateUserResponse.UsernameError> // cloud.caroline.core.models/CreateUserResponse.UsernameError.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): cloud.caroline.core.models/CreateUserResponse.UsernameError // cloud.caroline.core.models/CreateUserResponse.UsernameError.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<cloud.caroline.core.models/CreateUserResponse.UsernameError> // cloud.caroline.core.models/CreateUserResponse.UsernameError.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/CreateUserResponse.UsernameError.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserResponse.UsernameError> // cloud.caroline.core.models/CreateUserResponse.UsernameError.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/CreateUserResponse.UsernameError.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final class Failed : cloud.caroline.core.models/CreateUserResponse { // cloud.caroline.core.models/CreateUserResponse.Failed|null[0]
+        constructor <init>(cloud.caroline.core.models/CreateUserResponse.UsernameError? = ..., cloud.caroline.core.models/CreateUserResponse.PasswordError? = ..., cloud.caroline.core.models/CreateUserResponse.EmailError? = ..., cloud.caroline.core.models/CreateUserResponse.OtherError? = ...) // cloud.caroline.core.models/CreateUserResponse.Failed.<init>|<init>(cloud.caroline.core.models.CreateUserResponse.UsernameError?;cloud.caroline.core.models.CreateUserResponse.PasswordError?;cloud.caroline.core.models.CreateUserResponse.EmailError?;cloud.caroline.core.models.CreateUserResponse.OtherError?){}[0]
+
+        final val emailError // cloud.caroline.core.models/CreateUserResponse.Failed.emailError|{}emailError[0]
+            final fun <get-emailError>(): cloud.caroline.core.models/CreateUserResponse.EmailError? // cloud.caroline.core.models/CreateUserResponse.Failed.emailError.<get-emailError>|<get-emailError>(){}[0]
+        final val otherError // cloud.caroline.core.models/CreateUserResponse.Failed.otherError|{}otherError[0]
+            final fun <get-otherError>(): cloud.caroline.core.models/CreateUserResponse.OtherError? // cloud.caroline.core.models/CreateUserResponse.Failed.otherError.<get-otherError>|<get-otherError>(){}[0]
+        final val passwordError // cloud.caroline.core.models/CreateUserResponse.Failed.passwordError|{}passwordError[0]
+            final fun <get-passwordError>(): cloud.caroline.core.models/CreateUserResponse.PasswordError? // cloud.caroline.core.models/CreateUserResponse.Failed.passwordError.<get-passwordError>|<get-passwordError>(){}[0]
+        final val usernameError // cloud.caroline.core.models/CreateUserResponse.Failed.usernameError|{}usernameError[0]
+            final fun <get-usernameError>(): cloud.caroline.core.models/CreateUserResponse.UsernameError? // cloud.caroline.core.models/CreateUserResponse.Failed.usernameError.<get-usernameError>|<get-usernameError>(){}[0]
+
+        final fun component1(): cloud.caroline.core.models/CreateUserResponse.UsernameError? // cloud.caroline.core.models/CreateUserResponse.Failed.component1|component1(){}[0]
+        final fun component2(): cloud.caroline.core.models/CreateUserResponse.PasswordError? // cloud.caroline.core.models/CreateUserResponse.Failed.component2|component2(){}[0]
+        final fun component3(): cloud.caroline.core.models/CreateUserResponse.EmailError? // cloud.caroline.core.models/CreateUserResponse.Failed.component3|component3(){}[0]
+        final fun component4(): cloud.caroline.core.models/CreateUserResponse.OtherError? // cloud.caroline.core.models/CreateUserResponse.Failed.component4|component4(){}[0]
+        final fun copy(cloud.caroline.core.models/CreateUserResponse.UsernameError? = ..., cloud.caroline.core.models/CreateUserResponse.PasswordError? = ..., cloud.caroline.core.models/CreateUserResponse.EmailError? = ..., cloud.caroline.core.models/CreateUserResponse.OtherError? = ...): cloud.caroline.core.models/CreateUserResponse.Failed // cloud.caroline.core.models/CreateUserResponse.Failed.copy|copy(cloud.caroline.core.models.CreateUserResponse.UsernameError?;cloud.caroline.core.models.CreateUserResponse.PasswordError?;cloud.caroline.core.models.CreateUserResponse.EmailError?;cloud.caroline.core.models.CreateUserResponse.OtherError?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/CreateUserResponse.Failed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/CreateUserResponse.Failed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/CreateUserResponse.Failed.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/CreateUserResponse.Failed> { // cloud.caroline.core.models/CreateUserResponse.Failed.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/CreateUserResponse.Failed.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/CreateUserResponse.Failed.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/CreateUserResponse.Failed.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/CreateUserResponse.Failed // cloud.caroline.core.models/CreateUserResponse.Failed.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/CreateUserResponse.Failed) // cloud.caroline.core.models/CreateUserResponse.Failed.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.CreateUserResponse.Failed){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/CreateUserResponse.Failed.Companion|null[0]
+            final val $childSerializers // cloud.caroline.core.models/CreateUserResponse.Failed.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserResponse.Failed> // cloud.caroline.core.models/CreateUserResponse.Failed.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Success : cloud.caroline.core.models/CreateUserResponse { // cloud.caroline.core.models/CreateUserResponse.Success|null[0]
+        constructor <init>(cloud.caroline.core.models/User, kotlin.collections/Set<cloud.caroline.core.models/Permission>) // cloud.caroline.core.models/CreateUserResponse.Success.<init>|<init>(cloud.caroline.core.models.User;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+
+        final val permissions // cloud.caroline.core.models/CreateUserResponse.Success.permissions|{}permissions[0]
+            final fun <get-permissions>(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.core.models/CreateUserResponse.Success.permissions.<get-permissions>|<get-permissions>(){}[0]
+        final val user // cloud.caroline.core.models/CreateUserResponse.Success.user|{}user[0]
+            final fun <get-user>(): cloud.caroline.core.models/User // cloud.caroline.core.models/CreateUserResponse.Success.user.<get-user>|<get-user>(){}[0]
+
+        final fun component1(): cloud.caroline.core.models/User // cloud.caroline.core.models/CreateUserResponse.Success.component1|component1(){}[0]
+        final fun component2(): kotlin.collections/Set<cloud.caroline.core.models/Permission> // cloud.caroline.core.models/CreateUserResponse.Success.component2|component2(){}[0]
+        final fun copy(cloud.caroline.core.models/User = ..., kotlin.collections/Set<cloud.caroline.core.models/Permission> = ...): cloud.caroline.core.models/CreateUserResponse.Success // cloud.caroline.core.models/CreateUserResponse.Success.copy|copy(cloud.caroline.core.models.User;kotlin.collections.Set<cloud.caroline.core.models.Permission>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/CreateUserResponse.Success.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/CreateUserResponse.Success.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/CreateUserResponse.Success.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/CreateUserResponse.Success> { // cloud.caroline.core.models/CreateUserResponse.Success.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/CreateUserResponse.Success.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/CreateUserResponse.Success.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/CreateUserResponse.Success.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/CreateUserResponse.Success // cloud.caroline.core.models/CreateUserResponse.Success.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/CreateUserResponse.Success) // cloud.caroline.core.models/CreateUserResponse.Success.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.CreateUserResponse.Success){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/CreateUserResponse.Success.Companion|null[0]
+            final val $childSerializers // cloud.caroline.core.models/CreateUserResponse.Success.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserResponse.Success> // cloud.caroline.core.models/CreateUserResponse.Success.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/CreateUserResponse.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/CreateUserResponse> // cloud.caroline.core.models/CreateUserResponse.Companion.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/CreateUserResponse.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+}
+
+sealed class cloud.caroline.core.models/Permission { // cloud.caroline.core.models/Permission|null[0]
+    final class Admin : cloud.caroline.core.models/Permission { // cloud.caroline.core.models/Permission.Admin|null[0]
+        constructor <init>(kotlin/Boolean = ...) // cloud.caroline.core.models/Permission.Admin.<init>|<init>(kotlin.Boolean){}[0]
+
+        final val createProjects // cloud.caroline.core.models/Permission.Admin.createProjects|{}createProjects[0]
+            final fun <get-createProjects>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Admin.createProjects.<get-createProjects>|<get-createProjects>(){}[0]
+
+        final fun component1(): kotlin/Boolean // cloud.caroline.core.models/Permission.Admin.component1|component1(){}[0]
+        final fun copy(kotlin/Boolean = ...): cloud.caroline.core.models/Permission.Admin // cloud.caroline.core.models/Permission.Admin.copy|copy(kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/Permission.Admin.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/Permission.Admin.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/Permission.Admin.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/Permission.Admin> { // cloud.caroline.core.models/Permission.Admin.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/Permission.Admin.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/Permission.Admin.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/Permission.Admin.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/Permission.Admin // cloud.caroline.core.models/Permission.Admin.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/Permission.Admin) // cloud.caroline.core.models/Permission.Admin.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.Permission.Admin){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/Permission.Admin.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Permission.Admin> // cloud.caroline.core.models/Permission.Admin.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Functions : cloud.caroline.core.models/Permission { // cloud.caroline.core.models/Permission.Functions|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // cloud.caroline.core.models/Permission.Functions.<init>|<init>(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+
+        final val delete // cloud.caroline.core.models/Permission.Functions.delete|{}delete[0]
+            final fun <get-delete>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.delete.<get-delete>|<get-delete>(){}[0]
+        final val functionId // cloud.caroline.core.models/Permission.Functions.functionId|{}functionId[0]
+            final fun <get-functionId>(): kotlin/String // cloud.caroline.core.models/Permission.Functions.functionId.<get-functionId>|<get-functionId>(){}[0]
+        final val invoke // cloud.caroline.core.models/Permission.Functions.invoke|{}invoke[0]
+            final fun <get-invoke>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.invoke.<get-invoke>|<get-invoke>(){}[0]
+        final val modify // cloud.caroline.core.models/Permission.Functions.modify|{}modify[0]
+            final fun <get-modify>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.modify.<get-modify>|<get-modify>(){}[0]
+        final val projectId // cloud.caroline.core.models/Permission.Functions.projectId|{}projectId[0]
+            final fun <get-projectId>(): kotlin/String // cloud.caroline.core.models/Permission.Functions.projectId.<get-projectId>|<get-projectId>(){}[0]
+        final val read // cloud.caroline.core.models/Permission.Functions.read|{}read[0]
+            final fun <get-read>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.read.<get-read>|<get-read>(){}[0]
+
+        final fun component1(): kotlin/String // cloud.caroline.core.models/Permission.Functions.component1|component1(){}[0]
+        final fun component2(): kotlin/String // cloud.caroline.core.models/Permission.Functions.component2|component2(){}[0]
+        final fun component3(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.component3|component3(){}[0]
+        final fun component4(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.component4|component4(){}[0]
+        final fun component5(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.component5|component5(){}[0]
+        final fun component6(): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.component6|component6(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): cloud.caroline.core.models/Permission.Functions // cloud.caroline.core.models/Permission.Functions.copy|copy(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/Permission.Functions.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/Permission.Functions.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/Permission.Functions.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/Permission.Functions> { // cloud.caroline.core.models/Permission.Functions.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/Permission.Functions.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/Permission.Functions.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/Permission.Functions.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/Permission.Functions // cloud.caroline.core.models/Permission.Functions.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/Permission.Functions) // cloud.caroline.core.models/Permission.Functions.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.Permission.Functions){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/Permission.Functions.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Permission.Functions> // cloud.caroline.core.models/Permission.Functions.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Logging : cloud.caroline.core.models/Permission { // cloud.caroline.core.models/Permission.Logging|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // cloud.caroline.core.models/Permission.Logging.<init>|<init>(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+
+        final val delete // cloud.caroline.core.models/Permission.Logging.delete|{}delete[0]
+            final fun <get-delete>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Logging.delete.<get-delete>|<get-delete>(){}[0]
+        final val logKey // cloud.caroline.core.models/Permission.Logging.logKey|{}logKey[0]
+            final fun <get-logKey>(): kotlin/String // cloud.caroline.core.models/Permission.Logging.logKey.<get-logKey>|<get-logKey>(){}[0]
+        final val modify // cloud.caroline.core.models/Permission.Logging.modify|{}modify[0]
+            final fun <get-modify>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Logging.modify.<get-modify>|<get-modify>(){}[0]
+        final val projectId // cloud.caroline.core.models/Permission.Logging.projectId|{}projectId[0]
+            final fun <get-projectId>(): kotlin/String // cloud.caroline.core.models/Permission.Logging.projectId.<get-projectId>|<get-projectId>(){}[0]
+        final val read // cloud.caroline.core.models/Permission.Logging.read|{}read[0]
+            final fun <get-read>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Logging.read.<get-read>|<get-read>(){}[0]
+
+        final fun component1(): kotlin/String // cloud.caroline.core.models/Permission.Logging.component1|component1(){}[0]
+        final fun component2(): kotlin/String // cloud.caroline.core.models/Permission.Logging.component2|component2(){}[0]
+        final fun component3(): kotlin/Boolean // cloud.caroline.core.models/Permission.Logging.component3|component3(){}[0]
+        final fun component4(): kotlin/Boolean // cloud.caroline.core.models/Permission.Logging.component4|component4(){}[0]
+        final fun component5(): kotlin/Boolean // cloud.caroline.core.models/Permission.Logging.component5|component5(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): cloud.caroline.core.models/Permission.Logging // cloud.caroline.core.models/Permission.Logging.copy|copy(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/Permission.Logging.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/Permission.Logging.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/Permission.Logging.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/Permission.Logging> { // cloud.caroline.core.models/Permission.Logging.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/Permission.Logging.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/Permission.Logging.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/Permission.Logging.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/Permission.Logging // cloud.caroline.core.models/Permission.Logging.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/Permission.Logging) // cloud.caroline.core.models/Permission.Logging.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.Permission.Logging){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/Permission.Logging.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Permission.Logging> // cloud.caroline.core.models/Permission.Logging.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Project : cloud.caroline.core.models/Permission { // cloud.caroline.core.models/Permission.Project|null[0]
+        constructor <init>(kotlin/String, kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // cloud.caroline.core.models/Permission.Project.<init>|<init>(kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+
+        final val delete // cloud.caroline.core.models/Permission.Project.delete|{}delete[0]
+            final fun <get-delete>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Project.delete.<get-delete>|<get-delete>(){}[0]
+        final val modify // cloud.caroline.core.models/Permission.Project.modify|{}modify[0]
+            final fun <get-modify>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Project.modify.<get-modify>|<get-modify>(){}[0]
+        final val projectId // cloud.caroline.core.models/Permission.Project.projectId|{}projectId[0]
+            final fun <get-projectId>(): kotlin/String // cloud.caroline.core.models/Permission.Project.projectId.<get-projectId>|<get-projectId>(){}[0]
+        final val read // cloud.caroline.core.models/Permission.Project.read|{}read[0]
+            final fun <get-read>(): kotlin/Boolean // cloud.caroline.core.models/Permission.Project.read.<get-read>|<get-read>(){}[0]
+
+        final fun component1(): kotlin/String // cloud.caroline.core.models/Permission.Project.component1|component1(){}[0]
+        final fun component2(): kotlin/Boolean // cloud.caroline.core.models/Permission.Project.component2|component2(){}[0]
+        final fun component3(): kotlin/Boolean // cloud.caroline.core.models/Permission.Project.component3|component3(){}[0]
+        final fun component4(): kotlin/Boolean // cloud.caroline.core.models/Permission.Project.component4|component4(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): cloud.caroline.core.models/Permission.Project // cloud.caroline.core.models/Permission.Project.copy|copy(kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/Permission.Project.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/Permission.Project.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/Permission.Project.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/Permission.Project> { // cloud.caroline.core.models/Permission.Project.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/Permission.Project.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/Permission.Project.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/Permission.Project.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/Permission.Project // cloud.caroline.core.models/Permission.Project.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/Permission.Project) // cloud.caroline.core.models/Permission.Project.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.Permission.Project){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/Permission.Project.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Permission.Project> // cloud.caroline.core.models/Permission.Project.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class UseServices : cloud.caroline.core.models/Permission { // cloud.caroline.core.models/Permission.UseServices|null[0]
+        constructor <init>(kotlin/String, kotlin.collections/Set<cloud.caroline.core.models/Services> = ...) // cloud.caroline.core.models/Permission.UseServices.<init>|<init>(kotlin.String;kotlin.collections.Set<cloud.caroline.core.models.Services>){}[0]
+
+        final val projectId // cloud.caroline.core.models/Permission.UseServices.projectId|{}projectId[0]
+            final fun <get-projectId>(): kotlin/String // cloud.caroline.core.models/Permission.UseServices.projectId.<get-projectId>|<get-projectId>(){}[0]
+        final val services // cloud.caroline.core.models/Permission.UseServices.services|{}services[0]
+            final fun <get-services>(): kotlin.collections/Set<cloud.caroline.core.models/Services> // cloud.caroline.core.models/Permission.UseServices.services.<get-services>|<get-services>(){}[0]
+
+        final fun canUse(cloud.caroline.core.models/Services): kotlin/Boolean // cloud.caroline.core.models/Permission.UseServices.canUse|canUse(cloud.caroline.core.models.Services){}[0]
+        final fun component1(): kotlin/String // cloud.caroline.core.models/Permission.UseServices.component1|component1(){}[0]
+        final fun component2(): kotlin.collections/Set<cloud.caroline.core.models/Services> // cloud.caroline.core.models/Permission.UseServices.component2|component2(){}[0]
+        final fun copy(kotlin/String = ..., kotlin.collections/Set<cloud.caroline.core.models/Services> = ...): cloud.caroline.core.models/Permission.UseServices // cloud.caroline.core.models/Permission.UseServices.copy|copy(kotlin.String;kotlin.collections.Set<cloud.caroline.core.models.Services>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/Permission.UseServices.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/Permission.UseServices.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/Permission.UseServices.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.core.models/Permission.UseServices> { // cloud.caroline.core.models/Permission.UseServices.$serializer|null[0]
+            final val descriptor // cloud.caroline.core.models/Permission.UseServices.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.core.models/Permission.UseServices.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.core.models/Permission.UseServices.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.core.models/Permission.UseServices // cloud.caroline.core.models/Permission.UseServices.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.core.models/Permission.UseServices) // cloud.caroline.core.models/Permission.UseServices.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.core.models.Permission.UseServices){}[0]
+        }
+
+        final object Companion { // cloud.caroline.core.models/Permission.UseServices.Companion|null[0]
+            final val $childSerializers // cloud.caroline.core.models/Permission.UseServices.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Permission.UseServices> // cloud.caroline.core.models/Permission.UseServices.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/Permission.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Permission> // cloud.caroline.core.models/Permission.Companion.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/Permission.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        final fun valueOf(kotlin/String): cloud.caroline.core.models/Permission? // cloud.caroline.core.models/Permission.Companion.valueOf|valueOf(kotlin.String){}[0]
+    }
+
+    final object Global : cloud.caroline.core.models/Permission, kotlinx.serialization.internal/SerializerFactory { // cloud.caroline.core.models/Permission.Global|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.core.models/Permission.Global.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.core.models/Permission.Global.hashCode|hashCode(){}[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.core.models/Permission.Global> // cloud.caroline.core.models/Permission.Global.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // cloud.caroline.core.models/Permission.Global.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.core.models/Permission.Global.toString|toString(){}[0]
+    }
+}
+
+final fun cloud.caroline.core/CarolineCloudSdk(kotlin/Function1<cloud.caroline.core/CarolineSdkBuilder, kotlin/Unit>): cloud.caroline.core/CarolineSdk // cloud.caroline.core/CarolineCloudSdk|CarolineCloudSdk(kotlin.Function1<cloud.caroline.core.CarolineSdkBuilder,kotlin.Unit>){}[0]
+final fun cloud.caroline.core/CarolineSdk(kotlin/Function1<cloud.caroline.core/CarolineSdkBuilder, kotlin/Unit>): cloud.caroline.core/CarolineSdk // cloud.caroline.core/CarolineSdk|CarolineSdk(kotlin.Function1<cloud.caroline.core.CarolineSdkBuilder,kotlin.Unit>){}[0]

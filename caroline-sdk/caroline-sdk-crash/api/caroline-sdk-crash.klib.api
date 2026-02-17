@@ -1,0 +1,44 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-crash>
+abstract interface cloud.caroline.crash/CarolineCrash { // cloud.caroline.crash/CarolineCrash|null[0]
+    abstract fun removeProperty(kotlin/String) // cloud.caroline.crash/CarolineCrash.removeProperty|removeProperty(kotlin.String){}[0]
+    abstract fun report(kotlin/Throwable, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.crash/CarolineCrash.report|report(kotlin.Throwable;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract fun setProperty(kotlin/String, kotlin/String) // cloud.caroline.crash/CarolineCrash.setProperty|setProperty(kotlin.String;kotlin.String){}[0]
+}
+
+final class cloud.caroline.crash/CrashReport { // cloud.caroline.crash/CrashReport|null[0]
+    constructor <init>(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String>) // cloud.caroline.crash/CrashReport.<init>|<init>(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+
+    final val properties // cloud.caroline.crash/CrashReport.properties|{}properties[0]
+        final fun <get-properties>(): kotlin.collections/Map<kotlin/String, kotlin/String> // cloud.caroline.crash/CrashReport.properties.<get-properties>|<get-properties>(){}[0]
+    final val stacktrace // cloud.caroline.crash/CrashReport.stacktrace|{}stacktrace[0]
+        final fun <get-stacktrace>(): kotlin/String // cloud.caroline.crash/CrashReport.stacktrace.<get-stacktrace>|<get-stacktrace>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.crash/CrashReport.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/Map<kotlin/String, kotlin/String> // cloud.caroline.crash/CrashReport.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): cloud.caroline.crash/CrashReport // cloud.caroline.crash/CrashReport.copy|copy(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.crash/CrashReport.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.crash/CrashReport.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.crash/CrashReport.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.crash/CrashReport> { // cloud.caroline.crash/CrashReport.$serializer|null[0]
+        final val descriptor // cloud.caroline.crash/CrashReport.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.crash/CrashReport.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.crash/CrashReport.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.crash/CrashReport // cloud.caroline.crash/CrashReport.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.crash/CrashReport) // cloud.caroline.crash/CrashReport.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.crash.CrashReport){}[0]
+    }
+
+    final object Companion { // cloud.caroline.crash/CrashReport.Companion|null[0]
+        final val $childSerializers // cloud.caroline.crash/CrashReport.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.crash/CrashReport> // cloud.caroline.crash/CrashReport.Companion.serializer|serializer(){}[0]
+    }
+}

@@ -1,0 +1,128 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-logging>
+abstract interface cloud.caroline.logging/CachingLogDispatcher : cloud.caroline.logging/LogDispatcher { // cloud.caroline.logging/CachingLogDispatcher|null[0]
+    abstract val cacheSize // cloud.caroline.logging/CachingLogDispatcher.cacheSize|{}cacheSize[0]
+        abstract fun <get-cacheSize>(): kotlin/Long // cloud.caroline.logging/CachingLogDispatcher.cacheSize.<get-cacheSize>|<get-cacheSize>(){}[0]
+
+    abstract fun flush(cloud.caroline.logging/LogDispatcher?) // cloud.caroline.logging/CachingLogDispatcher.flush|flush(cloud.caroline.logging.LogDispatcher?){}[0]
+
+    final object Companion { // cloud.caroline.logging/CachingLogDispatcher.Companion|null[0]
+        final fun create(kotlin/String, kotlin/Long = ...): cloud.caroline.logging/CachingLogDispatcher // cloud.caroline.logging/CachingLogDispatcher.Companion.create|create(kotlin.String;kotlin.Long){}[0]
+    }
+}
+
+abstract interface cloud.caroline.logging/CarolineLogger { // cloud.caroline.logging/CarolineLogger|null[0]
+    abstract fun flush(kotlin/Boolean = ...) // cloud.caroline.logging/CarolineLogger.flush|flush(kotlin.Boolean){}[0]
+    abstract fun log(kotlin/Int, kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.logging/CarolineLogger.log|log(kotlin.Int;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract fun logDebug(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.logging/CarolineLogger.logDebug|logDebug(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract fun logError(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.logging/CarolineLogger.logError|logError(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract fun logFatal(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.logging/CarolineLogger.logFatal|logFatal(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract fun logInfo(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.logging/CarolineLogger.logInfo|logInfo(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract fun logTrace(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.logging/CarolineLogger.logTrace|logTrace(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract fun logWarn(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // cloud.caroline.logging/CarolineLogger.logWarn|logWarn(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+
+    final object Companion { // cloud.caroline.logging/CarolineLogger.Companion|null[0]
+        final fun create(cloud.caroline.core/CarolineSdk, cloud.caroline.logging/LogSchedule, cloud.caroline.logging/LogDispatcher = ..., cloud.caroline.logging/CachingLogDispatcher? = ..., kotlin/Int = ...): cloud.caroline.logging/CarolineLogger // cloud.caroline.logging/CarolineLogger.Companion.create|create(cloud.caroline.core.CarolineSdk;cloud.caroline.logging.LogSchedule;cloud.caroline.logging.LogDispatcher;cloud.caroline.logging.CachingLogDispatcher?;kotlin.Int){}[0]
+    }
+}
+
+abstract interface cloud.caroline.logging/LogDispatcher { // cloud.caroline.logging/LogDispatcher|null[0]
+    abstract fun dispatch(kotlin.collections/List<cloud.caroline.logging/LogRecord>): kotlin/Boolean // cloud.caroline.logging/LogDispatcher.dispatch|dispatch(kotlin.collections.List<cloud.caroline.logging.LogRecord>){}[0]
+    abstract fun dispose() // cloud.caroline.logging/LogDispatcher.dispose|dispose(){}[0]
+}
+
+final class cloud.caroline.logging/LogRecord { // cloud.caroline.logging/LogRecord|null[0]
+    constructor <init>(kotlin/String, kotlin/Int, kotlin/Long, kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String>) // cloud.caroline.logging/LogRecord.<init>|<init>(kotlin.String;kotlin.Int;kotlin.Long;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+
+    final val attributes // cloud.caroline.logging/LogRecord.attributes|{}attributes[0]
+        final fun <get-attributes>(): kotlin.collections/Map<kotlin/String, kotlin/String> // cloud.caroline.logging/LogRecord.attributes.<get-attributes>|<get-attributes>(){}[0]
+    final val id // cloud.caroline.logging/LogRecord.id|{}id[0]
+        final fun <get-id>(): kotlin/String // cloud.caroline.logging/LogRecord.id.<get-id>|<get-id>(){}[0]
+    final val level // cloud.caroline.logging/LogRecord.level|{}level[0]
+        final fun <get-level>(): kotlin/Int // cloud.caroline.logging/LogRecord.level.<get-level>|<get-level>(){}[0]
+    final val message // cloud.caroline.logging/LogRecord.message|{}message[0]
+        final fun <get-message>(): kotlin/String // cloud.caroline.logging/LogRecord.message.<get-message>|<get-message>(){}[0]
+    final val timestamp // cloud.caroline.logging/LogRecord.timestamp|{}timestamp[0]
+        final fun <get-timestamp>(): kotlin/Long // cloud.caroline.logging/LogRecord.timestamp.<get-timestamp>|<get-timestamp>(){}[0]
+
+    final fun component1(): kotlin/String // cloud.caroline.logging/LogRecord.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // cloud.caroline.logging/LogRecord.component2|component2(){}[0]
+    final fun component3(): kotlin/Long // cloud.caroline.logging/LogRecord.component3|component3(){}[0]
+    final fun component4(): kotlin/String // cloud.caroline.logging/LogRecord.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/Map<kotlin/String, kotlin/String> // cloud.caroline.logging/LogRecord.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int = ..., kotlin/Long = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): cloud.caroline.logging/LogRecord // cloud.caroline.logging/LogRecord.copy|copy(kotlin.String;kotlin.Int;kotlin.Long;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.logging/LogRecord.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // cloud.caroline.logging/LogRecord.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // cloud.caroline.logging/LogRecord.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<cloud.caroline.logging/LogRecord> { // cloud.caroline.logging/LogRecord.$serializer|null[0]
+        final val descriptor // cloud.caroline.logging/LogRecord.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // cloud.caroline.logging/LogRecord.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // cloud.caroline.logging/LogRecord.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): cloud.caroline.logging/LogRecord // cloud.caroline.logging/LogRecord.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, cloud.caroline.logging/LogRecord) // cloud.caroline.logging/LogRecord.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;cloud.caroline.logging.LogRecord){}[0]
+    }
+
+    final object Companion { // cloud.caroline.logging/LogRecord.Companion|null[0]
+        final val $childSerializers // cloud.caroline.logging/LogRecord.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<cloud.caroline.logging/LogRecord> // cloud.caroline.logging/LogRecord.Companion.serializer|serializer(){}[0]
+    }
+}
+
+sealed class cloud.caroline.logging/LogSchedule { // cloud.caroline.logging/LogSchedule|null[0]
+    final class Immediate : cloud.caroline.logging/LogSchedule { // cloud.caroline.logging/LogSchedule.Immediate|null[0]
+        constructor <init>(kotlin/Boolean = ...) // cloud.caroline.logging/LogSchedule.Immediate.<init>|<init>(kotlin.Boolean){}[0]
+
+        final val realtime // cloud.caroline.logging/LogSchedule.Immediate.realtime|{}realtime[0]
+            final fun <get-realtime>(): kotlin/Boolean // cloud.caroline.logging/LogSchedule.Immediate.realtime.<get-realtime>|<get-realtime>(){}[0]
+
+        final fun component1(): kotlin/Boolean // cloud.caroline.logging/LogSchedule.Immediate.component1|component1(){}[0]
+        final fun copy(kotlin/Boolean = ...): cloud.caroline.logging/LogSchedule.Immediate // cloud.caroline.logging/LogSchedule.Immediate.copy|copy(kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.logging/LogSchedule.Immediate.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.logging/LogSchedule.Immediate.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.logging/LogSchedule.Immediate.toString|toString(){}[0]
+    }
+
+    final class Interval : cloud.caroline.logging/LogSchedule { // cloud.caroline.logging/LogSchedule.Interval|null[0]
+        constructor <init>(kotlin/Long, kotlin/Boolean) // cloud.caroline.logging/LogSchedule.Interval.<init>|<init>(kotlin.Long;kotlin.Boolean){}[0]
+
+        final val milliseconds // cloud.caroline.logging/LogSchedule.Interval.milliseconds|{}milliseconds[0]
+            final fun <get-milliseconds>(): kotlin/Long // cloud.caroline.logging/LogSchedule.Interval.milliseconds.<get-milliseconds>|<get-milliseconds>(){}[0]
+        final val rescheduleIfBufferFull // cloud.caroline.logging/LogSchedule.Interval.rescheduleIfBufferFull|{}rescheduleIfBufferFull[0]
+            final fun <get-rescheduleIfBufferFull>(): kotlin/Boolean // cloud.caroline.logging/LogSchedule.Interval.rescheduleIfBufferFull.<get-rescheduleIfBufferFull>|<get-rescheduleIfBufferFull>(){}[0]
+
+        final fun component1(): kotlin/Long // cloud.caroline.logging/LogSchedule.Interval.component1|component1(){}[0]
+        final fun component2(): kotlin/Boolean // cloud.caroline.logging/LogSchedule.Interval.component2|component2(){}[0]
+        final fun copy(kotlin/Long = ..., kotlin/Boolean = ...): cloud.caroline.logging/LogSchedule.Interval // cloud.caroline.logging/LogSchedule.Interval.copy|copy(kotlin.Long;kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // cloud.caroline.logging/LogSchedule.Interval.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // cloud.caroline.logging/LogSchedule.Interval.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // cloud.caroline.logging/LogSchedule.Interval.toString|toString(){}[0]
+    }
+
+    final object Manual : cloud.caroline.logging/LogSchedule // cloud.caroline.logging/LogSchedule.Manual|null[0]
+
+    final object WhenBufferFull : cloud.caroline.logging/LogSchedule // cloud.caroline.logging/LogSchedule.WhenBufferFull|null[0]
+}
+
+final object cloud.caroline.logging/CarolineLogLevel { // cloud.caroline.logging/CarolineLogLevel|null[0]
+    final const val DEBUG // cloud.caroline.logging/CarolineLogLevel.DEBUG|{}DEBUG[0]
+        final fun <get-DEBUG>(): kotlin/Int // cloud.caroline.logging/CarolineLogLevel.DEBUG.<get-DEBUG>|<get-DEBUG>(){}[0]
+    final const val ERROR // cloud.caroline.logging/CarolineLogLevel.ERROR|{}ERROR[0]
+        final fun <get-ERROR>(): kotlin/Int // cloud.caroline.logging/CarolineLogLevel.ERROR.<get-ERROR>|<get-ERROR>(){}[0]
+    final const val FATAL // cloud.caroline.logging/CarolineLogLevel.FATAL|{}FATAL[0]
+        final fun <get-FATAL>(): kotlin/Int // cloud.caroline.logging/CarolineLogLevel.FATAL.<get-FATAL>|<get-FATAL>(){}[0]
+    final const val INFO // cloud.caroline.logging/CarolineLogLevel.INFO|{}INFO[0]
+        final fun <get-INFO>(): kotlin/Int // cloud.caroline.logging/CarolineLogLevel.INFO.<get-INFO>|<get-INFO>(){}[0]
+    final const val TRACE // cloud.caroline.logging/CarolineLogLevel.TRACE|{}TRACE[0]
+        final fun <get-TRACE>(): kotlin/Int // cloud.caroline.logging/CarolineLogLevel.TRACE.<get-TRACE>|<get-TRACE>(){}[0]
+    final const val WARN // cloud.caroline.logging/CarolineLogLevel.WARN|{}WARN[0]
+        final fun <get-WARN>(): kotlin/Int // cloud.caroline.logging/CarolineLogLevel.WARN.<get-WARN>|<get-WARN>(){}[0]
+}

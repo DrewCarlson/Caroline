@@ -1,6 +1,6 @@
 package cloud.caroline.logging
 
-import cloud.caroline.internal.currentSystemMs
+import kotlin.time.Clock
 
 internal class CarolineLoggerImpl(
     private val outputLogDispatcher: LogDispatcher,
@@ -15,7 +15,7 @@ internal class CarolineLoggerImpl(
         val logRecord = LogRecord(
             id = "",
             level = level,
-            timestamp = currentSystemMs(),
+            timestamp = Clock.System.now().toEpochMilliseconds(),
             message = message,
             attributes = attributes,
         )

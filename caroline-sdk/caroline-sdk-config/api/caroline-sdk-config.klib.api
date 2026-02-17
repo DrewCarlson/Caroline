@@ -1,0 +1,12 @@
+// Klib ABI Dump
+// Targets: [js]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloud.caroline:caroline-sdk-config>
+abstract interface cloud.caroline.config/CarolineConfig { // cloud.caroline.config/CarolineConfig|null[0]
+    abstract suspend fun getString(kotlin/String): kotlin/String // cloud.caroline.config/CarolineConfig.getString|getString(kotlin.String){}[0]
+    abstract suspend fun getStringOrNull(kotlin/String): kotlin/String? // cloud.caroline.config/CarolineConfig.getStringOrNull|getStringOrNull(kotlin.String){}[0]
+}
