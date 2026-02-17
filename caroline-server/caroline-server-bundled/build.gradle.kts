@@ -4,7 +4,7 @@ plugins {
     application
     kotlin("jvm")
     kotlin("plugin.serialization")
-    id("com.github.johnrengelman.shadow")
+    alias(libs.plugins.shadowjar)
 }
 
 application {
