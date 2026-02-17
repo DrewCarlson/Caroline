@@ -9,9 +9,9 @@ datetime = "0.7.1"
 ktor_perm = "0.3.0"
 kjob = "0.6.0"
 bouncy_castle = "1.83"
-logback = "1.5.13"
+logback = "1.5.32"
 shadowjar = "9.3.1"
-ax_runner = "1.5.2"
+ax_runner = "1.7.0"
 okhttp = "5.3.2"
 spotless = "6.25.0"
 ktlint = "1.1.1"
@@ -96,9 +96,9 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 mongo-driver = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongo" }
 mongo-bson = { module = "org.mongodb:bson-kotlinx", version.ref = "mongo" }
 
-androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.12.0" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.17.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
-embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.11.1" }
+embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.24.0" }
 
 swaggerCore-models = { module = "io.swagger.core.v3:swagger-models", version.ref = "swaggerCore" }
 swaggerCore-core = { module = "io.swagger.core.v3:swagger-core", version.ref = "swaggerCore" }
