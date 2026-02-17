@@ -14,19 +14,17 @@ import cloud.caroline.service.CarolineProjectService
 import com.mongodb.client.model.Filters
 import com.mongodb.client.model.Updates
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.Forbidden
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
+import io.ktor.openapi.jsonSchema
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.routing.openapi.describe
 import io.ktor.server.util.*
-import io.ktor.utils.io.KtorDsl
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.toList
 import org.drewcarlson.ktor.permissions.withPermission
@@ -57,12 +55,17 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     projectDb.find().toList()
                 }
                 call.respond(projects)
-            } describeProject {
+            }.describe {
                 summary = "List projects accessible to the authentication token."
-                OK.value response {
-                    description = "A list of project details."
-                    json {
-                        schema<List<Project>>()
+                tag("Projects")
+                security {
+                    requirement("JWT")
+                    requirement("Session")
+                }
+                responses {
+                    response(OK.value) {
+                        description = "A list of project details."
+                        schema = jsonSchema<List<Project>>()
                     }
                 }
             }
@@ -79,19 +82,24 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     ?: return@post call.respond(UnprocessableEntity)
                 val session = call.principal<UserSession>()!!
                 call.respond(projectService.createProject(session.userId, body))
-            } describeProject {
+            }.describe {
                 summary = "Create a new project."
-                security("JWT")
-                security("Session")
-                body {
-                    json {
-                        schema<CreateProjectBody>()
-                    }
+                tag("Projects")
+                security {
+                    requirement("JWT")
+                    requirement("Session")
                 }
-                OK.value response {
-                    description = "The new project and associated details."
-                    json {
-                        schema<CreateProjectResponse>()
+                requestBody {
+                    schema = jsonSchema<CreateProjectBody>()
+                    required = true
+                }
+                responses {
+                    response(OK.value) {
+                        description = "The new project and associated details."
+                        schema = jsonSchema<CreateProjectResponse>()
+                    }
+                    response(UnprocessableEntity.value) {
+                        description = "The body was invalid and cannot be processed."
                     }
                 }
             }
@@ -111,13 +119,18 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
             }) {
                 get {
                     call.respond(OK)
-                } describeProject {
+                }.describe {
                     summary = "Get project details."
-                    security("JWT")
-                    security("Session")
-                    "projectId" pathParameter {
-                        description = "The project id to query."
-                        schema<String>()
+                    tag("Projects")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
+                    }
+                    parameters {
+                        path("projectId") {
+                            description = "The project id to query."
+                            schema = jsonSchema<String>()
+                        }
                     }
                 }
             }
@@ -134,15 +147,22 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 put {
-                } describeProject {
+                }.describe {
                     summary = "Update a project."
-                    security("JWT")
-                    security("Session")
-                    "projectId" pathParameter {
-                        description = "The project id to update."
+                    tag("Projects")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
                     }
-                    OK.value response {
-                        description = "The project has been updated."
+                    parameters {
+                        path("projectId") {
+                            description = "The project id to update."
+                        }
+                    }
+                    responses {
+                        response(OK.value) {
+                            description = "The project has been updated."
+                        }
                     }
                 }
             }
@@ -164,22 +184,29 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                     projectDetailsDb.deleteOne(Filters.eq("_id", projectId))
                     apiKeyCredentialsDb.deleteMany(Filters.eq(ApiKeyCredentials::projectId.name, projectId))
                     call.respond(OK)
-                } describeProject {
+                }.describe {
                     summary = "Delete a project by id, this operation cannot be reverted."
-                    security("JWT")
-                    security("Session")
-                    "projectId" pathParameter {
-                        description = "The project id to delete."
+                    tag("Projects")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
                     }
-                    OK.value response {
-                        description =
-                            "The project has been deleted, expect all operations related to the project id to fail."
+                    parameters {
+                        path("projectId") {
+                            description = "The project id to delete."
+                        }
                     }
-                    NotFound.value response {
-                        description = "The project id is malformed or does not exist."
-                    }
-                    Forbidden.value response {
-                        description = "The associated authentication details do not have project deletion permissions."
+                    responses {
+                        response(OK.value) {
+                            description =
+                                "The project has been deleted, expect all operations related to the project id to fail."
+                        }
+                        response(NotFound.value) {
+                            description = "The project id is malformed or does not exist."
+                        }
+                        response(Forbidden.value) {
+                            description = "The associated authentication details do not have project deletion permissions."
+                        }
                     }
                 }
             }
@@ -205,14 +232,25 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                             .find(Filters.eq(ApiKeyCredentials::projectId.name, projectDetails.id))
                             .toList()
                         call.respond(credentials)
-                    } describeProject {
+                    }.describe {
                         summary = "List all the API keys for a project."
-                        "projectId" pathParameter {
-                            description = "The project id."
+                        tag("Projects")
+                        security {
+                            requirement("JWT")
+                            requirement("Session")
                         }
-                        OK.value response {
-                            json {
-                                schema<List<ApiKeyCredentials>>()
+                        parameters {
+                            path("projectId") {
+                                description = "The project id."
+                            }
+                        }
+                        responses {
+                            response(OK.value) {
+                                description = "A list of API key credentials."
+                                schema = jsonSchema<List<ApiKeyCredentials>>()
+                            }
+                            response(NotFound.value) {
+                                description = "The project id does not exist."
                             }
                         }
                     }
@@ -235,18 +273,37 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
 
                             projectDetailsDb.insertOne(projectDetails)
                             apiKeyCredentialsDb.insertOne(apiKeyCredentials)
+                            call.respond(OK, apiKeyCredentialsDb)
                         } else {
                             call.respond(Forbidden)
                         }
-                    } describeProject {
+                    }.describe {
                         summary = "Create a new project API key."
-                        "projectId" pathParameter {
-                            description = "The project id."
+                        tag("Projects")
+                        security {
+                            requirement("JWT")
+                            requirement("Session")
                         }
-                        body {
+                        parameters {
+                            path("projectId") {
+                                description = "The project id."
+                            }
+                        }
+                        requestBody {
                             description = "The list of permissions for the new API key."
-                            json {
-                                schema<List<Permission>>()
+                            schema = jsonSchema<List<Permission>>()
+                            required = true
+                        }
+                        responses {
+                            response(OK.value) {
+                                description = "The API key was created."
+                                schema = jsonSchema<ApiKeyCredentials>()
+                            }
+                            response(NotFound.value) {
+                                description = "The API key does not exist."
+                            }
+                            response(UnprocessableEntity.value) {
+                                description = "The request body was malformed or empty."
                             }
                         }
                     }
@@ -263,18 +320,26 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                                 )
                             ).firstOrNull() ?: return@get call.respond(NotFound)
 
-                            call.respond(result.permissions)
-                        } describeProject {
+                            call.respond(OK, result.permissions)
+                        }.describe {
                             summary = "Get the permissions for an API key."
-                            "projectId" pathParameter {
-                                description = "The project id."
+                            tag("Projects")
+                            security {
+                                requirement("JWT")
+                                requirement("Session")
                             }
-                            "apiKey" pathParameter {
-                                description = "The API key to view."
+                            parameters {
+                                path("projectId") {
+                                    description = "The project id."
+                                }
+                                path("apiKey") {
+                                    description = "The API key to view."
+                                }
                             }
-                            OK.value response {
-                                json {
-                                    schema<List<Permission>>()
+                            responses {
+                                response(OK.value) {
+                                    description = "A list of permissions for the API key."
+                                    schema = jsonSchema<List<Permission>>()
                                 }
                             }
                         }
@@ -296,16 +361,25 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
                             } else {
                                 call.respond(NotFound)
                             }
-                        } describeProject {
+                        }.describe {
                             summary = "Delete an API key."
-                            "projectId" pathParameter {
-                                description = "The project id."
+                            tag("Projects")
+                            security {
+                                requirement("JWT")
+                                requirement("Session")
                             }
-                            "apiKey" pathParameter {
-                                description = "The API key to delete."
+                            parameters {
+                                path("projectId") {
+                                    description = "The project id."
+                                }
+                                path("apiKey") {
+                                    description = "The API key to delete."
+                                }
                             }
-                            OK.value response {
-                                description = "The API key has been deleted."
+                            responses {
+                                response(OK.value) {
+                                    description = "The API key has been deleted."
+                                }
                             }
                         }
                     }
@@ -313,12 +387,4 @@ internal fun Route.addProjectRoutes(mongodb: MongoDatabase) {
             }
         }
     }
-}
-
-@KtorDsl
-private infix fun Route.describeProject(block: OperationDsl.() -> Unit) = describe {
-    block()
-    tags += "Projects"
-    security("JWT")
-    security("Session")
 }

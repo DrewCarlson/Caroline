@@ -59,8 +59,3 @@ include(
     ":caroline-server:caroline-server-functions-runtime",
 )
 
-include(
-    ":libraries:tegral-openapi-dsl",
-    ":libraries:tegral-openapi-ktor",
-    ":libraries:tegral-openapi-ktorui",
-)

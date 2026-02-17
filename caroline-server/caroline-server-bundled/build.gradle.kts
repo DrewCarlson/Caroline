@@ -76,8 +76,9 @@ dependencies {
     implementation(libs.mongo.driver)
     implementation(libs.mongo.bson)
 
-    implementation(projects.libraries.tegralOpenapiKtor)
-    implementation(projects.libraries.tegralOpenapiKtorui)
+    implementation(ktorLibs.server.routingOpenapi)
+    implementation(ktorLibs.server.openapi)
+    implementation(ktorLibs.server.swagger)
 
     testImplementation(kotlin("test-junit"))
     testImplementation(ktorLibs.server.testHost)

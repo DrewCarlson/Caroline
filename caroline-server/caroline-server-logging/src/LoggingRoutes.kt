@@ -9,17 +9,15 @@ import cloud.caroline.logging.LogRecord
 import com.mongodb.client.model.Filters
 import com.mongodb.kotlin.client.coroutine.MongoClient
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
+import io.ktor.openapi.jsonSchema
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.routing.openapi.describe
 import io.ktor.server.util.*
-import io.ktor.utils.io.KtorDsl
 import kotlinx.coroutines.flow.none
 import kotlinx.coroutines.flow.toList
 import org.bson.BsonDocument
@@ -51,14 +49,16 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: MongoDatabase)
                 val logKey = ObjectId.get().toString()
                 projectDb.createCollection("logs-$logKey")
                 call.respond(OK, logKey)
-            } describeLogging {
+            }.describe {
                 summary = "Create a new logging channel."
-                security("JWT")
-                security("Session")
-                OK.value response {
-                    description = "The new logging channel key."
-                    plainText {
-                        schema(ObjectId.get().toString())
+                tag("Logging")
+                security {
+                    requirement("JWT")
+                    requirement("Session")
+                }
+                responses {
+                    response(OK.value) {
+                        description = "The new logging channel key."
                     }
                 }
             }
@@ -71,10 +71,18 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: MongoDatabase)
             }
         }) {
             get("/channels") {
-            } describeLogging {
+            }.describe {
                 summary = "List available log channels"
-                security("JWT")
-                security("Session")
+                tag("Logging")
+                security {
+                    requirement("JWT")
+                    requirement("Session")
+                }
+                responses {
+                    response(OK.value) {
+                        description = "The available log channels."
+                    }
+                }
             }
         }
         route("/{logKey}") {
@@ -108,29 +116,35 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: MongoDatabase)
                             .toList()
 
                         call.respond(slice)
-                    } describeLogging {
+                    }.describe {
                         summary = "Get log items for the given log key."
-                        security("Session")
-                        security("JWT")
-                        "logKey" pathParameter {
-                            description = "The log key to load results for."
-                            schema<String>()
+                        tag("Logging")
+                        security {
+                            requirement("JWT")
+                            requirement("Session")
                         }
-                        "limit" queryParameter {
-                            description = "The amount of log lines to return."
-                            schema<Int>()
-                        }
-                        "offset" queryParameter {
-                            description = "Return items created after this unix timestamp"
-                            schema(System.currentTimeMillis())
-                        }
-                        OK.value response {
-                            json {
-                                schema<List<LogRecord>>()
+                        parameters {
+                            path("logKey") {
+                                description = "The log key to load results for."
+                                schema = jsonSchema<String>()
+                            }
+                            query("limit") {
+                                description = "The amount of log lines to return."
+                                schema = jsonSchema<Int>()
+                            }
+                            query("offset") {
+                                description = "Return items created after this unix timestamp"
+                                schema = jsonSchema<Int>()
                             }
                         }
-                        NotFound.value response {
-                            description = "The provided log key does not exist."
+                        responses {
+                            response(OK.value) {
+                                description = "A list of log records."
+                                schema = jsonSchema<List<LogRecord>>()
+                            }
+                            response(NotFound.value) {
+                                description = "The provided log key does not exist."
+                            }
                         }
                     }
                 }
@@ -171,22 +185,27 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: MongoDatabase)
                                 logRecordDb.insertMany(chunk)
                             }
                         }
-                    } describeLogging {
+                    }.describe {
                         summary = "Add new records to a log."
-                        security("JWT")
-                        "logKey" pathParameter {
-                            description = "The log key to load results for."
-                            schema<String>()
+                        tag("Logging")
+                        security {
+                            requirement("JWT")
+                            requirement("Session")
                         }
-
-                        body {
-                            json {
-                                schema<List<LogRecord>>()
+                        requestBody {
+                            schema = jsonSchema<List<LogRecord>>()
+                            required = true
+                        }
+                        parameters {
+                            path("logKey") {
+                                description = "The log key to load results for."
+                                schema = jsonSchema<String>()
                             }
                         }
-
-                        OK.value response {
-                            description = "The log messages have been received and will be stored in the log channel."
+                        responses {
+                            response(OK.value) {
+                                description = "The log messages have been received and will be stored in the log channel."
+                            }
                         }
                     }
                 }
@@ -210,26 +229,26 @@ internal fun Route.addLoggingRoutes(kmongo: MongoClient, mongoDb: MongoDatabase)
                     projectDb.getCollection<LogRecord>("logs-$logKey").drop()
 
                     call.respond(OK)
-                } describeLogging {
+                }.describe {
                     summary = "Delete a log channel."
-                    "logKey" pathParameter {
-                        description = "The log key to delete."
-                        schema<String>()
+                    tag("Logging")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
                     }
-
-                    OK.value response {
-                        description = "The log channel has been deleted."
+                    parameters {
+                        path("logKey") {
+                            description = "The log key to delete."
+                            schema = jsonSchema<String>()
+                        }
+                    }
+                    responses {
+                        response(OK.value) {
+                            description = "The log channel has been deleted."
+                        }
                     }
                 }
             }
         }
     }
-}
-
-@KtorDsl
-private infix fun Route.describeLogging(block: OperationDsl.() -> Unit) = describe {
-    block()
-    tags += "Logging"
-    security("JWT")
-    security("Session")
 }

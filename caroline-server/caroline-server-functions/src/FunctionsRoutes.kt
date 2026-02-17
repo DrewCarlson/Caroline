@@ -3,16 +3,11 @@ package cloud.caroline
 import cloud.caroline.core.models.Permission
 import cloud.caroline.core.models.Services
 import cloud.caroline.internal.checkServicesPermission
-import cloud.caroline.models.CreateFunctionBody
-import cloud.caroline.models.CreateFunctionResponse
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.server.routing.*
+import io.ktor.server.routing.openapi.describe
 import io.ktor.server.util.*
-import io.ktor.utils.io.KtorDsl
 import org.drewcarlson.ktor.permissions.withPermission
 
 internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
@@ -29,17 +24,16 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
             }
         }) {
             get {
-            } describeFunctions {
+            }.describe {
                 summary = "List existing functions."
-                body {
-                    json {
-                        schema<CreateFunctionBody>()
-                    }
+                tag("Functions")
+                security {
+                    requirement("JWT")
+                    requirement("Session")
                 }
-
-                OK.value response {
-                    json {
-                        schema<CreateFunctionResponse>()
+                responses {
+                    response(OK.value) {
+                        description = "A list of functions."
                     }
                 }
             }
@@ -49,17 +43,16 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
             checkServicesPermission(Services.FUNCTIONS)
         }) {
             post {
-            } describeFunctions {
+            }.describe {
                 summary = "Create a new function."
-                body {
-                    json {
-                        schema<CreateFunctionBody>()
-                    }
+                tag("Functions")
+                security {
+                    requirement("JWT")
+                    requirement("Session")
                 }
-
-                OK.value response {
-                    json {
-                        schema<CreateFunctionResponse>()
+                responses {
+                    response(OK.value) {
+                        description = "The created function."
                     }
                 }
             }
@@ -81,8 +74,18 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 get {
-                } describeFunctions {
+                }.describe {
                     summary = "Get function by id."
+                    tag("Functions")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
+                    }
+                    responses {
+                        response(OK.value) {
+                            description = "The requested function."
+                        }
+                    }
                 }
             }
 
@@ -101,17 +104,16 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 put {
-                } describeFunctions {
+                }.describe {
                     summary = "Update function details."
-                    body {
-                        json {
-                            schema<CreateFunctionBody>()
-                        }
+                    tag("Functions")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
                     }
-
-                    OK.value response {
-                        json {
-                            schema<CreateFunctionResponse>()
+                    responses {
+                        response(OK.value) {
+                            description = "The updated function."
                         }
                     }
                 }
@@ -132,11 +134,17 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 delete {
-                } describeFunctions {
+                }.describe {
                     summary = "Delete function."
-
-                    OK.value response {
-                        json {}
+                    tag("Functions")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
+                    }
+                    responses {
+                        response(OK.value) {
+                            description = "The function has been deleted."
+                        }
                     }
                 }
             }
@@ -156,31 +164,35 @@ internal fun Route.addFunctionsRoutes(mongodb: MongoDatabase) {
                 }
             }) {
                 get("/invoke") {
-                } describeFunctions {
+                }.describe {
                     summary = "Invoke function."
-
-                    OK.value response {
-                        json {}
+                    tag("Functions")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
+                    }
+                    responses {
+                        response(OK.value) {
+                            description = "The function result."
+                        }
                     }
                 }
 
                 post("/invoke") {
-                } describeFunctions {
+                }.describe {
                     summary = "Invoke function."
-
-                    OK.value response {
-                        json {}
+                    tag("Functions")
+                    security {
+                        requirement("JWT")
+                        requirement("Session")
+                    }
+                    responses {
+                        response(OK.value) {
+                            description = "The function result."
+                        }
                     }
                 }
             }
         }
     }
-}
-
-@KtorDsl
-private infix fun Route.describeFunctions(block: OperationDsl.() -> Unit) = describe {
-    block()
-    tags += "Functions"
-    security("JWT")
-    security("Session")
 }

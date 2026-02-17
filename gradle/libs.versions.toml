@@ -18,8 +18,6 @@ ktlint = "1.1.1"
 agp = "9.0.1"
 dokka = "2.2.0-Beta"
 mongo = "5.7.0-beta0"
-swaggerCore = "2.2.43"
-swaggerUi = "5.31.0"
 
 # Android
 minSdk = "24"
@@ -33,6 +31,7 @@ kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 androidkt = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 shadowjar = { id = "com.gradleup.shadow", version.ref = "shadowjar" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.36.0" }
 
@@ -68,9 +67,5 @@ mongo-bson = { module = "org.mongodb:bson-kotlinx", version.ref = "mongo" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.17.0" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "ax_runner" }
 embedMongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version = "4.24.0" }
-
-swaggerCore-models = { module = "io.swagger.core.v3:swagger-models", version.ref = "swaggerCore" }
-swaggerCore-core = { module = "io.swagger.core.v3:swagger-core", version.ref = "swaggerCore" }
-swaggerUi = { module = "org.webjars:swagger-ui", version.ref = "swaggerUi" }
 
 [bundles]

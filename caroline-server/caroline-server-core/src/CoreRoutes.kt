@@ -8,16 +8,14 @@ import cloud.caroline.service.CarolineProjectService
 import cloud.caroline.service.CarolineUserService
 import com.mongodb.client.model.Filters
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.HttpStatusCode.Companion.Unauthorized
+import io.ktor.openapi.jsonSchema
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.utils.io.KtorDsl
+import io.ktor.server.routing.openapi.describe
 import kotlinx.coroutines.flow.firstOrNull
 
 internal fun Route.addCoreRoutes(mongodb: MongoDatabase) {
@@ -40,31 +38,30 @@ internal fun Route.addCoreRoutes(mongodb: MongoDatabase) {
                     ?: return@post call.respond(Unauthorized)
 
                 call.respond(JwtManager.createToken(credentials.projectId))
-            } describeCore {
+            }.describe {
                 summary = "Create an API token for the project."
-                X_CAROLINE_API_KEY headerParameter {
-                    description = "The API key to create a token for."
-                    required = true
-                    schema<String>()
+                tag("Core")
+                security {
+                    requirement("JWT")
                 }
-                OK.value response {
-                    description = "The new session token."
+                parameters {
+                    header(X_CAROLINE_API_KEY) {
+                        description = "The API key to create a token for."
+                        required = true
+                        schema = jsonSchema<String>()
+                    }
                 }
-                Unauthorized.value response {
-                    description = "The API Key is missing or invalid."
+                responses {
+                    response(OK.value) {
+                        description =  "The new session token."
+                    }
+                    response(Unauthorized.value) {
+                        description = "The API Key is missing or invalid."
+                    }
                 }
             }
         }
 
         addSetupRoutes(userService, projectService)
     }
-}
-
-@KtorDsl
-private infix fun Route.describeCore(
-    block: OperationDsl.() -> Unit,
-) = describe {
-    block()
-    tags += "Core"
-    security("JWT")
 }

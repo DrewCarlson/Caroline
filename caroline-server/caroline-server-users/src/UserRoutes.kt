@@ -9,16 +9,16 @@ import cloud.caroline.core.models.UserCredentials
 import cloud.caroline.data.UserSession
 import cloud.caroline.service.CarolineUserService
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
-import guru.zoroark.tegral.openapi.dsl.OperationDsl
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
+import io.ktor.http.HttpStatusCode.Companion.BadRequest
 import io.ktor.http.HttpStatusCode.Companion.OK
+import io.ktor.http.HttpStatusCode.Companion.Unauthorized
 import io.ktor.http.HttpStatusCode.Companion.UnprocessableEntity
+import io.ktor.openapi.jsonSchema
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.routing.openapi.describe
 import io.ktor.server.sessions.*
-import io.ktor.utils.io.KtorDsl
 
 internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
     val users = mongodb.getCollection<User>("user")
@@ -30,35 +30,48 @@ internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
                 ?: return@post call.respond(UnprocessableEntity)
             val createSession = call.parameters["createSession"]?.toBoolean() ?: true
 
-            val response = userService.createUser(body, setOf())
-            if (createSession && response is CreateUserResponse.Success) {
-                call.sessions.getOrSet {
-                    UserSession(userId = response.user.id, response.permissions)
+            when (val response = userService.createUser(body, setOf())) {
+                is CreateUserResponse.Success -> {
+                    if (createSession) {
+                        call.sessions.getOrSet {
+                            UserSession(userId = response.user.id, response.permissions)
+                        }
+                    }
+                    call.respond(OK, response)
+                }
+                is CreateUserResponse.Failed -> {
+                    call.respond(BadRequest, response)
                 }
             }
-            call.respond(response)
-        } describeUsers {
+        }.describe {
             summary = "Create a new user."
-            security("JWT")
-            security("Session")
-            body {
+            tag("Users")
+            security {
+                requirement("JWT")
+                requirement("Session")
+            }
+            parameters {
+                query("createSession") {
+                    description = "When true, create a session and return the ${UserSession.KEY} header."
+                    schema = jsonSchema<Boolean>()
+                }
+            }
+            requestBody {
+                schema = jsonSchema<CreateUserBody>()
                 description = "Details for the new user."
-                json {
-                    schema<CreateUserBody>()
-                }
+                required = true
             }
-
-            "createSession" queryParameter {
-                description = "When true, create a session and return the ${UserSession.KEY} header."
-                schema<Boolean>()
-            }
-
-            OK.value response {
-                json {
-                    schema<CreateUserResponse>()
+            responses {
+                response(OK.value) {
+                    description = "The created user."
+                    schema = jsonSchema<CreateUserResponse.Success>()
                 }
-                UserSession.KEY header {
-                    // TODO: description = "The user session string."
+                response(BadRequest.value) {
+                    description = "The user could not be created."
+                    schema = jsonSchema<CreateUserResponse.Failed>()
+                }
+                response(UnprocessableEntity.value) {
+                    description = "The body was malformed or missing data."
                 }
             }
         }
@@ -68,36 +81,36 @@ internal fun Route.addUserRoutes(mongodb: MongoDatabase) {
                 val body = call.receiveNullable<CreateSessionBody>()
                     ?: return@post call.respond(UnprocessableEntity)
 
-                val response = userService.createSession(body)
-                if (response is CreateSessionResponse.Success) {
-                    call.sessions.set(UserSession(response.user.id, response.permissions))
-                }
-                call.respond(response)
-            } describe {
-                summary = "Create a new user session."
-                tags += "Users"
-                body {
-                    json {
-                        schema<CreateSessionBody>()
+                when (val response = userService.createSession(body)) {
+                    is CreateSessionResponse.Success -> {
+                        call.sessions.set(UserSession(response.user.id, response.permissions))
+                        call.respond(OK, response)
+                    }
+                    is CreateSessionResponse.Failed -> {
+                        call.respond(Unauthorized, response.errors)
                     }
                 }
-                OK.value response {
-                    description = "The session has been created for the user."
-                    json {
-                        schema<CreateSessionResponse>()
+            }.describe {
+                summary = "Create a new user session."
+                tag("Users")
+                requestBody {
+                    schema = jsonSchema<CreateSessionBody>()
+                    required = true
+                }
+                responses {
+                    response(OK.value) {
+                        description = "The session has been created for the user."
+                        schema = jsonSchema<CreateSessionResponse.Success>()
+                    }
+                    response(Unauthorized.value) {
+                        description = "The provided authentication details were invalid."
+                        schema = jsonSchema<CreateSessionResponse.Failed>()
+                    }
+                    response(UnprocessableEntity.value) {
+                        description = "The body was malformed or missing data."
                     }
                 }
             }
         }
     }
-}
-
-@KtorDsl
-private infix fun Route.describeUsers(
-    block: OperationDsl.() -> Unit,
-) = describe {
-    block()
-    tags += "Users"
-    security("JWT")
-    security("Session")
 }
