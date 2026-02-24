@@ -49,7 +49,7 @@ jobs:
         uses: gradle/actions/setup-gradle@78f7dee6337f393c0a872d0afbda4c51a20e543d
 
       - name: Cache Build files
-        uses: actions/cache@b7e8d49f17405cc70c1c120101943203c98d3a4b
+        uses: actions/cache@565629816435f6c0b50676926c9b05c254113c0c
         with:
           path: |
             ~/.konan
@@ -74,7 +74,7 @@ jobs:
         uses: gradle/actions/setup-gradle@78f7dee6337f393c0a872d0afbda4c51a20e543d
 
       - name: Cache Build files
-        uses: actions/cache@b7e8d49f17405cc70c1c120101943203c98d3a4b
+        uses: actions/cache@565629816435f6c0b50676926c9b05c254113c0c
         with:
           path: |
             ~/.gradle
