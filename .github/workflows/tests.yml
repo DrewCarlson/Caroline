@@ -126,7 +126,7 @@ jobs:
         with:
           pattern: test-results*
       - name: Publish Unit Test Results
-        uses: mikepenz/action-junit-report@1b8749ebc1e79565a0583eb19d6d95c4bace1863
+        uses: mikepenz/action-junit-report@49b2ca06f62aa7ef83ae6769a2179271e160d8e4
         if: ${{ always() }}
         with:
           report_paths: '**/TEST-*.xml'
