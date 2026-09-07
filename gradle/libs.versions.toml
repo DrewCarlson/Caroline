@@ -1,6 +1,6 @@
 [versions]
 ktor = "3.4.0"
-kotlin = "2.3.10"
+kotlin = "2.4.20"
 coroutines = "1.10.2"
 serialization = "1.10.0"
 atomicfu = "0.31.0"
